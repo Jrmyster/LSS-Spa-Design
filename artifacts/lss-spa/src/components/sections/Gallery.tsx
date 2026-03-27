@@ -39,34 +39,6 @@ export function Gallery() {
           </p>
         </div>
 
-        {/* Wide featured image */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 group relative rounded-2xl overflow-hidden shadow-xl border border-border"
-        >
-          <div className="w-full" style={{ maxHeight: "480px", overflow: "hidden" }}>
-            <img
-              src={`${import.meta.env.BASE_URL}images/facebook-photos.png`}
-              alt="LSS Spa and Wellness — Cryoskin treatments, infographics, and service showcase"
-              className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-              style={{ maxHeight: "480px" }}
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
-            <div className="absolute bottom-5 left-5 right-5">
-              <span className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-                From Our Social Media
-              </span>
-              <p className="text-white text-sm max-w-xl">
-                Cryoskin infographics, before & after transformations, product shots, and service highlights — follow us for more!
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Two column row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {[
