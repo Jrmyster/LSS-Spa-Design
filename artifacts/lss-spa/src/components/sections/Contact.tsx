@@ -246,6 +246,27 @@ export function Contact() {
           </motion.div>
 
         </div>
+
+        {/* Google Maps Embed */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-16 rounded-3xl overflow-hidden shadow-xl border border-border/50"
+        >
+          <iframe
+            title="LSS Spa and Wellness Location"
+            src="https://maps.google.com/maps?q=N89W16800+Appleton+Avenue,+Menomonee+Falls,+WI+53051&output=embed"
+            width="100%"
+            height="400"
+            style={{ border: 0, display: "block" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </motion.div>
+
       </div>
     </section>
   );
