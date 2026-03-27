@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Sparkles } from "lucide-react";
+import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function TopBanner() {
@@ -12,21 +12,26 @@ export function TopBanner() {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="bg-primary text-primary-foreground relative overflow-hidden"
+          className="relative overflow-hidden"
+          style={{ backgroundColor: "#FCD34D", color: "#111" }}
         >
-          <div className="max-w-7xl mx-auto px-4 py-2 sm:px-6 lg:px-8 flex items-center justify-center text-sm font-medium text-center gap-2">
-            <Sparkles className="w-4 h-4 shrink-0" />
-            <p>
-              <span className="font-bold">Grand Opening Special:</span> 20% off your first Cryoskin session! Limited time only.
-            </p>
-            <button
-              onClick={() => setIsVisible(false)}
-              className="absolute right-2 sm:right-4 p-1 hover:bg-black/10 rounded-full transition-colors"
-              aria-label="Dismiss banner"
+          <div className="max-w-7xl mx-auto px-6 py-2.5 sm:px-8 flex items-center justify-center text-sm font-medium text-center gap-2 pr-10">
+            <a
+              href="https://square.site"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
             >
-              <X className="w-4 h-4" />
-            </button>
+              ✨ <span className="font-bold">Grand Opening Specials:</span> 20% Off Skincare Products &amp; Intro Cryoskin Rates! <span className="font-bold underline underline-offset-2">Book Now</span> ✨
+            </a>
           </div>
+          <button
+            onClick={() => setIsVisible(false)}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-black/10 rounded-full transition-colors"
+            aria-label="Dismiss banner"
+          >
+            <X className="w-4 h-4" />
+          </button>
         </motion.div>
       )}
     </AnimatePresence>
