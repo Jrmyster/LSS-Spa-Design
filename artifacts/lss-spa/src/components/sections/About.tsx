@@ -4,7 +4,6 @@ import { BadgeCheck, Heart, Sparkle } from "lucide-react";
 export function About() {
   return (
     <section id="about" className="py-24 bg-background relative overflow-hidden">
-      {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
 
@@ -19,12 +18,11 @@ export function About() {
           >
             <div className="aspect-[4/5] rounded-[2rem] overflow-hidden border-8 border-white shadow-2xl relative z-10">
               <img 
-                src={`${import.meta.env.BASE_URL}images/about-kim.png`} 
-                alt="Kim Collins, Licensed Esthetician"
+                src={`${import.meta.env.BASE_URL}images/grand-opening.png`} 
+                alt="LSS Spa & Wellness — Grand Opening"
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Accent background block */}
             <div className="absolute -inset-4 bg-primary/20 rounded-[2.5rem] z-0 -rotate-3"></div>
           </motion.div>
 
@@ -37,15 +35,15 @@ export function About() {
             <h2 className="text-3xl md:text-5xl font-display text-foreground mb-2">Meet Kim Collins</h2>
             <p className="text-secondary font-semibold tracking-wide uppercase text-sm mb-6">Licensed Esthetician & Owner</p>
             
-            <div className="space-y-6 text-lg text-muted-foreground mb-8">
+            <div className="space-y-5 text-lg text-muted-foreground mb-8">
               <p>
-                Hello and welcome! I'm Kim, and my true passion is helping you feel confident, radiant, and comfortable in your own skin.
+                Skincare & corrective work is my passion. I specialize in Cryo Therapy — the results are amazing.
               </p>
               <p>
-                At LSS Spa & Wellness, I specialize in corrective skincare and cutting-edge body treatments like Cryoskin. I believe that effective skincare shouldn't just be a luxury—it should be a personalized journey tailored specifically to your unique needs.
+                Whatever your concern is — to lose inches or tighten & tone — my Cryoskin treatments deliver. My Facial treatments can correct, lift, brighten, tone & take years off your appearance.
               </p>
               <p>
-                Whether you're looking to lift and brighten your complexion, or achieve your body contouring goals, I am dedicated to delivering noticeable results in a warm, welcoming environment.
+                At LSS Spa & Wellness, every client receives personalized care in a warm, welcoming environment. Your transformation is my mission.
               </p>
             </div>
 
