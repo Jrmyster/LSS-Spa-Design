@@ -1,0 +1,33 @@
+packages:
+  "framer-motion": "For page transitions, smooth scroll animations, and premium feeling interactions"
+  "react-hook-form": "For form state management in the contact section"
+  "@hookform/resolvers": "For Zod validation integration with react-hook-form"
+  "zod": "For contact form schema validation"
+
+images:
+  - path: "artifacts/lss-spa/public/images/hero-spa.png"
+    description: "A beautiful, bright, and clean spa interior with natural sunlight, subtle sunflower arrangements in elegant vases, crisp white linens, and soft light blue accents, premium clinical photography"
+    aspect_ratio: "16:9"
+  - path: "artifacts/lss-spa/public/images/about-kim.png"
+    description: "Portrait of a friendly, professional female licensed esthetician in a clean modern clinical spa setting, wearing a white aesthetician tunic, warm welcoming smile, natural lighting"
+    aspect_ratio: "4:3"
+  - path: "artifacts/lss-spa/public/images/service-cryo.png"
+    description: "Close up of a premium spa body contouring and fat loss treatment device on a clean white background with soft blue lighting, clinical and modern"
+    aspect_ratio: "1:1"
+  - path: "artifacts/lss-spa/public/images/service-facial.png"
+    description: "Close up of a relaxing luxury facial treatment being applied, glowing healthy skin, warm spa environment, bright and clean"
+    aspect_ratio: "1:1"
+  - path: "artifacts/lss-spa/public/images/service-addons.png"
+    description: "Modern LED light therapy mask for skincare over a clean treatment bed, clinical spa setting, crisp and professional"
+    aspect_ratio: "1:1"
+  - path: "artifacts/lss-spa/public/images/gallery-1.png"
+    description: "Side by side split image showing glowing healthy facial skin before and after a premium facial treatment, professional clinical photography, high resolution"
+    aspect_ratio: "16:9"
+  - path: "artifacts/lss-spa/public/images/gallery-2.png"
+    description: "Side by side split image showing body contouring firming results before and after, professional clinical photography, bright lighting"
+    aspect_ratio: "16:9"
+
+notes:
+  - Static marketing site for LSS Spa.
+  - Contact form uses a simulated mutation hook since there is no actual backend specified.
+  - Smooth scrolling implemented via native CSS scroll-behavior and anchor links.
