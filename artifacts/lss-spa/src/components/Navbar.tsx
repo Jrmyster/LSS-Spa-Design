@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,9 +16,7 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,9 +30,10 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
+
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group">
+          <a href="#home" className="flex items-center gap-2 group shrink-0">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
               <span className="font-display font-bold text-primary-foreground text-xl">LSS</span>
             </div>
@@ -49,7 +48,7 @@ export function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
@@ -60,18 +59,46 @@ export function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
-            <Button asChild className="rounded-full px-6 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
-              <a href="https://square.site" target="_blank" rel="noopener noreferrer">Book Now</a>
-            </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Right side — desktop: phone + book now | mobile: phone + book now + hamburger */}
+          <div className="flex items-center gap-2 sm:gap-3">
+
+            {/* Phone — icon only on small mobile, number on sm+ */}
+            <a
+              href="tel:+18339245620"
+              className="flex items-center gap-1.5 text-foreground hover:text-secondary transition-colors"
+              aria-label="Call us at (833) 924-5620"
+            >
+              <div className="w-8 h-8 sm:w-auto sm:h-auto rounded-full sm:rounded-none bg-secondary/10 sm:bg-transparent flex items-center justify-center sm:flex-none p-1.5 sm:p-0">
+                <Phone className="w-4 h-4 text-secondary shrink-0" />
+              </div>
+              <span className="hidden sm:inline text-sm font-semibold text-foreground/80 whitespace-nowrap">
+                (833) 924-5620
+              </span>
+            </a>
+
+            {/* Book Now — always visible */}
+            <Button
+              asChild
+              size="sm"
+              className="rounded-full px-4 sm:px-6 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all text-sm whitespace-nowrap"
+            >
+              <a href="https://square.site" target="_blank" rel="noopener noreferrer">
+                Book Now
+              </a>
+            </Button>
+
+            {/* Hamburger — mobile only */}
+            <button
+              className="md:hidden p-1.5 text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
         </div>
       </div>
 
@@ -84,22 +111,37 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden border-t border-border bg-white"
           >
-            <div className="px-4 py-4 space-y-4 flex flex-col">
+            <div className="px-4 py-4 flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-foreground py-2 border-b border-border/50"
+                  className="text-base font-medium text-foreground py-2.5 border-b border-border/50 last:border-0"
                 >
                   {link.name}
                 </a>
               ))}
-              <Button asChild className="w-full rounded-full mt-4">
-                <a href="https://square.site" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
-                  Book an Appointment
+              <div className="pt-3 flex flex-col gap-2">
+                <a
+                  href="tel:+18339245620"
+                  className="flex items-center justify-center gap-2 py-3 rounded-full border border-border text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Phone className="w-4 h-4 text-secondary" />
+                  (833) 924-5620
                 </a>
-              </Button>
+                <Button asChild className="w-full rounded-full">
+                  <a
+                    href="https://square.site"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Book an Appointment
+                  </a>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
