@@ -61,7 +61,7 @@ export function Navbar() {
               </a>
             ))}
             <Button asChild className="rounded-full px-6 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
-              <a href="#contact">Book Now</a>
+              <a href="https://square.site" target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
           </nav>
 
@@ -96,7 +96,7 @@ export function Navbar() {
                 </a>
               ))}
               <Button asChild className="w-full rounded-full mt-4">
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="https://square.site" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
                   Book an Appointment
                 </a>
               </Button>
