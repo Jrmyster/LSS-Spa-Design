@@ -116,6 +116,39 @@ export function Footer() {
 
         </div>
 
+        {/* QR Code — Book on the Go */}
+        <div className="border-t border-white/10 pt-10 pb-8">
+          <div className="flex flex-col sm:flex-row items-center gap-8 max-w-2xl mx-auto md:mx-0 md:ml-auto md:max-w-xl">
+            {/* QR image */}
+            <div className="shrink-0">
+              <img
+                src={`${import.meta.env.BASE_URL}images/qr-code.jpg`}
+                alt="Sunflower QR code linking to the LSS Spa and Wellness booking page on Square"
+                className="w-36 h-auto rounded-xl border-4 border-white shadow-2xl shadow-black/40"
+              />
+            </div>
+
+            {/* Text */}
+            <div className="text-center sm:text-left">
+              <p className="text-primary font-bold text-xs uppercase tracking-widest mb-1">Book on the Go</p>
+              <h4 className="text-white font-display text-xl sm:text-2xl mb-2 leading-snug">
+                Scan to Schedule
+              </h4>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Use your phone's camera to scan this code and book your appointment instantly from your mobile device.
+              </p>
+              <a
+                href="https://square.site"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-3 text-xs text-primary/80 hover:text-primary underline underline-offset-2 transition-colors"
+              >
+                Or tap here to book online ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 text-center text-xs text-white/40">
           © {new Date().getFullYear()} LSS Spa and Wellness LLC. All Rights Reserved.
