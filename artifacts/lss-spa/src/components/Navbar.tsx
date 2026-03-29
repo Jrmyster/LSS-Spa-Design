@@ -84,7 +84,7 @@ export function Navbar() {
               size="sm"
               className="rounded-full px-4 sm:px-6 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all text-sm whitespace-nowrap"
             >
-              <a href="https://square.site" target="_blank" rel="noopener noreferrer">
+              <a href="https://lss-spa-wellness-llc.square.site/" target="_blank" rel="noopener noreferrer">
                 Book Now
               </a>
             </Button>
@@ -133,7 +133,7 @@ export function Navbar() {
                 </a>
                 <Button asChild className="w-full rounded-full">
                   <a
-                    href="https://square.site"
+                    href="https://lss-spa-wellness-llc.square.site/"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsMobileMenuOpen(false)}

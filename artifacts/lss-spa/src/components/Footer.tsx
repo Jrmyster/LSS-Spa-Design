@@ -61,7 +61,7 @@ export function Footer() {
               <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
               <li>
                 <a
-                  href="https://square.site"
+                  href="https://lss-spa-wellness-llc.square.site/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
@@ -138,7 +138,7 @@ export function Footer() {
                 Use your phone's camera to scan this code and book your appointment instantly from your mobile device.
               </p>
               <a
-                href="https://square.site"
+                href="https://lss-spa-wellness-llc.square.site/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-3 text-xs text-primary/80 hover:text-primary underline underline-offset-2 transition-colors"

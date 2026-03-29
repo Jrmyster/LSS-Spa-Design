@@ -55,7 +55,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Button size="lg" className="rounded-full text-base px-8 h-14 group" asChild>
-              <a href="https://square.site" target="_blank" rel="noopener noreferrer">
+              <a href="https://lss-spa-wellness-llc.square.site/" target="_blank" rel="noopener noreferrer">
                 Book an Appointment
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>

@@ -139,7 +139,7 @@ export function Contact() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="rounded-full text-base px-8 h-14" asChild>
-                <a href="https://square.site" target="_blank" rel="noopener noreferrer">
+                <a href="https://lss-spa-wellness-llc.square.site/" target="_blank" rel="noopener noreferrer">
                   Book Online via Square
                 </a>
               </Button>

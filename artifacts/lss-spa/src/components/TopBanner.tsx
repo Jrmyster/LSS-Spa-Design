@@ -17,7 +17,7 @@ export function TopBanner() {
         >
           <div className="max-w-7xl mx-auto px-6 py-2.5 sm:px-8 flex items-center justify-center text-sm font-medium text-center gap-2 pr-10">
             <a
-              href="https://square.site"
+              href="https://lss-spa-wellness-llc.square.site/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"

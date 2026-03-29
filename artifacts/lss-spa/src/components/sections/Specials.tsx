@@ -86,7 +86,7 @@ export function Specials() {
               asChild
               className="rounded-full px-10 h-14 text-base shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all"
             >
-              <a href="https://square.site" target="_blank" rel="noopener noreferrer">
+              <a href="https://lss-spa-wellness-llc.square.site/" target="_blank" rel="noopener noreferrer">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Book &amp; Save
               </a>

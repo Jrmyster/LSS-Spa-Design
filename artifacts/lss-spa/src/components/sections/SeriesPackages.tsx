@@ -154,7 +154,7 @@ export function SeriesPackages() {
           </a>{" "}
           or{" "}
           <a
-            href="https://square.site"
+            href="https://lss-spa-wellness-llc.square.site/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-secondary font-semibold underline underline-offset-2 hover:text-secondary/80"
