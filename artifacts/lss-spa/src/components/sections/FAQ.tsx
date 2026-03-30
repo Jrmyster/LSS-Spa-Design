@@ -104,7 +104,7 @@ export function FAQ() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl font-display text-foreground"
           >
-            Common Questions about Cryoskin
+            Common Questions about CryoSkin
           </motion.h2>
         </div>
 

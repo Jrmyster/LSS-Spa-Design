@@ -162,7 +162,7 @@ export function CryoskinShowcase({ showHeader = true }: CryoskinShowcaseProps) {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-muted-foreground"
             >
-              Real Results, Real People. See what Cryoskin can do for you.
+              Real Results, Real People. See what CryoSkin can do for you.
             </motion.p>
           </div>
         )}

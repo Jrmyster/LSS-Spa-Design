@@ -112,7 +112,7 @@ export function EmailPopup() {
                     {/* Sub-headline */}
                     <p className="text-sm sm:text-base text-muted-foreground text-center leading-relaxed mb-6">
                       Join our VIP newsletter for skincare tips and exclusive deals. Get{" "}
-                      <span className="font-bold text-foreground">$10 OFF</span> your first Diamond Glow treatment just for signing up!
+                      <span className="font-bold text-foreground">$10 OFF</span> your first Diamond Glow™ treatment just for signing up!
                     </p>
 
                     {/* Form */}

@@ -16,7 +16,7 @@ const PACKAGES = [
     savings: "$50",
   },
   {
-    service: "Diamond Glow",
+    service: "Diamond Glow™",
     description: "Buy 5, get 1 FREE",
     price: "$650",
     savings: "$130",

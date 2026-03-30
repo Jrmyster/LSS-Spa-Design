@@ -20,10 +20,10 @@ const FACIAL_SERVICES = [
 
 interface AddonService { name: string; description: string; price: string; total: string; }
 const ADDON_SERVICES: AddonService[] = [
-  { name: "Diamond Glow", description: "Classic facial with DG upgrade. Exfoliates, infuses & extracts.", price: "$130", total: "$210" },
+  { name: "Diamond Glow™", description: "Classic facial with DG upgrade. Exfoliates, infuses & extracts.", price: "$130", total: "$210" },
   { name: "LED Light Therapy", description: "Addresses aging, hyperpigmentation, acne & sensitive skin.", price: "$50", total: "$130" },
-  { name: "Nuface Micro Current", description: "Lifts & firms.", price: "$20", total: "$100" },
-  { name: "Nuface Fix", description: "Targets smaller areas like eyes & mouth.", price: "$20", total: "$100" },
+  { name: "NuFACE® Micro Current", description: "Lifts & firms.", price: "$20", total: "$100" },
+  { name: "NuFACE® Fix", description: "Targets smaller areas like eyes & mouth.", price: "$20", total: "$100" },
   { name: "Pro Pen", description: "Intense resurfacing. Addresses aging & acne scars.", price: "$100", total: "$180" },
   { name: "Cold Hammer", description: "Soothes & calms.", price: "$30", total: "$110" },
   { name: "Chemical Peel", description: "Intense exfoliation — ideal for sun-damaged skin, acne & fine lines.", price: "$50", total: "$130" },
@@ -36,7 +36,7 @@ export function Services() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-display text-foreground mb-6">Our Services</h2>
           <p className="text-lg text-muted-foreground">
-            From revolutionary Cryoskin treatments to corrective facials, 
+            From revolutionary CryoSkin treatments to corrective facials, 
             we offer comprehensive solutions for your unique wellness journey.
           </p>
         </div>
@@ -54,7 +54,7 @@ export function Services() {
               <div className="h-72 lg:h-auto overflow-hidden">
                 <img 
                   src={`${import.meta.env.BASE_URL}images/service-cryo.png`} 
-                  alt="Cryoskin Therapy"
+                  alt="CryoSkin Therapy"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -64,12 +64,12 @@ export function Services() {
                     <Snowflake className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-display text-foreground">Cryoskin / Cryo Therapy</h3>
+                    <h3 className="text-2xl font-display text-foreground">CryoSkin / Cryo Therapy</h3>
                     <p className="text-secondary text-sm font-semibold uppercase tracking-wide">Our Specialty</p>
                   </div>
                 </div>
                 <p className="text-muted-foreground mb-6">
-                  Cryoskin uses cold temperatures to permanently destroy fat cells, improve skin tone, and reduce the appearance of cellulite — with NO downtime, surgery, or discomfort. A safe & effective way to help your body respond when diet and exercise aren't enough.
+                  CryoSkin uses cold temperatures to permanently destroy fat cells, improve skin tone, and reduce the appearance of cellulite — with NO downtime, surgery, or discomfort. A safe & effective way to help your body respond when diet and exercise aren't enough.
                 </p>
                 <ul className="space-y-3">
                   {CRYOSKIN_SERVICES.map((item, i) => (

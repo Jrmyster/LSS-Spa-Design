@@ -44,7 +44,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl"
           >
-            Specializing in corrective skincare and Cryoskin therapies. 
+            Specializing in corrective skincare and CryoSkin therapies. 
             Experience personalized treatments designed to lift, brighten, and transform.
           </motion.p>
 

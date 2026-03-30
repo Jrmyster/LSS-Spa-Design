@@ -27,7 +27,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-white/60 text-sm max-w-xs mb-5">
-              Specializing in corrective skincare and advanced Cryoskin body contouring therapies.
+              Specializing in corrective skincare and advanced CryoSkin body contouring therapies.
             </p>
             {/* Social icons */}
             <div className="flex gap-3">
@@ -167,8 +167,28 @@ export function Footer() {
           </Link>
         </div>
 
+        {/* Credentials & Safety Bar */}
+        <div className="border-t border-white/10 pt-6 pb-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {[
+              { icon: "✓", label: "Licensed Esthetician (WI)" },
+              { icon: "❄", label: "Certified CryoSkin Specialist" },
+              { icon: "✦", label: "Diamond Glow™ Certified" },
+              { icon: "🛡", label: "Insured" },
+            ].map((item) => (
+              <span
+                key={item.label}
+                className="flex items-center gap-1.5 text-[11px] text-white/50 font-medium tracking-wide"
+              >
+                <span className="text-primary/70 text-xs">{item.icon}</span>
+                {item.label}
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-white/40">
+        <div className="border-t border-white/10 pt-5 text-center text-xs text-white/40">
           © {new Date().getFullYear()} LSS Spa and Wellness LLC. All Rights Reserved.
         </div>
       </div>

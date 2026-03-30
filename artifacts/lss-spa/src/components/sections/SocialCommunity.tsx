@@ -7,9 +7,9 @@ const CLUB_URL = "https://web.facebook.com/fallsdowntown";
 const TESTIMONIALS = [
   {
     quote:
-      "I've had many facials, but nothing compares to the Diamond Glow. My skin felt deeply clean and had an actual radiance that lasted for days!",
+      "I've had many facials, but nothing compares to the Diamond Glow™. My skin felt deeply clean and had an actual radiance that lasted for days!",
     name: "Sarah M.",
-    service: "Diamond Glow",
+    service: "Diamond Glow™",
     color: "from-amber-50 to-yellow-50",
     border: "border-amber-200",
     tag: "bg-amber-100 text-amber-700 border-amber-200",

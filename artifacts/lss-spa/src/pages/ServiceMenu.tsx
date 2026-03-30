@@ -42,10 +42,10 @@ const ADVANCED_SCULPTING = [
 
 interface AddonRow { name: string; description: string; price: string; total: string; }
 const ADDON_SERVICES: AddonRow[] = [
-  { name: "Diamond Glow", description: "Classic facial with DG upgrade. Exfoliates, infuses & extracts.", price: "$130.00", total: "$210.00" },
+  { name: "Diamond Glow™", description: "Classic facial with DG upgrade. Exfoliates, infuses & extracts.", price: "$130.00", total: "$210.00" },
   { name: "LED Light Therapy", description: "Addresses Aging, Hyperpigmentation, Acne, or Sensitive Skin.", price: "$50.00", total: "$130.00" },
-  { name: "Nuface Micro Current", description: "Lifts & firms.", price: "$20.00", total: "$100.00" },
-  { name: "Nuface Fix", description: "Targets smaller areas like eyes & mouth.", price: "$20.00", total: "$100.00" },
+  { name: "NuFACE® Micro Current", description: "Lifts & firms.", price: "$20.00", total: "$100.00" },
+  { name: "NuFACE® Fix", description: "Targets smaller areas like eyes & mouth.", price: "$20.00", total: "$100.00" },
   { name: "Pro Pen", description: "Intense Resurfacing. Addresses aging & acne scars.", price: "$100.00", total: "$180.00" },
   { name: "Cold Hammer", description: "Soothes & Calms.", price: "$30.00", total: "$110.00" },
   { name: "Chemical Peel", description: "Intense exfoliation. Ideal for sun-damaged skin, acne & fine lines & wrinkles.", price: "$50.00", total: "$130.00" },

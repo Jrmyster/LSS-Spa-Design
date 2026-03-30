@@ -19,8 +19,8 @@ const tips = [
   },
   {
     icon: Snowflake,
-    title: "Cryoskin Prep",
-    body: "For Cryoskin treatments, remember to avoid sugar and carbs 2 hours before and after your session!",
+    title: "CryoSkin Prep",
+    body: "For CryoSkin treatments, remember to avoid sugar and carbs 2 hours before and after your session!",
     color: "text-secondary",
     bg: "bg-sky-50",
   },
