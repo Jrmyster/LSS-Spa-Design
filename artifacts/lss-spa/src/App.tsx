@@ -8,6 +8,8 @@ import CryoskinResults from "@/pages/CryoskinResults";
 import ServiceMenu from "@/pages/ServiceMenu";
 import NotFound from "@/pages/not-found";
 import { BackToTop } from "@/components/BackToTop";
+import AdminStats from "@/pages/AdminStats";
+import { usePageTracking } from "@/hooks/useAnalytics";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,12 +21,14 @@ const queryClient = new QueryClient({
 });
 
 function Router() {
+  usePageTracking();
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/booking-confirmed" component={BookingConfirmed} />
       <Route path="/cryoskin-results" component={CryoskinResults} />
       <Route path="/menu" component={ServiceMenu} />
+      <Route path="/admin-stats" component={AdminStats} />
       <Route component={NotFound} />
     </Switch>
   );
