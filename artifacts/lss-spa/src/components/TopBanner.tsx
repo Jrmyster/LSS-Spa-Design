@@ -13,7 +13,7 @@ export function TopBanner() {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           className="relative overflow-hidden"
-          style={{ backgroundColor: "#FCD34D", color: "#111" }}
+          style={{ backgroundColor: "#A8D5A2", color: "#1a3a1a" }}
         >
           <div className="max-w-7xl mx-auto px-6 py-2.5 sm:px-8 flex items-center justify-center text-sm font-medium text-center gap-2 pr-10">
             <a
@@ -22,7 +22,8 @@ export function TopBanner() {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              ✨ <span className="font-bold">Grand Opening Specials:</span> 20% Off Skincare Products &amp; Intro Cryoskin Rates! <span className="font-bold underline underline-offset-2">Book Now</span> ✨
+              🌸 <span className="font-bold">SPRING SALE:</span> 20% OFF Skincare Products!{" "}
+              <span className="font-bold underline underline-offset-2">Click here to book your appointment</span> 🌸
             </a>
           </div>
           <button

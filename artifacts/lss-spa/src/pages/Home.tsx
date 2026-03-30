@@ -1,6 +1,7 @@
 import { TopBanner } from "@/components/TopBanner";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { SpringSaleHero } from "@/components/sections/SpringSaleHero";
 import { Services } from "@/components/sections/Services";
 import { About } from "@/components/sections/About";
 import { Specials } from "@/components/sections/Specials";
@@ -21,6 +22,7 @@ export default function Home() {
       
       <main>
         <Hero />
+        <SpringSaleHero />
         <Services />
         <About />
         <Specials />
