@@ -29,12 +29,12 @@ export default function Home() {
         <SignatureSpotlight />
         <About />
         <Specials />
-        <SeriesPackages />
         <FAQ />
         <CryoskinShowcase />
         <Gallery />
         <SocialCommunity />
         <Contact />
+        <SeriesPackages />
       </main>
 
       <Footer />
