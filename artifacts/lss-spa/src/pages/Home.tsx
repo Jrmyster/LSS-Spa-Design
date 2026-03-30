@@ -6,6 +6,7 @@ import { About } from "@/components/sections/About";
 import { Specials } from "@/components/sections/Specials";
 import { SeriesPackages } from "@/components/sections/SeriesPackages";
 import { FAQ } from "@/components/sections/FAQ";
+import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
 import { Gallery } from "@/components/sections/Gallery";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
@@ -25,6 +26,7 @@ export default function Home() {
         <Specials />
         <SeriesPackages />
         <FAQ />
+        <CryoskinShowcase />
         <Gallery />
         <Contact />
       </main>
