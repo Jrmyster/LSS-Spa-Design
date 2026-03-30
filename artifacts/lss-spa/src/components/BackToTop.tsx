@@ -26,7 +26,7 @@ export function BackToTop() {
           transition={{ duration: 0.25, ease: "easeOut" }}
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="fixed bottom-6 right-5 z-50 flex items-center justify-center
+          className="fixed bottom-24 right-5 z-50 flex items-center justify-center
                      w-11 h-11 sm:w-12 sm:h-12 rounded-full
                      bg-primary/80 hover:bg-primary
                      shadow-lg shadow-primary/30
