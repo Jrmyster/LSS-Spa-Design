@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, Navigation, FileText } from "lucide-react";
+import { Link } from "wouter";
 
 const MAPS_URL =
   "https://maps.google.com/?q=N89W16800+Appleton+Avenue,+Menomonee+Falls,+WI+53051";
@@ -147,6 +148,17 @@ export function Footer() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Service Menu Download */}
+        <div className="border-t border-white/10 pt-8 pb-6 text-center">
+          <Link
+            href="/menu"
+            className="inline-flex items-center gap-2.5 rounded-full px-7 py-3 text-sm font-bold border-2 border-amber-400 text-amber-300 bg-transparent hover:bg-amber-400 hover:text-foreground transition-all duration-200 shadow-sm"
+          >
+            <FileText className="w-4 h-4" />
+            📄 Download Full Service &amp; Price Menu
+          </Link>
         </div>
 
         {/* Bottom bar */}

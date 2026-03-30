@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Snowflake, Sparkles, PlusCircle } from "lucide-react";
+import { Snowflake, Sparkles, PlusCircle, FileText } from "lucide-react";
+import { Link } from "wouter";
 
 const CRYOSKIN_SERVICES = [
   { name: "CryoSlimming", description: "Permanently destroy fat cells & slim targeted areas", price: null },
@@ -170,6 +171,25 @@ export function Services() {
             </Card>
           </motion.div>
         </div>
+        {/* Download Menu CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-12 text-center"
+        >
+          <Link
+            href="/menu"
+            className="inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-sm font-bold border-2 border-amber-400 text-amber-700 bg-white hover:bg-amber-50 transition-colors shadow-sm"
+          >
+            <FileText className="w-4 h-4" />
+            📄 Download Full Service &amp; Price Menu
+          </Link>
+          <p className="text-xs text-muted-foreground mt-3">
+            View all services, pricing &amp; Grand Opening packages — printable PDF format
+          </p>
+        </motion.div>
       </div>
     </section>
   );

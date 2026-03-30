@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import BookingConfirmed from "@/pages/BookingConfirmed";
 import CryoskinResults from "@/pages/CryoskinResults";
+import ServiceMenu from "@/pages/ServiceMenu";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient({
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/booking-confirmed" component={BookingConfirmed} />
       <Route path="/cryoskin-results" component={CryoskinResults} />
+      <Route path="/menu" component={ServiceMenu} />
       <Route component={NotFound} />
     </Switch>
   );
