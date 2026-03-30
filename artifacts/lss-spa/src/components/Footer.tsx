@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Navigation, FileText } from "lucide-react";
 import { Link } from "wouter";
+import { QRCodeLightbox } from "@/components/QRCodeLightbox";
 
 const MAPS_URL =
   "https://maps.google.com/?q=N89W16800+Appleton+Avenue,+Menomonee+Falls,+WI+53051";
@@ -127,10 +128,10 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-8 max-w-2xl mx-auto md:mx-0 md:ml-auto md:max-w-xl">
             {/* QR image */}
             <div className="shrink-0">
-              <img
-                src={`${import.meta.env.BASE_URL}images/qr-code.jpg`}
-                alt="Sunflower QR code linking to the LSS Spa and Wellness booking page on Square"
-                className="w-36 h-auto rounded-xl border-4 border-white shadow-2xl shadow-black/40"
+              <QRCodeLightbox
+                caption="Scan to Book"
+                captionClass="text-[11px] text-white/70 font-medium uppercase tracking-wide"
+                imgClass="w-36 h-36 object-cover rounded-xl border-4 border-white shadow-2xl shadow-black/40"
               />
             </div>
 

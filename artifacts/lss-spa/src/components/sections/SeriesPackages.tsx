@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Tag, Phone, CalendarCheck } from "lucide-react";
+import { QRCodeLightbox } from "@/components/QRCodeLightbox";
 
 const PACKAGES = [
   {
@@ -144,13 +145,12 @@ export function SeriesPackages() {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-8 bg-white/70 backdrop-blur rounded-2xl border border-sky-200 shadow-lg px-8 py-8"
         >
           {/* QR code */}
-          <div className="flex flex-col items-center gap-2 shrink-0">
-            <img
-              src={`${import.meta.env.BASE_URL}images/qr-code.jpg`}
-              alt="QR Code — Scan to book your appointment"
-              className="w-28 h-28 object-cover rounded-xl border-2 border-sky-200 shadow-md"
+          <div className="shrink-0">
+            <QRCodeLightbox
+              caption="Scan to Book"
+              captionClass="text-[11px] text-muted-foreground font-medium uppercase tracking-wide"
+              imgClass="w-28 h-28 object-cover rounded-xl border-2 border-sky-200 shadow-md"
             />
-            <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wide">Scan to Book</p>
           </div>
 
           {/* Divider */}

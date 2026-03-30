@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Phone, CalendarCheck, Gift, Loader2, X, ScrollText } from "lucide-react";
+import { QRCodeLightbox } from "@/components/QRCodeLightbox";
 import { useState } from "react";
 
 function SunflowerDivider() {
@@ -348,16 +349,11 @@ export function Specials() {
               {/* QR Code + phone row */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
                 {/* QR */}
-                <div className="flex flex-col items-center gap-1.5">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/qr-code.jpg`}
-                    alt="QR Code — Scan to Schedule your appointment"
-                    className="w-24 h-24 object-cover rounded-xl border-2 border-amber-300 shadow"
-                  />
-                  <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">
-                    Scan to Schedule
-                  </p>
-                </div>
+                <QRCodeLightbox
+                  caption="Scan to Schedule"
+                  captionClass="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide"
+                  imgClass="w-24 h-24 object-cover rounded-xl border-2 border-amber-300 shadow"
+                />
 
                 {/* Divider */}
                 <div className="hidden sm:block w-px h-16 bg-amber-200" />
