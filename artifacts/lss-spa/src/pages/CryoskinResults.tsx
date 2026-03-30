@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Snowflake } from "lucide-react";
 import { Link } from "wouter";
 import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
+import { CryoFacialSpotlight } from "@/components/sections/CryoFacialSpotlight";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { TopBanner } from "@/components/TopBanner";
@@ -62,6 +63,9 @@ export default function CryoskinResults() {
 
         {/* Results showcase — no header (page already has one) */}
         <CryoskinShowcase showHeader={false} />
+
+        {/* CryoFacial deep-dive feature block */}
+        <CryoFacialSpotlight />
 
         {/* Back link */}
         <div className="py-10 text-center border-t border-border/40">
