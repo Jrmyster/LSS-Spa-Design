@@ -10,19 +10,23 @@ const CRYOSKIN_SERVICES = [
 ];
 
 const FACIAL_SERVICES = [
-  { name: "Classic Facial", description: "Signature skincare & micro-brushing", price: "$85" },
-  { name: "Hydra Facial", description: "Infused with beneficial skincare serums", price: "$100" },
-  { name: "Cryo Facial With Couple", description: "Lift, Tone, Brighten & Firm — addresses all signs of aging", price: "$125" },
-  { name: "Cryo Facial Upgrade", description: "Add Cryo tightening & firming to a Classic Facial", price: "$47.50" },
-  { name: "Cryo Facial 30-Min Add-On", description: "Add a Cryo session to Classic Facial for extra rejuvenation", price: "$85" },
-  { name: "Cold Hammer", description: "Added to any Classic Facial treatment", price: "$30" },
+  { name: "Classic Facial", description: "Includes signature mask & aroma therapy", price: "$80" },
+  { name: "Hydra Facial", description: "Infuses with beneficial comfort & hydration", price: "$100" },
+  { name: "Cryo Facial With Coupler", description: "Lifts, Tones, Brightens & Firms — addresses signs of aging", price: "$200" },
+  { name: "Cryo Facial Upgrade", description: "Cryo facial upgrade to any Signature Facial. Brightens, tones & firms. Takes years off your skin.", price: "$175" },
+  { name: "Cryo Facial 10 Min Add On", description: "Lifts, brightens & tones. Instantly refreshes for your special event", price: "$80" },
+  { name: "Cryo Shape or Tone", description: "Lose inches or tighten & tone your body", price: "$350" },
 ];
 
-const ADDON_SERVICES = [
-  { name: "Diamond Glow", description: "Signature exfoliation & serum infusion treatment", price: "$100" },
-  { name: "LED Light Therapy", description: "Targets aging, acne & redness — add to Classic Facial", price: "$30" },
-  { name: "Nano Micro-Current", description: "Lift & firm with micro-current technology", price: "$30" },
-  { name: "Chemical Peel", description: "Resurface & renew for smoother, brighter skin", price: "$40" },
+interface AddonService { name: string; description: string; price: string; total: string; }
+const ADDON_SERVICES: AddonService[] = [
+  { name: "Diamond Glow", description: "Classic facial with DG upgrade. Exfoliates, infuses & extracts.", price: "$130", total: "$210" },
+  { name: "LED Light Therapy", description: "Addresses aging, hyperpigmentation, acne & sensitive skin.", price: "$50", total: "$130" },
+  { name: "Nuface Micro Current", description: "Lifts & firms.", price: "$20", total: "$100" },
+  { name: "Nuface Fix", description: "Targets smaller areas like eyes & mouth.", price: "$20", total: "$100" },
+  { name: "Pro Pen", description: "Intense resurfacing. Addresses aging & acne scars.", price: "$100", total: "$180" },
+  { name: "Cold Hammer", description: "Soothes & calms.", price: "$30", total: "$110" },
+  { name: "Chemical Peel", description: "Intense exfoliation — ideal for sun-damaged skin, acne & fine lines.", price: "$50", total: "$130" },
 ];
 
 export function Services() {
@@ -156,17 +160,20 @@ export function Services() {
                 <ul className="space-y-3">
                   {ADDON_SERVICES.map((item, i) => (
                     <li key={i} className="flex items-start justify-between gap-2 py-1.5 border-b border-border/30 last:border-0">
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <p className="font-semibold text-foreground text-sm">{item.name}</p>
                         <p className="text-muted-foreground text-xs">{item.description}</p>
                       </div>
-                      {item.price && (
-                        <span className="text-primary font-bold text-sm shrink-0">+{item.price}</span>
-                      )}
+                      <div className="text-right shrink-0 ml-2">
+                        <p className="text-primary font-bold text-sm">+{item.price}</p>
+                        <p className="text-muted-foreground text-[10px]">Total: {item.total}</p>
+                      </div>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-xs text-muted-foreground italic">Add-on prices are in addition to the base service price.</p>
+                <p className="mt-4 text-[11px] text-muted-foreground italic border-t border-border/30 pt-3">
+                  * Total cost includes the addition to a Classic Facial.
+                </p>
               </CardContent>
             </Card>
           </motion.div>

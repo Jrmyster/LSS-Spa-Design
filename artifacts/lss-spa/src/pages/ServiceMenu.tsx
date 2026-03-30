@@ -4,70 +4,51 @@ import { ArrowLeft, Printer, Sparkles, Snowflake, PlusCircle, Tag, Phone, Globe 
 
 const SIGNATURE_GLOW = [
   {
-    name: "Diamond Glow™ Facial",
-    description: "Simultaneously exfoliates, extracts, and infuses professional-grade serums for an instant radiant glow.",
-    price: "$100",
-    tag: "Signature",
-  },
-  {
     name: "Classic Facial",
-    description: "Signature skincare & micro-brushing. A foundational corrective facial for all skin types.",
-    price: "$85",
+    description: "Includes signature mask & aroma therapy. A foundational corrective facial for all skin types.",
+    price: "$80.00",
   },
   {
     name: "Hydra Facial",
-    description: "Deep cleanse and infusion of beneficial skincare serums for lasting hydration.",
-    price: "$100",
+    description: "Infuses with beneficial comfort & hydration for lasting results.",
+    price: "$100.00",
   },
   {
-    name: "LED Light Therapy",
-    description: "Targets aging, acne & redness. Add-on to any Classic Facial for enhanced results.",
-    price: "+$30",
+    name: "Cryo Facial With Coupler",
+    description: "Lifts, Tones, Brightens & Firms. Addresses signs of aging.",
+    price: "$200.00",
+    tag: "Specialty",
+  },
+  {
+    name: "Cryo Facial Upgrade",
+    description: "Cryo facial upgrade to any Signature Facial. Brightens, tones & firms. Takes years off appearance of your skin.",
+    price: "$175.00",
+  },
+  {
+    name: "Cryo Facial 10 Min Add On",
+    description: "Upgrade to any Classic Facial. Lifts, brightens & tones. Instantly refreshes — leaving you ready for your special event.",
+    price: "$80.00",
   },
 ];
 
 const ADVANCED_SCULPTING = [
   {
-    name: "CryoSkin Toning",
-    description: "Boost collagen, improve elasticity, and firm sagging skin. Perfect for 'turkey neck' and body contouring.",
-    price: "Call for pricing",
+    name: "Cryo Shape or Tone (Body)",
+    description: "Lose inches or tighten & tone your body. Permanent fat cell destruction with no surgery or downtime.",
+    price: "$350.00",
     tag: "Specialty",
-  },
-  {
-    name: "CryoSkin Slimming",
-    description: "Permanently destroy fat cells and slim targeted areas — no surgery, no downtime.",
-    price: "Call for pricing",
-  },
-  {
-    name: "Cryo-Facial",
-    description: "Lift, tighten & brighten your face. Addresses all signs of aging in one powerful session.",
-    price: "Call for pricing",
-  },
-  {
-    name: "Cryo Facial with Coupler",
-    description: "Enhanced Cryo facial with advanced coupling technology. Maximum lift and tone.",
-    price: "$125",
-  },
-  {
-    name: "Cryo Facial Upgrade",
-    description: "Add Cryo tightening & firming to your Classic Facial for a next-level result.",
-    price: "+$47.50",
-  },
-  {
-    name: "Cryo Facial 30-Min Add-On",
-    description: "Extend any Classic Facial with a focused Cryo session for extra rejuvenation.",
-    price: "+$85",
-  },
-  {
-    name: "Cold Hammer",
-    description: "Finishing treatment added to any Classic Facial for pore tightening and soothing.",
-    price: "+$30",
   },
 ];
 
-const ADDON_SERVICES = [
-  { name: "Nano Micro-Current", description: "Lift & firm with micro-current technology — a non-invasive face lift.", price: "+$30" },
-  { name: "Chemical Peel", description: "Resurface & renew for smoother, brighter, more even skin tone.", price: "+$40" },
+interface AddonRow { name: string; description: string; price: string; total: string; }
+const ADDON_SERVICES: AddonRow[] = [
+  { name: "Diamond Glow", description: "Classic facial with DG upgrade. Exfoliates, infuses & extracts.", price: "$130.00", total: "$210.00" },
+  { name: "LED Light Therapy", description: "Addresses Aging, Hyperpigmentation, Acne, or Sensitive Skin.", price: "$50.00", total: "$130.00" },
+  { name: "Nuface Micro Current", description: "Lifts & firms.", price: "$20.00", total: "$100.00" },
+  { name: "Nuface Fix", description: "Targets smaller areas like eyes & mouth.", price: "$20.00", total: "$100.00" },
+  { name: "Pro Pen", description: "Intense Resurfacing. Addresses aging & acne scars.", price: "$100.00", total: "$180.00" },
+  { name: "Cold Hammer", description: "Soothes & Calms.", price: "$30.00", total: "$110.00" },
+  { name: "Chemical Peel", description: "Intense exfoliation. Ideal for sun-damaged skin, acne & fine lines & wrinkles.", price: "$50.00", total: "$130.00" },
 ];
 
 const SERIES_PACKAGES = [
@@ -93,7 +74,7 @@ function SectionHeader({ icon, title, subtitle }: { icon: React.ReactNode; title
   );
 }
 
-function ServiceRow({ name, description, price, tag }: { name: string; description: string; price: string; tag?: string }) {
+function ServiceRow({ name, description, price, tag, total }: { name: string; description: string; price: string; tag?: string; total?: string }) {
   return (
     <div className="flex items-start gap-3 py-3 border-b border-stone-100 last:border-0 print:py-2">
       <div className="flex-1 min-w-0">
@@ -107,7 +88,10 @@ function ServiceRow({ name, description, price, tag }: { name: string; descripti
         </div>
         <p className="text-muted-foreground text-xs leading-snug mt-0.5">{description}</p>
       </div>
-      <span className="font-bold text-sm text-amber-700 shrink-0 ml-2 whitespace-nowrap">{price}</span>
+      <div className="text-right shrink-0 ml-2">
+        <p className="font-bold text-sm text-amber-700 whitespace-nowrap">{price}</p>
+        {total && <p className="text-[10px] text-muted-foreground whitespace-nowrap">Total: {total}</p>}
+      </div>
     </div>
   );
 }
@@ -179,7 +163,7 @@ export default function ServiceMenu() {
           <SectionHeader
             icon={<Sparkles className="w-5 h-5 text-amber-600" />}
             title="Signature Glow"
-            subtitle="Facials · Glow Treatments · Enhancement"
+            subtitle="Facials · Cryo Facials · Corrective Treatments"
           />
           {SIGNATURE_GLOW.map((s, i) => (
             <ServiceRow key={i} {...s} />
@@ -195,7 +179,7 @@ export default function ServiceMenu() {
           />
           <p className="text-xs italic text-muted-foreground mb-4 bg-sky-50 rounded-lg px-4 py-2 border border-sky-100 print:bg-sky-50">
             Cryoskin uses the power of sub-zero temperatures to tone, firm, and slim — with no surgery and zero downtime.
-            Pricing for Cryo Shape/Slim/Tone varies by area. Contact us for a free consultation.
+            Permanently destroy fat cells and reshape your body. Contact us for a free consultation.
           </p>
           {ADVANCED_SCULPTING.map((s, i) => (
             <ServiceRow key={i} {...s} />
@@ -209,11 +193,16 @@ export default function ServiceMenu() {
             title="Treatment Add-Ons"
             subtitle="Enhance any service for amplified results"
           />
+          <div className="grid grid-cols-12 text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-1 pb-1 mb-1 border-b border-stone-200">
+            <div className="col-span-8">Service</div>
+            <div className="col-span-2 text-right">Add-On</div>
+            <div className="col-span-2 text-right">Total</div>
+          </div>
           {ADDON_SERVICES.map((s, i) => (
             <ServiceRow key={i} {...s} />
           ))}
-          <p className="text-xs italic text-muted-foreground mt-3">
-            All add-on prices are in addition to your base service price.
+          <p className="text-[11px] italic text-muted-foreground mt-3 border-t border-stone-100 pt-2">
+            * Total cost includes the addition to a Classic Facial.
           </p>
         </section>
 
