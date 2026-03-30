@@ -1,303 +1,199 @@
-import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ZoomIn, Camera } from "lucide-react";
+import { motion } from "framer-motion";
 
-interface GalleryCard {
+const BASE = import.meta.env.BASE_URL;
+
+interface ResultCard {
   id: number;
-  treatment: string;
+  label: string;
+  concern: string;
   sessions: string;
-  beforeBg: string;
-  afterBg: string;
-  beforeAlt: string;
-  afterAlt: string;
+  description: string;
+  disclaimer: string;
 }
 
-const CARDS: GalleryCard[] = [
+const CARDS: ResultCard[] = [
   {
     id: 1,
-    treatment: "CryoSlimming",
-    sessions: "5 Sessions",
-    beforeBg: "from-stone-300 to-stone-400",
-    afterBg: "from-sky-200 to-sky-300",
-    beforeAlt: "Before CryoSlimming treatment",
-    afterAlt: "After CryoSlimming treatment",
+    label: "Male · Skin Type V",
+    concern: "Texture on Forehead & Cheek",
+    sessions: "1 Treatment",
+    description:
+      "Results following 1 DiamondGlow® treatment with SKINMEDICA® HA² Hydra Collagen Pro-Infusion Serum with Vegan Collagen and a curated SkinMedica® skincare regimen.",
+    disclaimer: "24 hours post-treatment · Unretouched parallel-polarized lighting photos.",
   },
   {
     id: 2,
-    treatment: "CryoToning",
-    sessions: "4 Sessions",
-    beforeBg: "from-amber-200 to-amber-300",
-    afterBg: "from-teal-200 to-teal-300",
-    beforeAlt: "Before CryoToning treatment",
-    afterAlt: "After CryoToning treatment",
+    label: "Female · Skin Type II",
+    concern: "Texture, Fine Lines & Overall Glow",
+    sessions: "3 Treatments",
+    description:
+      "Results following 3 DiamondGlow® treatments with SKINMEDICA® HA² Hydra Collagen Pro-Infusion Serum with Vegan Collagen administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+    disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
   },
   {
     id: 3,
-    treatment: "Anti-Aging Facial",
-    sessions: "Immediate Results",
-    beforeBg: "from-rose-200 to-rose-300",
-    afterBg: "from-emerald-200 to-emerald-300",
-    beforeAlt: "Before Anti-Aging Facial",
-    afterAlt: "After Anti-Aging Facial",
+    label: "Female · Skin Type III",
+    concern: "Brighter & Smoother Skin",
+    sessions: "1 Treatment",
+    description:
+      "Results following 1 DiamondGlow® treatment with SKINMEDICA® TNS® Advanced+ Pro-Infusion Serum and a curated SkinMedica® skincare regimen.",
+    disclaimer: "15 minutes post-treatment · Unretouched parallel-polarized lighting photos.",
   },
   {
     id: 4,
-    treatment: "CryoFacial",
-    sessions: "3 Sessions",
-    beforeBg: "from-neutral-300 to-neutral-400",
-    afterBg: "from-indigo-200 to-indigo-300",
-    beforeAlt: "Before CryoFacial treatment",
-    afterAlt: "After CryoFacial treatment",
+    label: "Female · Skin Type II",
+    concern: "Visible Hyperpigmentation",
+    sessions: "3 Treatments",
+    description:
+      "Results following 3 DiamondGlow® treatments with SKINMEDICA® Even & Correct Advanced Brightening Pro-Infusion Serum administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+    disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
   },
   {
     id: 5,
-    treatment: "Hydrafacial",
-    sessions: "Single Session",
-    beforeBg: "from-yellow-200 to-yellow-300",
-    afterBg: "from-lime-200 to-lime-300",
-    beforeAlt: "Before Hydrafacial treatment",
-    afterAlt: "After Hydrafacial treatment",
+    label: "Female · Skin Type III",
+    concern: "Congested Skin & Visible Redness",
+    sessions: "2 Treatments",
+    description:
+      "Results following 2 DiamondGlow® treatments with SKINMEDICA® Pore Purifying Pro-Infusion Serum administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+    disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
   },
   {
     id: 6,
-    treatment: "Corrective Skincare",
-    sessions: "8-Week Program",
-    beforeBg: "from-orange-200 to-orange-300",
-    afterBg: "from-cyan-200 to-cyan-300",
-    beforeAlt: "Before Corrective Skincare",
-    afterAlt: "After Corrective Skincare",
+    label: "Female · Skin Type II",
+    concern: "Forehead Lines",
+    sessions: "5 Treatments",
+    description:
+      "Results following 5 DiamondGlow® treatments with SKINMEDICA® TNS® Advanced+ Pro-Infusion Serum administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+    disclaimer: "Treatments spaced 2 weeks apart · Unretouched parallel-polarized lighting photos.",
   },
 ];
 
-function PlaceholderImage({
-  gradientClass,
-  label,
-  labelColor,
-  altText,
-}: {
-  gradientClass: string;
-  label: string;
-  labelColor: string;
-  altText: string;
-}) {
-  return (
-    <div
-      className={`relative w-full h-full bg-gradient-to-br ${gradientClass} flex flex-col items-center justify-center`}
-      role="img"
-      aria-label={altText}
-    >
-      <Camera className="w-8 h-8 text-white/60 mb-2" />
-      <span className="text-white/70 text-xs font-medium text-center px-2">
-        Photo coming soon
-      </span>
-      <span
-        className={`absolute bottom-2 ${
-          label === "Before" ? "left-2" : "right-2"
-        } ${labelColor} text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded`}
-      >
-        {label}
-      </span>
-    </div>
-  );
-}
-
-function BeforeAfterCard({
-  card,
-  onClick,
-}: {
-  card: GalleryCard;
-  onClick: () => void;
-}) {
+function DiamondGlowCard({ card, index }: { card: ResultCard; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5 }}
-      className="group rounded-2xl overflow-hidden border border-border shadow-md hover:shadow-xl transition-shadow duration-300 bg-white cursor-pointer"
-      onClick={onClick}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.07 }}
+      className="flex flex-col rounded-2xl overflow-hidden border-2 border-amber-200 bg-white shadow-md hover:shadow-lg hover:border-amber-400 transition-all duration-300"
     >
-      {/* Image pair */}
-      <div className="relative flex aspect-[4/3]">
-        {/* Before half */}
-        <div className="w-1/2 relative overflow-hidden">
-          <PlaceholderImage
-            gradientClass={card.beforeBg}
-            label="Before"
-            labelColor="bg-white/80 text-gray-800"
-            altText={card.beforeAlt}
-          />
-        </div>
-
-        {/* Divider line */}
-        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-white/80 z-10" />
-        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center z-20">
-          <div className="bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-md text-[10px] font-bold text-gray-500">
-            ↔
-          </div>
-        </div>
-
-        {/* After half */}
-        <div className="w-1/2 relative overflow-hidden">
-          <PlaceholderImage
-            gradientClass={card.afterBg}
-            label="After"
-            labelColor="bg-sky-400/90 text-white"
-            altText={card.afterAlt}
-          />
-        </div>
-
-        {/* Hover zoom hint */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2 shadow-lg">
-            <ZoomIn className="w-4 h-4 text-gray-700" />
-          </div>
-        </div>
+      {/* Gold header stripe */}
+      <div className="bg-gradient-to-r from-amber-400 to-yellow-300 px-5 py-3 flex items-center justify-between gap-3">
+        <span className="text-xs font-bold uppercase tracking-widest text-amber-900">
+          DiamondGlow®
+        </span>
+        <span className="text-[10px] font-bold bg-white/70 text-amber-800 px-2 py-0.5 rounded-full uppercase tracking-wide">
+          {card.sessions}
+        </span>
       </div>
 
-      {/* Caption */}
-      <div className="px-4 py-3 border-t border-border/50">
-        <p className="font-semibold text-sm text-foreground">{card.treatment}</p>
-        <p className="text-xs text-muted-foreground mt-0.5">{card.sessions}</p>
+      {/* Card body */}
+      <div className="flex flex-col flex-1 p-5">
+        {/* Skin type tag */}
+        <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full mb-3 w-fit">
+          {card.label}
+        </span>
+
+        {/* Concern */}
+        <h3 className="text-base font-display text-foreground leading-snug mb-3">
+          {card.concern}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+          {card.description}
+        </p>
+
+        {/* Disclaimer */}
+        <p className="text-[10px] text-muted-foreground/70 italic leading-snug border-t border-border/40 pt-3">
+          {card.disclaimer} Individual results may vary.
+        </p>
       </div>
     </motion.div>
   );
 }
 
-function Lightbox({
-  card,
-  onClose,
-}: {
-  card: GalleryCard;
-  onClose: () => void;
-}) {
-  return (
-    <AnimatePresence>
-      <motion.div
-        key="backdrop"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-        onClick={onClose}
-      >
-        <motion.div
-          key="panel"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="relative w-full max-w-3xl rounded-2xl overflow-hidden bg-white shadow-2xl"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            className="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-colors"
-            aria-label="Close lightbox"
-          >
-            <X className="w-5 h-5 text-gray-700" />
-          </button>
-
-          {/* Before / After pair */}
-          <div className="flex aspect-video">
-            <div className="w-1/2 relative">
-              <div className={`w-full h-full bg-gradient-to-br ${card.beforeBg} flex flex-col items-center justify-center`}>
-                <Camera className="w-12 h-12 text-white/60 mb-3" />
-                <span className="text-white/70 text-sm font-medium">Before photo coming soon</span>
-              </div>
-              <span className="absolute bottom-3 left-3 bg-white/85 text-gray-800 text-xs uppercase tracking-widest font-bold px-2 py-1 rounded">
-                Before
-              </span>
-            </div>
-
-            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0.5 bg-white/80 z-10" />
-            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center z-20">
-              <div className="bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg text-sm font-bold text-gray-500">
-                ↔
-              </div>
-            </div>
-
-            <div className="w-1/2 relative">
-              <div className={`w-full h-full bg-gradient-to-br ${card.afterBg} flex flex-col items-center justify-center`}>
-                <Camera className="w-12 h-12 text-white/60 mb-3" />
-                <span className="text-white/70 text-sm font-medium">After photo coming soon</span>
-              </div>
-              <span className="absolute bottom-3 right-3 bg-sky-400/90 text-white text-xs uppercase tracking-widest font-bold px-2 py-1 rounded">
-                After
-              </span>
-            </div>
-          </div>
-
-          {/* Caption */}
-          <div className="px-6 py-4 border-t border-border/50 bg-white">
-            <p className="font-display text-xl text-foreground">{card.treatment}</p>
-            <p className="text-sm text-muted-foreground mt-1">{card.sessions}</p>
-            <p className="text-xs text-muted-foreground mt-2 italic">
-              Real client results. Individual results may vary. Photos will be updated as we receive high-resolution images.
-            </p>
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
 export function Gallery() {
-  const [activeCard, setActiveCard] = useState<GalleryCard | null>(null);
-
-  const openLightbox = useCallback((card: GalleryCard) => {
-    setActiveCard(card);
-    document.body.style.overflow = "hidden";
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setActiveCard(null);
-    document.body.style.overflow = "";
-  }, []);
-
   return (
     <section id="gallery" className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4 bg-primary/10 px-4 py-1.5 rounded-full"
           >
-            Client Transformations
+            Real Results
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-display text-foreground mb-6"
+            className="text-3xl md:text-5xl font-display text-foreground mb-4"
           >
-            Transformation Gallery
+            See the Glow: Real Results
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-muted-foreground"
           >
-            Real Results, Real People. Click any card to view a closer look.
+            Clinical before &amp; after results from DiamondGlow® treatments — real clients,
+            real transformations, long-lasting glow.
           </motion.p>
         </div>
 
-        {/* 3-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {CARDS.map((card) => (
-            <BeforeAfterCard
-              key={card.id}
-              card={card}
-              onClick={() => openLightbox(card)}
+        {/* Featured composite before/after photo */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-14 rounded-3xl overflow-hidden border-2 border-amber-200 shadow-xl shadow-amber-100/50"
+        >
+          {/* Composite label bar */}
+          <div className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 px-6 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+            <div className="flex items-center gap-2">
+              <span className="text-amber-900 font-bold text-sm">DiamondGlow® Results Showcase</span>
+              <span className="text-[10px] bg-white/70 text-amber-800 font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">6 Clinical Cases</span>
+            </div>
+            <span className="text-[10px] text-amber-800 font-semibold">
+              Unretouched clinical photography · Individual results may vary
+            </span>
+          </div>
+
+          <div className="relative bg-stone-900">
+            <img
+              src={`${BASE}images/diamondglow-results.jpg`}
+              alt="DiamondGlow clinical before and after results showing improvement in texture, fine lines, hyperpigmentation, redness, and forehead lines across six patients"
+              className="w-full h-auto object-contain"
+              loading="lazy"
             />
-          ))}
+          </div>
+        </motion.div>
+
+        {/* 6 result cards */}
+        <div className="mb-6">
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8"
+          >
+            Treatment Details — Case by Case
+          </motion.h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {CARDS.map((card, i) => (
+              <DiamondGlowCard key={card.id} card={card} index={i} />
+            ))}
+          </div>
         </div>
 
         {/* Bottom note */}
@@ -308,22 +204,27 @@ export function Gallery() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12 text-center"
         >
-          <p className="text-sm text-muted-foreground">
-            High-resolution client photos are being added — check back soon! <br className="hidden sm:block" />
-            Visit us or{" "}
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            Ready to experience the DiamondGlow difference?{" "}
+            <a
+              href="https://lss-spa-wellness-llc.square.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary font-semibold underline underline-offset-2 hover:text-secondary/80"
+            >
+              Book your treatment today
+            </a>{" "}
+            or{" "}
             <a
               href="tel:+18339245620"
               className="text-secondary underline underline-offset-2 hover:text-secondary/80"
             >
               call (833) 924-5620
-            </a>{" "}
-            to see our full portfolio in person.
+            </a>
+            .
           </p>
         </motion.div>
       </div>
-
-      {/* Lightbox */}
-      {activeCard && <Lightbox card={activeCard} onClose={closeLightbox} />}
     </section>
   );
 }

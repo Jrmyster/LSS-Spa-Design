@@ -1,0 +1,48 @@
+I have uploaded new professional 'Before and After' photos to the project that need to replace the placeholders in the transformation gallery (image_6.png) on the homepage. Please execute the following swaps, ensuring the layout remains clean and professional:
+
+1. Create a Dedicated 'Results Showcase' Section:
+
+Action: Build a section called 'See the Glow: Real Results' (using the new header font we selected for 'Signature Glow').
+
+Layout: Use the current 'photo coming soon' grid structure but make it dynamic.
+
+2. Photo and Context Extractor Task:
+I am uploading a new reference image image_5.png which is a composite of six distinct results pairs. Your primary task is to extract each of these six pairs and create a detailed product card for each. Each card MUST include:
+
+The 'Before' photo.
+
+The 'After' photo.
+
+The extracted text description exactly as it appears on the reference image.
+
+Here is the exact mapping of what to extract and how to label it:
+
+Card 1 (Top Left in image_5.png): * Label: Male / Skin Type V (texture)
+
+Text: Extraction of results following 1 DiamondGlow treatment with SKINMEDICA® HA Hydra Collagen Pro-Infusion Serum.
+
+Card 2 (Top Right): * Label: Female / Skin Type II (texture, fine lines, glow)
+
+Text: Extraction of results following 3 DiamondGlow treatments with SKINMEDICA® HA Hydra Collagen Pro-Infusion Serum administered 2 weeks apart.
+
+Card 3 (Middle Left): * Label: Female / Skin Type III (brighter, smoother)
+
+Text: Extraction of results following 1 DiamondGlow treatment with SKINMEDICA® TNS® Advanced+ Pro-Infusion Serum.
+
+Card 4 (Middle Right): * Label: Female / Skin Type II (hyperpigmentation)
+
+Text: Extraction of results following 3 DiamondGlow treatments with SKINMEDICA® Even & Correct Advanced Brightening Pro-Infusion Serum.
+
+Card 5 (Bottom Left): * Label: Female / Skin Type III (congestion, redness)
+
+Text: Extraction of results following 2 DiamondGlow treatments with SKINMEDICA® Pore Purifying Pro-Infusion Serum.
+
+Card 6 (Bottom Right): * Label: Female / Skin Type II (forehead lines)
+
+Text: Extraction of results following 5 DiamondGlow treatments with SKINMEDICA® TNS® Advanced+ Pro-Infusion Serum.
+
+3. Cleanup & Final Styling:
+
+Design: Ensure all text is legible, use a small gold border for each card, and make sure the 'Skin Type' info is easily readable.
+
+Remove Placeholder: Completely remove the image_6.png file and any references to 'Photo coming soon'
