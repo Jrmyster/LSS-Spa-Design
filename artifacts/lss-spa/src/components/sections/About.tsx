@@ -106,7 +106,7 @@ export function About() {
               className="flex justify-center md:justify-start mb-10"
             >
               <a
-                href="https://peaceyogastudio.com/"
+                href="https://peaceyogastudio.com/practitioners/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 bg-emerald-50 border border-emerald-300 text-emerald-800 hover:bg-emerald-100 hover:border-emerald-400 transition-colors rounded-full px-5 py-2.5 text-sm font-semibold shadow-sm group"
