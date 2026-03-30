@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, Heart, Sparkle, Store } from "lucide-react";
+import { BadgeCheck, Heart, Sparkle, Store, ExternalLink } from "lucide-react";
 
 export function About() {
   return (
@@ -96,6 +96,28 @@ export function About() {
                 <span className="font-semibold text-foreground text-sm text-center">Client Centered</span>
               </div>
             </div>
+
+            {/* Peace Yoga clinician badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="flex justify-center md:justify-start mb-10"
+            >
+              <a
+                href="https://www.peaceyogamn.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 bg-emerald-50 border border-emerald-300 text-emerald-800 hover:bg-emerald-100 hover:border-emerald-400 transition-colors rounded-full px-5 py-2.5 text-sm font-semibold shadow-sm group"
+              >
+                <span className="w-5 h-5 rounded-full bg-emerald-600 flex items-center justify-center shrink-0">
+                  <span className="text-white text-[9px] font-bold leading-none">PY</span>
+                </span>
+                Find Kim on the Peace Yoga Clinician Team
+                <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </motion.div>
 
             {/* Community involvement */}
             <motion.div
