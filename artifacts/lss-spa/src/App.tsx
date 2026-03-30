@@ -7,6 +7,7 @@ import BookingConfirmed from "@/pages/BookingConfirmed";
 import CryoskinResults from "@/pages/CryoskinResults";
 import ServiceMenu from "@/pages/ServiceMenu";
 import NotFound from "@/pages/not-found";
+import { BackToTop } from "@/components/BackToTop";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,6 +37,7 @@ function App() {
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <Router />
         </WouterRouter>
+        <BackToTop />
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
