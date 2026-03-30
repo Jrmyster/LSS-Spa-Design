@@ -79,15 +79,20 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-white/60">
               <li className="flex items-start gap-3 justify-center md:justify-start">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors text-left"
-                >
-                  N89W16800 Appleton Avenue<br />
-                  Menomonee Falls, WI 53051
-                </a>
+                <div className="text-left">
+                  <a
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    N89W16800 Appleton Avenue<br />
+                    Menomonee Falls, WI 53051
+                  </a>
+                  <p className="text-white/40 text-xs mt-1 leading-snug">
+                    Located inside Peace Yoga Studio<br />&amp; Wellness Center
+                  </p>
+                </div>
               </li>
               <li className="flex items-center gap-3 justify-center md:justify-start">
                 <Phone className="w-4 h-4 text-primary shrink-0" />

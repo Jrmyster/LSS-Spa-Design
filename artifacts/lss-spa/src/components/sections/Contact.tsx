@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MapPin, Phone, Mail, Clock, CheckCircle2, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, CheckCircle2, Navigation, Info } from "lucide-react";
+import { PartnerSpotlight } from "@/components/sections/PartnerSpotlight";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -77,11 +78,20 @@ export function Contact() {
                     N89W16800 Appleton Avenue<br />
                     Menomonee Falls, WI 53051
                   </p>
+                  <p className="text-xs text-emerald-700 font-semibold mt-1">
+                    Inside Peace Yoga Studio &amp; Wellness Center
+                  </p>
+                  <div className="mt-2 flex items-start gap-1.5 bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2 max-w-xs">
+                    <Info className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
+                    <p className="text-xs text-emerald-800 leading-snug">
+                      Enter through the main Peace Yoga entrance — listed under the <strong>Esthetician &amp; Clinician</strong> section.
+                    </p>
+                  </div>
                   <a
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 mt-2 text-sm text-secondary font-medium hover:underline"
+                    className="inline-flex items-center gap-1.5 mt-3 text-sm text-secondary font-medium hover:underline"
                   >
                     <Navigation className="w-3.5 h-3.5" />
                     Get Directions
@@ -247,25 +257,8 @@ export function Contact() {
 
         </div>
 
-        {/* Google Maps Embed */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-16 rounded-3xl overflow-hidden shadow-xl border border-border/50"
-        >
-          <iframe
-            title="LSS Spa and Wellness Location"
-            src="https://maps.google.com/maps?q=N89W16800+Appleton+Avenue,+Menomonee+Falls,+WI+53051&output=embed"
-            width="100%"
-            height="400"
-            style={{ border: 0, display: "block" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </motion.div>
+        {/* Find Us + Partner Spotlight + Map */}
+        <PartnerSpotlight />
 
       </div>
     </section>
