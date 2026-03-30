@@ -11,6 +11,10 @@ interface ResultCard {
   caption: string;
   bullets: string[];
   ctaLabel: string;
+  /** padding-bottom % to use as a height-constrained image container (hides bottom artifact) */
+  imagePaddingBottom?: number;
+  /** Optional text strip rendered below the clipped image on a parchment background */
+  captionStrip?: string;
 }
 
 const CARDS: ResultCard[] = [
@@ -34,13 +38,17 @@ const CARDS: ResultCard[] = [
     subtitle: "Skin Texture & Fine Lines",
     image: "images/cryofacial.png",
     imageAlt: "CryoFacial before and after — crow's feet, skin tone, and fine lines visibly improved after 1 treatment",
-    caption: "Before / After 1 Treatment",
+    caption: "Before / After 2 Treatments",
     bullets: [
       "Boosts Collagen for a firmer, lifted look",
       "Smooths Crow's Feet & Fine Lines",
       "Reduces Weak Tone — visible after 1 session",
     ],
     ctaLabel: "Schedule Your Cryo-Facial",
+    // 295×711px image — clip bottom ~20% to remove page-indicator artifact
+    // padding-bottom: top 80% of image = 711*0.80/295*100 ≈ 193%
+    imagePaddingBottom: 193,
+    captionStrip: "Visible Skin Clarity · After Just 2 Treatments",
   },
   {
     id: 3,
@@ -67,19 +75,47 @@ function ResultCard({ card, index }: { card: ResultCard; index: number }) {
       transition={{ duration: 0.55, delay: index * 0.12 }}
       className="flex flex-col rounded-3xl overflow-hidden border border-amber-200/70 bg-white shadow-lg shadow-amber-100/60 hover:shadow-xl hover:shadow-amber-200/70 transition-shadow duration-300"
     >
-      {/* Photo — full-width, sharp, no blur */}
-      <div className="relative w-full overflow-hidden bg-amber-50">
-        <img
-          src={`${import.meta.env.BASE_URL}${card.image}`}
-          alt={card.imageAlt}
-          className="w-full object-cover object-top"
-          style={{ imageRendering: "crisp-edges" }}
-        />
-        {/* Caption badge */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm">
-          {card.caption}
+      {/* Photo — constrained height clips bottom artifact when imagePaddingBottom is set */}
+      {card.imagePaddingBottom ? (
+        <div
+          className="relative w-full overflow-hidden bg-amber-50"
+          style={{ height: 0, paddingBottom: `${card.imagePaddingBottom}%` }}
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}${card.image}`}
+            alt={card.imageAlt}
+            className="absolute inset-0 w-full h-full object-cover object-top"
+            style={{ imageRendering: "crisp-edges" }}
+          />
+          {/* Caption badge */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm">
+            {card.caption}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="relative w-full overflow-hidden bg-amber-50">
+          <img
+            src={`${import.meta.env.BASE_URL}${card.image}`}
+            alt={card.imageAlt}
+            className="w-full object-cover object-top"
+            style={{ imageRendering: "crisp-edges" }}
+          />
+          {/* Caption badge */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm">
+            {card.caption}
+          </div>
+        </div>
+      )}
+
+      {/* Parchment caption strip — replaces text removed by crop */}
+      {card.captionStrip && (
+        <div className="flex items-center justify-center gap-2 bg-[#f3e4c0] border-t border-amber-200 px-4 py-2.5">
+          <CheckCircle2 className="w-4 h-4 text-amber-700 shrink-0" />
+          <p className="text-xs font-bold text-amber-900 text-center tracking-wide">
+            {card.captionStrip}
+          </p>
+        </div>
+      )}
 
       {/* Card body */}
       <div className="flex flex-col flex-1 p-6">
