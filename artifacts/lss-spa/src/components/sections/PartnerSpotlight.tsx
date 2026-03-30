@@ -5,7 +5,7 @@ const BASE = import.meta.env.BASE_URL;
 
 const MAPS_URL =
   "https://maps.google.com/?q=N89W16800+Appleton+Avenue,+Menomonee+Falls,+WI+53051";
-const PEACE_YOGA_URL = "https://www.peaceyogamn.com/";
+const PEACE_YOGA_URL = "https://peaceyogastudio.com/";
 
 const GALLERY = [
   {
