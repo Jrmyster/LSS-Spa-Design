@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Facebook, ExternalLink, Quote } from "lucide-react";
 
-const FB_URL   = "https://www.facebook.com/people/LSS-Spa-Wellness/61571633071161/";
+const FB_URL   = "https://web.facebook.com/profile.php?id=61586956386498";
 const CLUB_URL = "https://web.facebook.com/fallsdowntown";
 
 const TESTIMONIALS = [
