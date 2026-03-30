@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Facebook, ExternalLink, Users, Quote } from "lucide-react";
+import { Facebook, ExternalLink, Quote } from "lucide-react";
 
 const FB_URL   = "https://www.facebook.com/people/LSS-Spa-Wellness/61571633071161/";
-const CLUB_URL = "https://www.facebook.com/MenomoneeFallsDowntownBusinessClub";
+const CLUB_URL = "https://web.facebook.com/fallsdowntown";
 
 const TESTIMONIALS = [
   {
@@ -165,7 +165,7 @@ export function SocialCommunity() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-bold border-2 border-violet-400 text-violet-700 bg-white/80 hover:bg-violet-50 hover:border-violet-500 transition-all duration-200 group shadow-sm"
           >
-            <Users className="w-4 h-4" />
+            <Facebook className="w-4 h-4 fill-violet-700" />
             Join the Menomonee Falls Downtown Club
             <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
           </a>
