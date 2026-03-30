@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, Heart, Sparkle } from "lucide-react";
+import { BadgeCheck, Heart, Sparkle, Store } from "lucide-react";
 
 export function About() {
   return (
@@ -82,7 +82,7 @@ export function About() {
             </div>
 
             {/* Credential badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
               <div className="flex flex-col items-center gap-2 p-5 bg-white rounded-2xl shadow-sm border border-border/30">
                 <BadgeCheck className="w-8 h-8 text-primary" />
                 <span className="font-semibold text-foreground text-sm text-center">Licensed &amp; Certified</span>
@@ -96,6 +96,41 @@ export function About() {
                 <span className="font-semibold text-foreground text-sm text-center">Client Centered</span>
               </div>
             </div>
+
+            {/* Community involvement */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 to-yellow-50/60 p-6 flex gap-5 items-start text-left"
+            >
+              {/* Badge icon */}
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-white border border-amber-200 shadow-sm flex items-center justify-center">
+                <Store className="w-6 h-6 text-primary" />
+              </div>
+
+              <div>
+                <p className="font-semibold text-foreground text-sm mb-2 flex items-center gap-1.5">
+                  <span className="text-base">🏡</span> Proud Local Business Member
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  We believe in the power of local. As active members of the{" "}
+                  <a
+                    href="https://www.facebook.com/search/top?q=Menomonee+Falls+Downtown+Business+Club"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-secondary underline underline-offset-2 hover:text-secondary/80 transition-colors"
+                  >
+                    Menomonee Falls Downtown Business Club
+                  </a>
+                  , we work alongside our fellow business owners to keep our downtown district beautiful, welcoming, and thriving. We are honored to serve our neighbors and contribute to the local charm that makes our town special.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed italic">
+                  "Dedicated to supporting our local community and the vibrant spirit of downtown Menomonee Falls."
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
