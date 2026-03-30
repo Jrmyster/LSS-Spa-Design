@@ -10,6 +10,7 @@ import { SeriesPackages } from "@/components/sections/SeriesPackages";
 import { FAQ } from "@/components/sections/FAQ";
 import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
 import { Gallery } from "@/components/sections/Gallery";
+import { SocialCommunity } from "@/components/sections/SocialCommunity";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
 import { FloatingBookButton } from "@/components/FloatingBookButton";
@@ -32,6 +33,7 @@ export default function Home() {
         <FAQ />
         <CryoskinShowcase />
         <Gallery />
+        <SocialCommunity />
         <Contact />
       </main>
 
