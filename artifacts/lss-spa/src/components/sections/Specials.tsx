@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Phone, CalendarCheck, Gift, Users, Share2 } from "lucide-react";
+import { CheckCircle2, Phone, CalendarCheck, Gift, Users, Share2, MessageSquare } from "lucide-react";
 import { QRCodeLightbox } from "@/components/QRCodeLightbox";
 import { useState } from "react";
 
 const SITE_URL = "https://lss-spa-wellness-llc.square.site/";
+
+const SMS_BODY = encodeURIComponent(
+  "Hey! I've been going to LSS Spa & Wellness and love my results. If you book a session and mention my name, we both get 20% off! Check them out here: https://www.google.com/search?q=lssspawellness.com"
+);
+const SMS_URL = `sms:?body=${SMS_BODY}`;
 
 function SunflowerDivider() {
   return (
@@ -62,10 +67,9 @@ function ReferralCard() {
 
       {/* Offer highlight */}
       <div className="bg-white rounded-xl border border-amber-200 px-5 py-4 mb-5 text-center shadow-sm">
-        <p className="text-sm font-semibold text-foreground leading-snug">
-          Refer a new client to LSS Spa &amp; Wellness and{" "}
-          <span className="font-extrabold text-rose-600">BOTH of you</span> will receive{" "}
-          <span className="font-extrabold text-emerald-600">20% OFF</span> your next service!
+        <p className="text-base sm:text-lg font-extrabold text-foreground leading-snug">
+          Refer a new client &amp; <span className="text-rose-600">BOTH of you</span> receive{" "}
+          <span className="text-emerald-600">20% OFF</span> your next service!
         </p>
       </div>
 
@@ -73,7 +77,7 @@ function ReferralCard() {
       <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3 text-center">
         How It Works
       </p>
-      <ol className="space-y-3 mb-6">
+      <ol className="space-y-3 mb-7">
         {[
           "Tell your friend to mention your name when booking their first appointment.",
           "Once they complete their service, we will apply a 20% discount to their bill.",
@@ -88,20 +92,32 @@ function ReferralCard() {
         ))}
       </ol>
 
-      {/* Share CTA */}
-      <div className="text-center">
+      {/* CTA Buttons */}
+      <div className="flex flex-col items-center gap-3">
+
+        {/* PRIMARY — gold SMS button */}
+        <a
+          href={SMS_URL}
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-full shadow-xl shadow-amber-200/70 transition-colors"
+        >
+          <MessageSquare className="w-5 h-5 shrink-0" />
+          Text This Offer to a Friend
+        </a>
+
+        {/* SECONDARY — share website (web share / clipboard fallback) */}
         <button
           onClick={handleShare}
-          className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-bold text-sm px-7 py-3.5 rounded-full shadow-lg shadow-sky-200 transition-colors"
+          className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-800 font-semibold text-sm transition-colors underline underline-offset-2"
         >
-          <Share2 className="w-4 h-4" />
+          <Share2 className="w-3.5 h-3.5" />
           {shareState === "copied"
             ? "Link Copied! ✓"
             : shareState === "shared"
             ? "Thanks for Sharing! 🌻"
-            : "Share the Website with a Friend"}
+            : "Or share the website"}
         </button>
-        <p className="text-[10px] text-muted-foreground mt-2">
+
+        <p className="text-[10px] text-muted-foreground text-center">
           Discount applied after your friend completes their first service.
         </p>
       </div>

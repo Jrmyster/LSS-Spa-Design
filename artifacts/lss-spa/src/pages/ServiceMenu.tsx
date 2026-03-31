@@ -117,6 +117,8 @@ export default function ServiceMenu() {
           }
           body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           @page { margin: 1.2cm; size: A4; }
+          .referral-cards-page { page-break-before: always; break-before: page; }
+          .referral-card { page-break-inside: avoid; break-inside: avoid; }
         }
       `}</style>
 
@@ -269,6 +271,127 @@ export default function ServiceMenu() {
             © {new Date().getFullYear()} LSS Spa and Wellness LLC. All Rights Reserved. Prices subject to change.
           </p>
         </footer>
+
+        {/* ── REFERRAL CARDS — prints as Page 2 ── */}
+        <section className="referral-cards-page mt-14 pt-10 border-t-4 border-double border-amber-300">
+
+          {/* On-screen heading */}
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl font-display font-bold text-foreground mb-1">
+              Referral Cards
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-md mx-auto">
+              Print this page, cut along the dashed lines, and hand these out to happy clients!
+              Each card reminds them to mention your name when referring a friend.
+            </p>
+          </div>
+
+          {/* 2 × 2 card grid — business card size (3.5" × 2") for print */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "0.45in",
+              maxWidth: "7.8in",
+              margin: "0 auto",
+            }}
+          >
+            {[0, 1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="referral-card"
+                style={{
+                  border: "1.5px dashed #d97706",
+                  borderRadius: "8px",
+                  background: "white",
+                  padding: "0.18in 0.22in",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  minHeight: "2in",
+                  boxSizing: "border-box",
+                }}
+              >
+                {/* Card top: logo + business name */}
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      background: "#f59e0b",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <span style={{ fontWeight: 900, color: "white", fontSize: "11px", letterSpacing: "-0.5px" }}>
+                      LSS
+                    </span>
+                  </div>
+                  <div style={{ lineHeight: 1.25 }}>
+                    <div style={{ fontWeight: 700, fontSize: "11px", color: "#111827" }}>
+                      LSS Spa &amp; Wellness LLC
+                    </div>
+                    <div style={{ fontSize: "8.5px", color: "#78716c", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      Kim Collins · Licensed Esthetician
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card middle: headline */}
+                <div style={{ textAlign: "center", padding: "8px 0" }}>
+                  <div
+                    style={{
+                      fontSize: "22px",
+                      fontWeight: 900,
+                      color: "#b45309",
+                      letterSpacing: "-0.5px",
+                      lineHeight: 1.05,
+                    }}
+                  >
+                    Give 20%, Get 20%!
+                  </div>
+                  <div style={{ fontSize: "9px", color: "#57534e", marginTop: "4px", fontStyle: "italic" }}>
+                    Refer a new client — both of you save on your next visit
+                  </div>
+                </div>
+
+                {/* Card bottom: name blank + QR */}
+                <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "10px" }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "8.5px", color: "#78716c", marginBottom: "3px" }}>
+                      Referring Client Name:
+                    </div>
+                    <div style={{ borderBottom: "1px solid #a8a29e", height: "15px", width: "100%" }} />
+                    <div style={{ marginTop: "7px", fontSize: "7.5px", color: "#a8a29e", lineHeight: 1.4 }}>
+                      (833) 924-5620 · Menomonee Falls, WI
+                    </div>
+                  </div>
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/qr-code.jpg`}
+                    alt="Scan to Book"
+                    style={{
+                      width: "0.72in",
+                      height: "0.72in",
+                      objectFit: "cover",
+                      borderRadius: "4px",
+                      border: "1px solid #fde68a",
+                      flexShrink: 0,
+                      imageRendering: "crisp-edges",
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-[11px] text-muted-foreground mt-8 italic">
+            Cut along dashed lines &nbsp;·&nbsp; One card per client &nbsp;·&nbsp; 20% discount applied after friend completes their first visit
+          </p>
+        </section>
+
       </div>
     </>
   );
