@@ -138,24 +138,18 @@ export default function ServiceMenu() {
       {/* ── Menu document ── */}
       <div className="print-page max-w-3xl mx-auto px-6 py-10 print:px-0 print:py-0 print:max-w-none">
 
-        {/* ── HEADER ── */}
-        <header className="text-center mb-10 pb-8 border-b-4 border-double border-amber-300 print:mb-6 print:pb-5">
-          {/* Sunflower logo mark */}
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shadow-md print:shadow-none">
-              <span className="font-display font-bold text-white text-2xl">LSS</span>
-            </div>
-          </div>
-          <h1 className="text-4xl font-display text-foreground tracking-tight leading-none mb-1">
-            LSS Spa & Wellness LLC
-          </h1>
-          <p className="text-sm text-muted-foreground uppercase tracking-widest font-semibold mb-3">
-            By Kim Collins — Licensed Esthetician
-          </p>
-          <p className="text-xl font-display italic text-amber-600">Glow. Lift. Sculpt.</p>
-          <p className="text-xs text-muted-foreground mt-3">
-            N89W16800 Appleton Avenue, Menomonee Falls, WI 53051 &nbsp;·&nbsp; (833) 924-5620
-          </p>
+        {/* ── HEADER — full-width brand image ── */}
+        <header style={{ marginBottom: "0.5in" }}>
+          <img
+            src={`${import.meta.env.BASE_URL}images/menu-header.png`}
+            alt="LSS Spa & Wellness LLC — Kim Collins, Licensed Esthetician"
+            style={{
+              display: "block",
+              width: "100%",
+              height: "auto",
+              imageRendering: "crisp-edges",
+            }}
+          />
         </header>
 
         {/* ── SECTION 1: SIGNATURE GLOW ── */}
