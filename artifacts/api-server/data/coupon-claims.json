@@ -40,5 +40,12 @@
     "email": "janedoe.spring@test.com",
     "coupon": "SPRING20",
     "claimedAt": "2026-03-31T09:48:47.836Z"
+  },
+  {
+    "id": "1774950913484-6wrbmf",
+    "name": "Refer Test",
+    "email": "refer.regression@test.com",
+    "coupon": "REFER20",
+    "claimedAt": "2026-03-31T09:55:13.484Z"
   }
 ]

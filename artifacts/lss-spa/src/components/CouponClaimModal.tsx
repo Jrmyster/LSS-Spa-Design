@@ -24,14 +24,45 @@ const COUPON_FINE_PRINT: Record<string, string> = {
   SPRING20: "Valid while supplies last · In-stock retail products only · Cannot be combined with other offers",
 };
 
-function headerClass(coupon: string): string {
-  if (coupon === "SPRING20") return "bg-green-600";
-  return "bg-amber-400";
+// Coupon-specific theme — green for SPRING20, amber for everything else
+function getTheme(coupon: string) {
+  if (coupon === "SPRING20") {
+    return {
+      headerBg: "bg-green-600",
+      headerEmoji: "🌿",
+      focusBorder: "focus:border-green-400",
+      submitBtn: "bg-green-600 hover:bg-green-700 shadow-green-200",
+      revealBg: "bg-green-50 border-green-300",
+      revealText: "text-green-700",
+      revealCopyBtn: "bg-green-100 hover:bg-green-200",
+      revealCopyIcon: "text-green-600",
+      ctaBtn: "bg-green-600 hover:bg-green-700 shadow-green-200",
+      successIcon: "text-green-500",
+    } as const;
+  }
+  // Default amber theme (REFER20, MARCH20)
+  return {
+    headerBg: "bg-amber-400",
+    headerEmoji: "🌻",
+    focusBorder: "focus:border-amber-400",
+    submitBtn: "bg-amber-400 hover:bg-amber-500 shadow-amber-200",
+    revealBg: "bg-amber-50 border-amber-300",
+    revealText: "text-amber-700",
+    revealCopyBtn: "bg-amber-100 hover:bg-amber-200",
+    revealCopyIcon: "text-amber-600",
+    ctaBtn: "bg-amber-400 hover:bg-amber-500 shadow-amber-200",
+    successIcon: "text-amber-500",
+  } as const;
 }
 
-function headerEmoji(coupon: string): string {
-  if (coupon === "SPRING20") return "🌿";
-  return "🌻";
+function getSuccessMessage(coupon: string, firstName: string): string {
+  if (coupon === "SPRING20") {
+    return `Use code SPRING20 at the spa or during checkout to save. Click below to book your appointment now!`;
+  }
+  if (coupon === "REFER20") {
+    return `Thanks for referring a friend, ${firstName}! Show this code when your friend books their first appointment.`;
+  }
+  return "Show this code at checkout or mention it when booking online:";
 }
 
 export function CouponClaimModal({ coupon, title, onClose }: Props) {
@@ -42,6 +73,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
   const [copied, setCopied] = useState(false);
   const [revealedCode, setRevealedCode] = useState<string>(coupon);
   const nameRef = useRef<HTMLInputElement>(null);
+  const theme = getTheme(coupon);
 
   useEffect(() => {
     nameRef.current?.focus();
@@ -91,6 +123,8 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
     } catch { /* ignore */ }
   }
 
+  const firstName = name.split(" ")[0] || "there";
+
   return (
     <AnimatePresence>
       {/* Backdrop */}
@@ -116,10 +150,10 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
           aria-modal="true"
           aria-label="Claim your coupon"
         >
-          {/* Header band — green for SPRING20, amber for others */}
-          <div className={`${headerClass(coupon)} px-6 py-4 flex items-center justify-between`}>
+          {/* Header band — theme-colored */}
+          <div className={`${theme.headerBg} px-6 py-4 flex items-center justify-between`}>
             <p className="text-white font-bold text-sm uppercase tracking-widest">
-              {headerEmoji(coupon)} {COUPON_LABELS[coupon] ?? coupon} Coupon
+              {theme.headerEmoji} {COUPON_LABELS[coupon] ?? coupon} Coupon
             </p>
             <button
               onClick={onClose}
@@ -155,7 +189,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Kim Collins"
                       disabled={step === "submitting"}
-                      className="w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-400 disabled:opacity-60 transition-colors"
+                      className={`w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none ${theme.focusBorder} disabled:opacity-60 transition-colors`}
                     />
                   </div>
 
@@ -171,7 +205,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       disabled={step === "submitting"}
-                      className="w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-400 disabled:opacity-60 transition-colors"
+                      className={`w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none ${theme.focusBorder} disabled:opacity-60 transition-colors`}
                     />
                   </div>
 
@@ -182,7 +216,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                   <button
                     type="submit"
                     disabled={step === "submitting"}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:opacity-70 text-white font-bold text-base rounded-full py-3.5 transition-colors shadow-lg shadow-green-200"
+                    className={`w-full inline-flex items-center justify-center gap-2 ${theme.submitBtn} disabled:opacity-70 text-white font-bold text-base rounded-full py-3.5 transition-colors shadow-lg`}
                   >
                     {step === "submitting" ? (
                       <>
@@ -210,29 +244,27 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                 transition={{ duration: 0.35 }}
                 className="text-center py-2"
               >
-                <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-3" />
+                <CheckCircle2 className={`w-12 h-12 ${theme.successIcon} mx-auto mb-3`} />
                 <h2 className="text-xl font-display font-bold text-foreground mb-1">
-                  You're all set, {name.split(" ")[0]}! 🌿
+                  You're all set, {firstName}!
                 </h2>
                 <p className="text-sm text-muted-foreground mb-5 leading-snug">
-                  {revealedCode === "SPRING20"
-                    ? "Use code SPRING20 at the spa or during checkout to save. Click below to book your appointment now!"
-                    : "Show this code at checkout or enter it when booking online:"}
+                  {getSuccessMessage(revealedCode, firstName)}
                 </p>
 
                 {/* Coupon code — large bold monospace for easy screenshotting */}
-                <div className="relative flex items-center justify-center bg-green-50 border-2 border-green-300 rounded-2xl px-6 py-4 mb-2 group">
-                  <span className="font-mono font-extrabold text-3xl text-green-700 tracking-[0.2em]">
+                <div className={`relative flex items-center justify-center ${theme.revealBg} border-2 rounded-2xl px-6 py-4 mb-2 group`}>
+                  <span className={`font-mono font-extrabold text-3xl ${theme.revealText} tracking-[0.2em]`}>
                     {revealedCode}
                   </span>
                   <button
                     onClick={handleCopy}
                     aria-label="Copy coupon code"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-green-100 hover:bg-green-200 transition-colors"
+                    className={`absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg ${theme.revealCopyBtn} transition-colors`}
                   >
                     {copied
-                      ? <Check className="w-4 h-4 text-green-600" />
-                      : <Copy className="w-4 h-4 text-green-600" />
+                      ? <Check className={`w-4 h-4 ${theme.revealCopyIcon}`} />
+                      : <Copy className={`w-4 h-4 ${theme.revealCopyIcon}`} />
                     }
                   </button>
                 </div>
@@ -245,7 +277,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                   href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-extrabold text-base rounded-full py-3.5 transition-colors shadow-lg shadow-green-200"
+                  className={`w-full inline-flex items-center justify-center gap-2 ${theme.ctaBtn} text-white font-extrabold text-base rounded-full py-3.5 transition-colors shadow-lg`}
                 >
                   <CalendarCheck className="w-5 h-5" />
                   Book My Appointment Now
