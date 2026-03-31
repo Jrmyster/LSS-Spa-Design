@@ -7,6 +7,7 @@ import { SignatureSpotlight } from "@/components/sections/SignatureSpotlight";
 import { About } from "@/components/sections/About";
 import { Specials } from "@/components/sections/Specials";
 import { SeriesPackages } from "@/components/sections/SeriesPackages";
+import { CryoSkinScience } from "@/components/sections/CryoSkinScience";
 import { CryoFAQ } from "@/components/sections/CryoFAQ";
 import { FAQ } from "@/components/sections/FAQ";
 import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
@@ -27,6 +28,7 @@ export default function Home() {
         <Hero />
         <SpringSaleHero />
         <Services />
+        <CryoSkinScience />
         <CryoFAQ />
         <SignatureSpotlight />
         <About />
