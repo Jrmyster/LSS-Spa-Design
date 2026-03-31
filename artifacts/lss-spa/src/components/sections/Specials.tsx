@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
-import { Phone, Gift, Users, Share2, MessageSquare } from "lucide-react";
-import { QRCodeLightbox } from "@/components/QRCodeLightbox";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Phone, Gift, Users, Share2, MessageSquare, Sparkles } from "lucide-react";
+import { QRCodeLightbox } from "@/components/QRCodeLightbox";
+import { CouponClaimModal } from "@/components/CouponClaimModal";
 
 const SMS_BODY = encodeURIComponent(
   "Hey! I've been going to LSS Spa & Wellness and love my results. If you book a session and mention my name, we both get 20% off! Check them out here: https://www.google.com/search?q=lssspawellness.com"
@@ -21,6 +22,7 @@ function SunflowerDivider() {
 
 function ReferralCard() {
   const [shareState, setShareState] = useState<"idle" | "copied" | "shared">("idle");
+  const [modalOpen, setModalOpen] = useState(false);
 
   async function handleShare() {
     if (navigator.share) {
@@ -43,79 +45,104 @@ function ReferralCard() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className="rounded-2xl border-2 border-amber-300 bg-amber-50/60 px-6 py-7 shadow-inner text-left"
-    >
-      {/* Title */}
-      <div className="flex items-center justify-center gap-2 mb-2">
-        <Users className="w-6 h-6 text-amber-500 shrink-0" />
-        <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground text-center">
-          Share the Glow: Referral Rewards
-        </h3>
-        <Gift className="w-6 h-6 text-amber-500 shrink-0" />
-      </div>
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="rounded-2xl border-2 border-amber-300 bg-amber-50/60 px-6 py-7 shadow-inner text-left"
+      >
+        {/* Title */}
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <Users className="w-6 h-6 text-amber-500 shrink-0" />
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground text-center">
+            Share the Glow: Referral Rewards
+          </h3>
+          <Gift className="w-6 h-6 text-amber-500 shrink-0" />
+        </div>
 
-      <p className="text-sm text-center text-muted-foreground mb-5 leading-snug max-w-sm mx-auto">
-        The best compliment you can give is a referral. We want to thank you for growing our community!
-      </p>
-
-      {/* Offer highlight */}
-      <div className="bg-white rounded-xl border border-amber-200 px-5 py-4 mb-5 text-center shadow-sm">
-        <p className="text-base sm:text-lg font-extrabold text-foreground leading-snug">
-          Refer a new client &amp;{" "}
-          <span className="text-rose-600">BOTH of you</span> receive{" "}
-          <span className="text-emerald-600">20% OFF</span> your next service!
+        <p className="text-sm text-center text-muted-foreground mb-5 leading-snug max-w-sm mx-auto">
+          The best compliment you can give is a referral. We want to thank you for growing our community!
         </p>
-      </div>
 
-      {/* How it Works */}
-      <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3 text-center">
-        How It Works
-      </p>
-      <ol className="space-y-3 mb-7">
-        {[
-          "Tell your friend to mention your name when booking their first appointment.",
-          "Once they complete their service, we will apply a 20% discount to their bill.",
-          "You will receive a 20% discount credit to use on your next visit!",
-        ].map((step, i) => (
-          <li key={i} className="flex items-start gap-3">
-            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">
-              {i + 1}
-            </span>
-            <span className="text-sm text-foreground leading-snug">{step}</span>
-          </li>
-        ))}
-      </ol>
+        {/* Offer highlight */}
+        <div className="bg-white rounded-xl border border-amber-200 px-5 py-4 mb-5 text-center shadow-sm">
+          <p className="text-base sm:text-lg font-extrabold text-foreground leading-snug">
+            Refer a new client &amp;{" "}
+            <span className="text-rose-600">BOTH of you</span> receive{" "}
+            <span className="text-emerald-600">20% OFF</span> your next service!
+          </p>
+        </div>
 
-      {/* CTAs */}
-      <div className="flex flex-col items-center gap-3">
-        <a
-          href={SMS_URL}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-full shadow-xl shadow-amber-200/70 transition-colors"
-        >
-          <MessageSquare className="w-5 h-5 shrink-0" />
-          Text This Offer to a Friend
-        </a>
-        <button
-          onClick={handleShare}
-          className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-800 font-semibold text-sm transition-colors underline underline-offset-2"
-        >
-          <Share2 className="w-3.5 h-3.5" />
-          {shareState === "copied"
-            ? "Link Copied! ✓"
-            : shareState === "shared"
-            ? "Thanks for Sharing! 🌻"
-            : "Or share the website"}
-        </button>
-        <p className="text-[10px] text-muted-foreground text-center">
-          Discount applied after your friend completes their first service.
+        {/* How it Works */}
+        <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3 text-center">
+          How It Works
         </p>
-      </div>
-    </motion.div>
+        <ol className="space-y-3 mb-6">
+          {[
+            "Tell your friend to mention your name when booking their first appointment.",
+            "Once they complete their service, we will apply a 20% discount to their bill.",
+            "You will receive a 20% discount credit to use on your next visit!",
+          ].map((step, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">
+                {i + 1}
+              </span>
+              <span className="text-sm text-foreground leading-snug">{step}</span>
+            </li>
+          ))}
+        </ol>
+
+        {/* ── PULSING REFER20 CLAIM BUTTON ── */}
+        <div className="flex justify-center mb-5">
+          <div className="relative">
+            <span className="absolute inset-0 rounded-full bg-amber-400 opacity-40 animate-ping pointer-events-none" />
+            <button
+              onClick={() => setModalOpen(true)}
+              className="relative inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-full shadow-xl shadow-amber-200/70 transition-colors z-10"
+            >
+              <Sparkles className="w-5 h-5 shrink-0" />
+              Get My 20% Off Coupon
+            </button>
+          </div>
+        </div>
+
+        {/* SMS share */}
+        <div className="flex flex-col items-center gap-3">
+          <a
+            href={SMS_URL}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white border-2 border-amber-300 text-amber-700 font-bold text-sm px-6 py-3 rounded-full shadow transition-colors hover:bg-amber-50"
+          >
+            <MessageSquare className="w-4 h-4 shrink-0" />
+            Text This Offer to a Friend
+          </a>
+          <button
+            onClick={handleShare}
+            className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-800 font-semibold text-sm transition-colors underline underline-offset-2"
+          >
+            <Share2 className="w-3.5 h-3.5" />
+            {shareState === "copied"
+              ? "Link Copied! ✓"
+              : shareState === "shared"
+              ? "Thanks for Sharing! 🌻"
+              : "Or share the website"}
+          </button>
+          <p className="text-[10px] text-muted-foreground text-center">
+            Discount applied after your friend completes their first service.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Coupon Claim Modal */}
+      {modalOpen && (
+        <CouponClaimModal
+          coupon="REFER20"
+          title="Claim Your Referral Reward!"
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+    </>
   );
 }
 

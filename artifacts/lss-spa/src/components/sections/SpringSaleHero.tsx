@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Scissors, Printer } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { CouponClaimModal } from "@/components/CouponClaimModal";
 
 const BOOKING_URL = "https://lss-spa-wellness-llc.square.site/";
 
 export function SpringSaleHero() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section className="relative overflow-hidden py-16 sm:py-20">
       {/* Background */}
@@ -47,57 +51,32 @@ export function SpringSaleHero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-muted-foreground leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0"
+              className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
             >
               Take{" "}
               <span className="font-bold text-foreground">20% OFF all in-stock skincare products</span>{" "}
               throughout the month of March. Now is the perfect time to stock up on your daily essentials!
             </motion.p>
 
-            {/* Coupon code callout */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="inline-flex flex-col sm:flex-row items-center gap-3 border-2 border-dashed border-emerald-400 rounded-2xl px-6 py-4 bg-white/70 backdrop-blur mb-7 shadow-sm max-w-xs mx-auto lg:mx-0"
-            >
-              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-emerald-600 shrink-0">
-                <Scissors className="w-3 h-3" />
-                Digital Coupon
-              </div>
-              <div className="w-px h-4 bg-emerald-200 hidden sm:block" />
-              <div className="bg-emerald-50 border border-emerald-300 rounded-lg px-4 py-1.5">
-                <span className="font-mono font-extrabold text-xl text-emerald-700 tracking-[0.18em]">MARCH20</span>
-              </div>
-              <a
-                href="/menu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 hover:text-emerald-800 underline underline-offset-2 transition-colors shrink-0"
-              >
-                <Printer className="w-3 h-3" />
-                Print
-              </a>
-            </motion.div>
-
-            {/* CTA */}
+            {/* ── PULSING CLAIM BUTTON ── */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-5"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-6"
             >
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-bold bg-green-600 text-white shadow-lg shadow-green-300/50 hover:bg-green-700 hover:shadow-xl hover:shadow-green-300/60 transition-all duration-200"
-              >
-                <Sparkles className="w-4 h-4" />
-                Book Now &amp; Claim Your Discount
-              </a>
+              <div className="relative">
+                {/* Pulse ring */}
+                <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-40 animate-ping pointer-events-none" />
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-bold bg-emerald-500 text-white shadow-xl shadow-emerald-300/50 hover:bg-emerald-600 hover:shadow-emerald-400/60 transition-all duration-200 z-10"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  Get My 20% Off Coupon
+                </button>
+              </div>
             </motion.div>
 
             <motion.p
@@ -153,6 +132,15 @@ export function SpringSaleHero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Coupon Claim Modal */}
+      {modalOpen && (
+        <CouponClaimModal
+          coupon="MARCH20"
+          title="Claim Your March Madness Discount!"
+          onClose={() => setModalOpen(false)}
+        />
+      )}
     </section>
   );
 }

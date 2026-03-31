@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1774945032090-qpt9m1",
+    "name": "Test Client",
+    "email": "test@example.com",
+    "coupon": "MARCH20",
+    "claimedAt": "2026-03-31T08:17:12.090Z"
+  },
+  {
+    "id": "1774945107946-ubufz8",
+    "name": "Refer Test",
+    "email": "refer@example.com",
+    "coupon": "MARCH20",
+    "claimedAt": "2026-03-31T08:18:27.946Z"
+  },
+  {
+    "id": "1774945356776-tvrsd2",
+    "name": "Test Client",
+    "email": "test@lss.com",
+    "coupon": "MARCH20",
+    "claimedAt": "2026-03-31T08:22:36.776Z"
+  },
+  {
+    "id": "1774945419574-yeqxkx",
+    "name": "Referral Person",
+    "email": "refer@lss.com",
+    "coupon": "REFER20",
+    "claimedAt": "2026-03-31T08:23:39.574Z"
+  }
+]
