@@ -133,16 +133,58 @@ export function Contact() {
 
               {/* Hours */}
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0 border border-border">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0 border border-border mt-1">
                   <Clock className="w-5 h-5 text-secondary" />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground text-lg">Hours</h3>
-                  <p className="text-muted-foreground">
-                    Tue – Fri: 10am – 6pm<br />
-                    Sat: 9am – 3pm<br />
-                    Sun & Mon: Closed
-                  </p>
+                <div className="flex-1">
+                  {/* SPA HOURS card */}
+                  <div className="rounded-2xl border border-secondary/20 bg-white shadow-sm overflow-hidden">
+                    {/* Header */}
+                    <div className="bg-secondary/10 border-b border-secondary/15 px-5 py-3 text-center">
+                      <h3 className="font-bold text-foreground text-base uppercase tracking-widest underline decoration-2 underline-offset-2">
+                        SPA HOURS
+                      </h3>
+                    </div>
+                    {/* Schedule grid */}
+                    <div className="px-5 py-4">
+                      <div className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 text-sm font-mono">
+                        {[
+                          { day: "Tuesday",   time: "2 pm – 8 pm",  open: true  },
+                          { day: "Wednesday", time: "2 pm – 8 pm",  open: true  },
+                          { day: "Thursday",  time: "2 pm – 8 pm",  open: true  },
+                          { day: "Friday",    time: "Closed",        open: false },
+                          { day: "Saturday",  time: "11 am – 6 pm", open: true  },
+                          { day: "Sunday",    time: "1 pm – 6 pm",  open: true  },
+                          { day: "Monday",    time: "Closed",        open: false },
+                        ].map(({ day, time, open }) => (
+                          <div key={day} className="contents">
+                            <span className={`font-bold ${open ? "text-foreground" : "text-muted-foreground"}`}>
+                              {day}
+                            </span>
+                            <span className={`${open ? "text-foreground" : "text-muted-foreground/70 italic"}`}>
+                              {time}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Note */}
+                    <div className="border-t border-border/40 px-5 py-3 bg-amber-50/60">
+                      <p className="text-[11px] text-muted-foreground leading-snug">
+                        <span className="font-semibold text-amber-700">Note:</span> Hours are subject to change.
+                        For the most accurate availability, please check our{" "}
+                        <a
+                          href="https://lss-spa-wellness-llc.square.site/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-secondary underline underline-offset-2 hover:text-secondary/80 transition-colors"
+                        >
+                          booking calendar
+                        </a>
+                        .
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
