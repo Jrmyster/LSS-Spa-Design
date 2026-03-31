@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Leaf, ShoppingBag, CalendarCheck, X, ZoomIn } from "lucide-react";
+import { Leaf, ShoppingBag, CalendarCheck, X, ZoomIn, Ticket } from "lucide-react";
+import { CouponClaimModal } from "@/components/CouponClaimModal";
 
 const BOOKING_URL = "https://lss-spa-wellness-llc.square.site/";
 
 export function SpringSaleHero() {
   const [catalogOpen, setCatalogOpen] = useState(false);
+  const [claimOpen, setClaimOpen] = useState(false);
 
   return (
     <>
@@ -76,7 +78,28 @@ export function SpringSaleHero() {
                   </div>
                 </motion.div>
 
-                {/* CTA buttons */}
+                {/* Pulsing claim coupon button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.33 }}
+                  className="flex items-center justify-center lg:justify-start mb-4"
+                >
+                  <div className="relative">
+                    <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping pointer-events-none" />
+                    <button
+                      type="button"
+                      onClick={() => setClaimOpen(true)}
+                      className="relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-bold bg-green-600 text-white shadow-xl shadow-green-300/50 hover:bg-green-700 hover:shadow-green-400/60 transition-all duration-200 z-10"
+                    >
+                      <Ticket className="w-4 h-4" />
+                      Claim My 20% Discount
+                    </button>
+                  </div>
+                </motion.div>
+
+                {/* Secondary CTA buttons */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -152,6 +175,15 @@ export function SpringSaleHero() {
           </div>
         </div>
       </section>
+
+      {/* ── SPRING20 Coupon Claim Modal ── */}
+      {claimOpen && (
+        <CouponClaimModal
+          coupon="SPRING20"
+          title="Claim Your Spring Sale Discount!"
+          onClose={() => setClaimOpen(false)}
+        />
+      )}
 
       {/* ── Skincare Catalog Modal ── */}
       <AnimatePresence>

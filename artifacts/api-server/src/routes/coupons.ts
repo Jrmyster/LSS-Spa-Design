@@ -1,7 +1,8 @@
 import { Router, type IRouter } from "express";
 import { addClaim, getAllClaims, type CouponType } from "../lib/couponClaimsStore";
+import { sendWelcomeEmail, sendLeadAlert } from "../lib/emailService";
 
-const VALID_COUPONS: CouponType[] = ["MARCH20", "REFER20"];
+const VALID_COUPONS: CouponType[] = ["MARCH20", "REFER20", "SPRING20"];
 
 const router: IRouter = Router();
 
@@ -23,6 +24,7 @@ router.post("/coupons/claim", (req, res) => {
   }
 
   const result = addClaim(name, email, coupon as CouponType);
+
   if (result.duplicate) {
     return res.json({
       ok: true,
@@ -31,6 +33,15 @@ router.post("/coupons/claim", (req, res) => {
       message: "You already claimed this coupon — your code is still valid!",
     });
   }
+
+  // Fire-and-forget: send emails async, never block the HTTP response
+  Promise.all([
+    sendWelcomeEmail({ name: name.trim(), email: email.trim(), couponCode: coupon }),
+    sendLeadAlert({ name: name.trim(), email: email.trim(), couponCode: coupon }),
+  ]).catch(() => {
+    // errors already logged inside each function
+  });
+
   return res.json({ ok: true, alreadyClaimed: false, code: coupon });
 });
 

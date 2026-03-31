@@ -2,10 +2,10 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import { logger } from "./logger";
 
-const DATA_DIR = join(process.cwd(), "artifacts/api-server/data");
+const DATA_DIR = join(process.cwd(), "data");
 const DATA_FILE = join(DATA_DIR, "coupon-claims.json");
 
-export type CouponType = "MARCH20" | "REFER20";
+export type CouponType = "MARCH20" | "REFER20" | "SPRING20";
 
 export interface CouponClaim {
   id: string;

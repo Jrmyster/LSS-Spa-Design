@@ -23,7 +23,7 @@ interface CouponClaim {
   id: string;
   name: string;
   email: string;
-  coupon: "MARCH20" | "REFER20";
+  coupon: "MARCH20" | "REFER20" | "SPRING20";
   claimedAt: string;
 }
 
@@ -177,6 +177,7 @@ export default function AdminStats() {
 
   const march20Claims = claims.filter((c) => c.coupon === "MARCH20");
   const refer20Claims = claims.filter((c) => c.coupon === "REFER20");
+  const spring20Claims = claims.filter((c) => c.coupon === "SPRING20");
 
   return (
     <div className="min-h-screen bg-stone-50 font-sans">
@@ -281,16 +282,21 @@ export default function AdminStats() {
             <div>
               <h2 className="font-semibold text-foreground text-sm">Coupon Claims (Lead Bridge)</h2>
               <p className="text-xs text-muted-foreground mt-0.5">
-                {march20Claims.length} March Madness &nbsp;·&nbsp; {refer20Claims.length} Referral Reward
+                {spring20Claims.length} Spring Sale &nbsp;·&nbsp; {refer20Claims.length} Referral &nbsp;·&nbsp; {march20Claims.length} March (legacy)
               </p>
             </div>
-            <div className="flex gap-2">
-              <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
-                MARCH20 ×{march20Claims.length}
+            <div className="flex flex-wrap gap-2">
+              <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-green-100 text-green-700 border border-green-200">
+                SPRING20 ×{spring20Claims.length}
               </span>
               <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 border border-violet-200">
                 REFER20 ×{refer20Claims.length}
               </span>
+              {march20Claims.length > 0 && (
+                <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-stone-100 text-stone-500 border border-stone-200">
+                  MARCH20 ×{march20Claims.length}
+                </span>
+              )}
             </div>
           </div>
 
@@ -327,9 +333,11 @@ export default function AdminStats() {
                       <td className="px-6 py-3.5">
                         <span
                           className={`inline-block text-[10px] font-extrabold uppercase tracking-widest border rounded-full px-2.5 py-0.5 ${
-                            claim.coupon === "MARCH20"
-                              ? "bg-emerald-100 text-emerald-700 border-emerald-200"
-                              : "bg-violet-100 text-violet-700 border-violet-200"
+                            claim.coupon === "SPRING20"
+                              ? "bg-green-100 text-green-700 border-green-200"
+                              : claim.coupon === "REFER20"
+                              ? "bg-violet-100 text-violet-700 border-violet-200"
+                              : "bg-stone-100 text-stone-500 border-stone-200"
                           }`}
                         >
                           {claim.coupon}

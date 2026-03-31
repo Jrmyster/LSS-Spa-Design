@@ -5,7 +5,7 @@ import { X, Loader2, CheckCircle2, CalendarCheck, Copy, Check } from "lucide-rea
 const BOOKING_URL = "https://lss-spa-wellness-llc.square.site/";
 
 interface Props {
-  coupon: "MARCH20" | "REFER20";
+  coupon: "MARCH20" | "REFER20" | "SPRING20";
   title: string;
   onClose: () => void;
 }
@@ -15,7 +15,24 @@ type Step = "form" | "submitting" | "revealed";
 const COUPON_LABELS: Record<string, string> = {
   MARCH20: "March Madness",
   REFER20: "Referral Reward",
+  SPRING20: "Spring Sale",
 };
+
+const COUPON_FINE_PRINT: Record<string, string> = {
+  MARCH20: "Valid March 2026 · In-stock retail products only · Cannot be combined",
+  REFER20: "Valid for first-time referred clients · One use per person",
+  SPRING20: "Valid while supplies last · In-stock retail products only · Cannot be combined with other offers",
+};
+
+function headerClass(coupon: string): string {
+  if (coupon === "SPRING20") return "bg-green-600";
+  return "bg-amber-400";
+}
+
+function headerEmoji(coupon: string): string {
+  if (coupon === "SPRING20") return "🌿";
+  return "🌻";
+}
 
 export function CouponClaimModal({ coupon, title, onClose }: Props) {
   const [step, setStep] = useState<Step>("form");
@@ -99,10 +116,10 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
           aria-modal="true"
           aria-label="Claim your coupon"
         >
-          {/* Amber header band */}
-          <div className="bg-amber-400 px-6 py-4 flex items-center justify-between">
+          {/* Header band — green for SPRING20, amber for others */}
+          <div className={`${headerClass(coupon)} px-6 py-4 flex items-center justify-between`}>
             <p className="text-white font-bold text-sm uppercase tracking-widest">
-              🌻 {COUPON_LABELS[coupon]} Coupon
+              {headerEmoji(coupon)} {COUPON_LABELS[coupon] ?? coupon} Coupon
             </p>
             <button
               onClick={onClose}
@@ -138,7 +155,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Kim Collins"
                       disabled={step === "submitting"}
-                      className="w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-400 disabled:opacity-60 transition-colors"
+                      className="w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-400 disabled:opacity-60 transition-colors"
                     />
                   </div>
 
@@ -154,7 +171,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       disabled={step === "submitting"}
-                      className="w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-amber-400 disabled:opacity-60 transition-colors"
+                      className="w-full border-2 border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-green-400 disabled:opacity-60 transition-colors"
                     />
                   </div>
 
@@ -165,7 +182,7 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                   <button
                     type="submit"
                     disabled={step === "submitting"}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-70 text-white font-bold text-base rounded-full py-3.5 transition-colors shadow-lg shadow-emerald-200"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:opacity-70 text-white font-bold text-base rounded-full py-3.5 transition-colors shadow-lg shadow-green-200"
                   >
                     {step === "submitting" ? (
                       <>
@@ -193,42 +210,42 @@ export function CouponClaimModal({ coupon, title, onClose }: Props) {
                 transition={{ duration: 0.35 }}
                 className="text-center py-2"
               >
-                <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
+                <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-3" />
                 <h2 className="text-xl font-display font-bold text-foreground mb-1">
-                  You're all set, {name.split(" ")[0]}! 🌻
+                  You're all set, {name.split(" ")[0]}! 🌿
                 </h2>
                 <p className="text-sm text-muted-foreground mb-5 leading-snug">
-                  Show this code at checkout or enter it when booking online:
+                  {revealedCode === "SPRING20"
+                    ? "Use code SPRING20 at the spa or during checkout to save. Click below to book your appointment now!"
+                    : "Show this code at checkout or enter it when booking online:"}
                 </p>
 
-                {/* Coupon code */}
-                <div className="relative flex items-center justify-center bg-emerald-50 border-2 border-emerald-300 rounded-2xl px-6 py-4 mb-5 group">
-                  <span className="font-mono font-extrabold text-3xl text-emerald-700 tracking-[0.2em]">
+                {/* Coupon code — large bold monospace for easy screenshotting */}
+                <div className="relative flex items-center justify-center bg-green-50 border-2 border-green-300 rounded-2xl px-6 py-4 mb-2 group">
+                  <span className="font-mono font-extrabold text-3xl text-green-700 tracking-[0.2em]">
                     {revealedCode}
                   </span>
                   <button
                     onClick={handleCopy}
                     aria-label="Copy coupon code"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-emerald-100 hover:bg-emerald-200 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-green-100 hover:bg-green-200 transition-colors"
                   >
                     {copied
-                      ? <Check className="w-4 h-4 text-emerald-600" />
-                      : <Copy className="w-4 h-4 text-emerald-600" />
+                      ? <Check className="w-4 h-4 text-green-600" />
+                      : <Copy className="w-4 h-4 text-green-600" />
                     }
                   </button>
                 </div>
 
                 <p className="text-xs text-muted-foreground mb-6">
-                  {revealedCode === "MARCH20"
-                    ? "Valid March 2026 · In-stock retail products only · Cannot be combined"
-                    : "Valid for first-time referred clients · One use per person"}
+                  {COUPON_FINE_PRINT[revealedCode] ?? ""}
                 </p>
 
                 <a
                   href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 text-white font-extrabold text-base rounded-full py-3.5 transition-colors shadow-lg shadow-amber-200"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-extrabold text-base rounded-full py-3.5 transition-colors shadow-lg shadow-green-200"
                 >
                   <CalendarCheck className="w-5 h-5" />
                   Book My Appointment Now

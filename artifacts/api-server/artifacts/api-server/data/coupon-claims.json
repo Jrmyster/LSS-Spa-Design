@@ -26,5 +26,12 @@
     "email": "refer@lss.com",
     "coupon": "REFER20",
     "claimedAt": "2026-03-31T08:23:39.574Z"
+  },
+  {
+    "id": "1774950193576-vaj6yx",
+    "name": "Test Client",
+    "email": "testclient@example.com",
+    "coupon": "SPRING20",
+    "claimedAt": "2026-03-31T09:43:13.576Z"
   }
 ]
