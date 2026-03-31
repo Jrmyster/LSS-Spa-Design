@@ -57,7 +57,7 @@ function getTheme(coupon: string) {
 
 function getSuccessMessage(coupon: string, firstName: string): string {
   if (coupon === "SPRING20") {
-    return `Use code SPRING20 at the spa or during checkout to save. Click below to book your appointment now!`;
+    return `Success! Use code SPRING20 at the spa or during checkout to save 20%. Click below to book your appointment now!`;
   }
   if (coupon === "REFER20") {
     return `Thanks for referring a friend, ${firstName}! Show this code when your friend books their first appointment.`;
