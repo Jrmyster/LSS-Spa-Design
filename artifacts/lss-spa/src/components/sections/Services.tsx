@@ -197,6 +197,45 @@ export function Services() {
             View all services, pricing &amp; Grand Opening packages — printable PDF format
           </p>
         </motion.div>
+
+        {/* Product showcase banner — badge masked by overflow crop */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-14"
+        >
+          {/*
+            Container height is intentionally set to ~84% of the image's aspect ratio.
+            object-position: center top anchors the visible area to the top of the photo,
+            so the bottom edge (including the "LSS Spa & Wellness" badge) is hidden
+            by the overflow: hidden clip without any hard cutout.
+            The gradient overlay softens the bottom edge for a finished look.
+          */}
+          <div
+            className="relative w-full overflow-hidden rounded-2xl shadow-lg"
+            style={{ height: "clamp(220px, 42vw, 520px)" }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}images/image_8.png`}
+              alt="Mender skincare product collection — body oils, serums and healing balms arranged with natural stones and botanicals"
+              className="absolute inset-0 w-full h-full object-cover object-[center_top]"
+              loading="lazy"
+            />
+            {/* Gradient overlay — fades bottom edge to white, masking the badge zone */}
+            <div
+              className="absolute bottom-0 left-0 right-0"
+              style={{
+                height: "28%",
+                background: "linear-gradient(to top, white 0%, rgba(255,255,255,0.6) 60%, transparent 100%)",
+              }}
+            />
+          </div>
+          <p className="text-center text-xs text-muted-foreground mt-3 italic">
+            Featured skincare: Mender Body Oil, Healing Balm &amp; more — available at LSS Spa &amp; Wellness
+          </p>
+        </motion.div>
       </div>
     </section>
   );
