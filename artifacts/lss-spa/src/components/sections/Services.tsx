@@ -49,7 +49,10 @@ export function Services() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <Card className="overflow-hidden border-border/50 shadow-lg">
+          <Card
+            className="overflow-hidden shadow-[0_8px_40px_rgba(30,90,140,0.13)] border border-[#b8ccd8]"
+            style={{ background: "#f4f7f9" }}
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2">
 
               {/* Left column — real-life equipment photo (spapic1) with spotlight tooltip */}
@@ -65,6 +68,9 @@ export function Services() {
                 <span className="absolute top-3 right-3 w-6 h-6 rounded-full bg-black/60 text-white text-[11px] font-bold flex items-center justify-center select-none cursor-default shadow-sm">
                   ⓘ
                 </span>
+
+                {/* Crisp white inset border + icy glow over the image */}
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_0_2px_rgba(255,255,255,0.85),inset_0_0_24px_rgba(186,224,255,0.18)]" />
 
                 {/* Subtle bottom gradient — visible in idle state */}
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
@@ -84,7 +90,7 @@ export function Services() {
               </div>
 
               {/* Right column — text content, service bullets, no thumbnail */}
-              <div className="p-8 flex flex-col justify-center bg-gradient-to-br from-sky-50 to-white">
+              <div className="p-8 flex flex-col justify-center bg-gradient-to-br from-[#eaf3f8] to-[#f4f7f9]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
                     <Snowflake className="w-6 h-6 text-secondary" />
