@@ -41,8 +41,10 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
-                aria-label="Facebook"
+                href="https://web.facebook.com/profile.php?id=61586956386498"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit LSS Spa & Wellness on Facebook"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
