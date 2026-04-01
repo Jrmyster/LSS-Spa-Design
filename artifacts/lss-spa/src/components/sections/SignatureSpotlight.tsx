@@ -14,6 +14,7 @@ interface SpotlightItem {
   accentColor: string;
   badgeBg: string;
   badgeText: string;
+  spotlight?: { label: string; body: string };
 }
 
 const SPOTLIGHTS: SpotlightItem[] = [
@@ -31,6 +32,10 @@ const SPOTLIGHTS: SpotlightItem[] = [
     accentColor: "amber",
     badgeBg: "bg-amber-100",
     badgeText: "text-amber-800",
+    spotlight: {
+      label: "More Than a Facial",
+      body: "The Diamond Glow™ system is a 3-in-1 advanced skin resurfacing treatment that simultaneously exfoliates, extracts, and infuses skin with professional-grade serums while pores are open and receptive.",
+    },
   },
   {
     badge: "Top Rated",
@@ -128,7 +133,7 @@ function SpotlightCard({ item, index }: { item: SpotlightItem; index: number }) 
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }}
-      className="relative"
+      className="relative group"
     >
       {/* Decorative accent blob behind image */}
       <div
@@ -141,20 +146,36 @@ function SpotlightCard({ item, index }: { item: SpotlightItem; index: number }) 
         <img
           src={item.imageUrl}
           alt={item.imageAlt}
-          className="w-full h-[420px] sm:h-[480px] object-cover object-center"
+          className="w-full h-[420px] sm:h-[480px] object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
           loading="lazy"
         />
 
         {/* Subtle gradient overlay at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/30 to-transparent" />
 
-        {/* Floating label chip */}
-        <div className="absolute bottom-5 left-5">
+        {/* Floating label chip — fades out when spotlight is visible */}
+        <div className="absolute bottom-5 left-5 group-hover:opacity-0 transition-opacity duration-200">
           <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-sm border border-white/60">
             <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
             LSS Spa &amp; Wellness
           </span>
         </div>
+
+        {/* Spotlight caption — slides up from bottom on hover */}
+        {item.spotlight && (
+          <div className="absolute inset-x-0 bottom-0 bg-black/80 backdrop-blur-sm px-6 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+            <p
+              className={`text-[10px] font-bold uppercase tracking-widest mb-2 font-sans ${
+                item.accentColor === "sky" ? "text-sky-300" : "text-amber-300"
+              }`}
+            >
+              {item.spotlight.label}
+            </p>
+            <p className="text-white text-sm font-sans leading-relaxed">
+              {item.spotlight.body}
+            </p>
+          </div>
+        )}
       </div>
     </motion.div>
   );

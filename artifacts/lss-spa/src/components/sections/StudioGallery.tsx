@@ -1,10 +1,21 @@
 import { motion } from "framer-motion";
 
-const GALLERY_PHOTOS = [
+interface GalleryPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+  spotlight?: { label: string; body: string };
+}
+
+const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
     src: "images/spapic2.jpg",
     alt: "LSS Spa treatment room showing the Diamond Glow machine, product shelf and skincare display",
-    caption: "Treatment Suite",
+    caption: "Professional Product Shelf",
+    spotlight: {
+      label: "Curated Care",
+      body: "We exclusively use clinician-vetted brands like Image Skincare and Clarity to ensure your post-treatment results are protected and prolonged at home.",
+    },
   },
   {
     src: "images/spapic3.jpg",
@@ -66,14 +77,36 @@ export function StudioGallery() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              {/* Gradient overlay always present — darkens on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent transition-opacity duration-300" />
-              {/* Caption */}
-              <div className="absolute bottom-0 left-0 right-0 px-5 py-4">
-                <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm">
-                  {photo.caption}
-                </p>
-              </div>
+
+              {/* Base gradient — always present */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+
+              {photo.spotlight ? (
+                <>
+                  {/* Spotlight overlay — slides up on hover, covering the lower half */}
+                  <div className="absolute inset-x-0 bottom-0 bg-black/80 backdrop-blur-sm px-5 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-300 mb-1.5 font-sans">
+                      {photo.spotlight.label}
+                    </p>
+                    <p className="text-white text-xs font-sans leading-relaxed">
+                      {photo.spotlight.body}
+                    </p>
+                  </div>
+                  {/* Caption — visible only when spotlight is not showing */}
+                  <div className="absolute bottom-0 left-0 right-0 px-5 py-4 group-hover:opacity-0 transition-opacity duration-200">
+                    <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </>
+              ) : (
+                /* Regular caption for non-spotlight photos */
+                <div className="absolute bottom-0 left-0 right-0 px-5 py-4">
+                  <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
+                    {photo.caption}
+                  </p>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

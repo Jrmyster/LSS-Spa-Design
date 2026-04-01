@@ -75,18 +75,44 @@ export function Services() {
 
                 {/* Equipment photo + service list side-by-side */}
                 <div className="flex gap-5 items-start mb-4">
-                  {/* spapic1: CryoSkin 3.0 machine + thermal gel */}
-                  <div className="shrink-0 w-28 sm:w-32">
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/spapic1.jpg`}
-                      alt="CryoSkin 3.0 machine handpiece and Artemis Thermal Gel used during treatment"
-                      loading="lazy"
-                      className="w-full rounded-lg shadow-md object-cover"
-                      style={{ aspectRatio: "3 / 4" }}
-                    />
-                    <p className="text-[10px] text-muted-foreground text-center mt-1.5 leading-snug">
+                  {/* spapic1: CryoSkin 3.0 machine + thermal gel — with spotlight tooltip */}
+                  <div className="shrink-0 w-28 sm:w-32 group/cryo relative">
+                    <div className="relative rounded-lg overflow-hidden shadow-md" style={{ aspectRatio: "3 / 4" }}>
+                      <img
+                        src={`${import.meta.env.BASE_URL}images/spapic1.jpg`}
+                        alt="CryoSkin 3.0 machine handpiece and Artemis Thermal Gel used during treatment"
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                      {/* ⓘ info badge — always visible */}
+                      <span className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-black/60 text-white text-[10px] font-bold flex items-center justify-center select-none cursor-default shadow-sm">
+                        ⓘ
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-muted-foreground text-center mt-1.5 leading-snug font-sans">
                       CryoSkin 3.0 &amp; Thermal Gel
                     </p>
+
+                    {/* Spotlight tooltip — slides in above on hover */}
+                    <div
+                      className="
+                        pointer-events-none absolute z-30
+                        bottom-full left-0 mb-2
+                        w-64 rounded-xl shadow-2xl
+                        bg-black/85 backdrop-blur-sm
+                        px-4 py-3
+                        opacity-0 translate-y-1
+                        group-hover/cryo:opacity-100 group-hover/cryo:translate-y-0
+                        transition-all duration-200
+                      "
+                    >
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-sky-300 mb-1.5 font-sans">
+                        The Industry Standard
+                      </p>
+                      <p className="text-white text-[11px] font-sans leading-relaxed">
+                        Our CryoSkin 3.0 device uses precise sub-zero temperatures to destroy fat cells and tighten skin. It is the leading non-invasive alternative to traditional body contouring.
+                      </p>
+                    </div>
                   </div>
 
                   {/* Service list */}
