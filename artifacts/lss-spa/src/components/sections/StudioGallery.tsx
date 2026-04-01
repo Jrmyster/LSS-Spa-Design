@@ -4,35 +4,95 @@ interface GalleryPhoto {
   src: string;
   alt: string;
   caption: string;
+  /** Mobile-only label shown below the caption to hint this is the lead photo */
+  role?: string;
   spotlight?: { label: string; body: string };
+  /** Tailwind col-span classes for sm and lg breakpoints */
+  smSpan?: string;
+  lgSpan?: string;
 }
 
 const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
+    src: "images/spapic4.jpg",
+    alt: "LSS Spa reception and waiting area with 'Dream Big' sign, sunflower accents and warm lighting",
+    caption: "A Warm Welcome",
+    role: "Lead Image",
+    smSpan: "sm:col-span-2",
+    lgSpan: "lg:col-span-2",
+  },
+  {
     src: "images/spapic2.jpg",
     alt: "LSS Spa treatment room showing the Diamond Glow machine, product shelf and skincare display",
-    caption: "Professional Product Shelf",
+    caption: "The Atmosphere",
     spotlight: {
       label: "Curated Care",
       body: "We exclusively use clinician-vetted brands like Image Skincare and Clarity to ensure your post-treatment results are protected and prolonged at home.",
     },
   },
   {
-    src: "images/spapic3.jpg",
-    alt: "LSS Spa studio with treatment bed, magnifying lamp and multi-function facial equipment",
-    caption: "Professional Equipment",
-  },
-  {
-    src: "images/spapic4.jpg",
-    alt: "LSS Spa room with treatment bed, sunflower chair cushion, mirror and warm Tiffany lamp",
-    caption: "Serene Space",
-  },
-  {
     src: "images/spapic5.jpg",
-    alt: "LSS Spa studio overview showing skincare product shelf, treatment cart and warm ambient lighting",
-    caption: "Ambient Studio",
+    alt: "LSS Spa mood-lit treatment bed with soft ambient lighting creating a relaxing spa atmosphere",
+    caption: "The Experience",
+  },
+  {
+    src: "images/spapic3.jpg",
+    alt: "LSS Spa studio with white cabinetry, magnifying lamp and specialized facial equipment stations",
+    caption: "The Technology",
+    smSpan: "sm:col-span-2",
+    lgSpan: "lg:col-span-2",
   },
 ];
+
+function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
+  return (
+    <motion.div
+      key={photo.src}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 h-56 sm:h-64 lg:h-72 ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""}`}
+    >
+      <img
+        src={`${import.meta.env.BASE_URL}${photo.src}`}
+        alt={photo.alt}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+
+      {/* Base gradient — always present */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+      {photo.spotlight ? (
+        <>
+          {/* Spotlight overlay — slides up from bottom on hover */}
+          <div className="absolute inset-x-0 bottom-0 bg-black/80 backdrop-blur-sm px-5 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-amber-300 mb-1.5 font-sans">
+              {photo.spotlight.label}
+            </p>
+            <p className="text-white text-xs font-sans leading-relaxed">
+              {photo.spotlight.body}
+            </p>
+          </div>
+          {/* Caption — fades out when spotlight slides in */}
+          <div className="absolute bottom-0 left-0 right-0 px-5 py-4 group-hover:opacity-0 transition-opacity duration-200">
+            <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
+              {photo.caption}
+            </p>
+          </div>
+        </>
+      ) : (
+        /* Regular caption */
+        <div className="absolute bottom-0 left-0 right-0 px-5 py-4">
+          <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
+            {photo.caption}
+          </p>
+        </div>
+      )}
+    </motion.div>
+  );
+}
 
 export function StudioGallery() {
   return (
@@ -59,55 +119,16 @@ export function StudioGallery() {
           </p>
         </motion.div>
 
-        {/* 2×2 Photo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+        {/*
+          Featured grid layout:
+          Mobile (1-col):  all photos stack in order — spapic4 first ✓
+          sm (2-col):      spapic4 full-width → spapic2 + spapic5 side-by-side → spapic3 full-width
+          lg (3-col):      spapic4 (2/3 wide) | spapic2 (1/3)
+                           spapic5 (1/3)       | spapic3 (2/3 wide)
+        */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {GALLERY_PHOTOS.map((photo, i) => (
-            <motion.div
-              key={photo.src}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-              style={{ aspectRatio: "4 / 3" }}
-            >
-              <img
-                src={`${import.meta.env.BASE_URL}${photo.src}`}
-                alt={photo.alt}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-
-              {/* Base gradient — always present */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-
-              {photo.spotlight ? (
-                <>
-                  {/* Spotlight overlay — slides up on hover, covering the lower half */}
-                  <div className="absolute inset-x-0 bottom-0 bg-black/80 backdrop-blur-sm px-5 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-300 mb-1.5 font-sans">
-                      {photo.spotlight.label}
-                    </p>
-                    <p className="text-white text-xs font-sans leading-relaxed">
-                      {photo.spotlight.body}
-                    </p>
-                  </div>
-                  {/* Caption — visible only when spotlight is not showing */}
-                  <div className="absolute bottom-0 left-0 right-0 px-5 py-4 group-hover:opacity-0 transition-opacity duration-200">
-                    <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
-                      {photo.caption}
-                    </p>
-                  </div>
-                </>
-              ) : (
-                /* Regular caption for non-spotlight photos */
-                <div className="absolute bottom-0 left-0 right-0 px-5 py-4">
-                  <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
-                    {photo.caption}
-                  </p>
-                </div>
-              )}
-            </motion.div>
+            <GalleryItem key={photo.src} photo={photo} index={i} />
           ))}
         </div>
 
