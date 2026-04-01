@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles } from "lucide-react";
+import { X, Sparkles, Copy, Check } from "lucide-react";
 
 const STORAGE_KEY = "lss_email_popup_dismissed";
 
@@ -9,6 +9,15 @@ export function EmailPopup() {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText("GLOW10");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch { /* ignore */ }
+  }
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -158,30 +167,52 @@ export function EmailPopup() {
                     </p>
                   </>
                 ) : (
-                  /* Success state */
+                  /* Success state — reveal GLOW10 with click-to-copy */
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="py-4 text-center"
+                    className="py-2 text-center"
                   >
-                    <div className="flex justify-center mb-4">
-                      <div className="w-16 h-16 rounded-full bg-emerald-50 border-2 border-emerald-200 flex items-center justify-center text-3xl shadow-sm">
-                        ✅
+                    <div className="flex justify-center mb-3">
+                      <div className="w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-200 flex items-center justify-center text-2xl shadow-sm">
+                        🎁
                       </div>
                     </div>
-                    <h3 className="text-2xl font-display text-foreground mb-3 leading-snug">
-                      You're In!
+                    <h3 className="text-xl sm:text-2xl font-display text-foreground mb-1.5 leading-snug">
+                      Your Exclusive Welcome Gift
                     </h3>
-                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6">
-                      Check your inbox! Your{" "}
-                      <span className="font-bold text-foreground">$10 discount code</span> is on its way. ✨
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      Use the code below for{" "}
+                      <span className="font-bold text-foreground">$10 off</span> your first Diamond Glow™ treatment. Tap to copy it before you book!
                     </p>
+
+                    {/* Click-to-copy GLOW10 code */}
+                    <button
+                      onClick={handleCopy}
+                      aria-label="Copy promo code GLOW10"
+                      className="group relative w-full flex items-center justify-center gap-3 bg-yellow-50 border-2 border-yellow-300 rounded-2xl px-6 py-4 mb-1 hover:bg-yellow-100 transition-colors cursor-pointer"
+                    >
+                      <span className="font-mono font-extrabold text-2xl sm:text-3xl text-yellow-700 tracking-[0.18em]">
+                        GLOW10
+                      </span>
+                      <span className="flex items-center gap-1 text-xs font-bold text-yellow-600 bg-yellow-200 rounded-full px-2.5 py-1 shrink-0 transition-colors group-hover:bg-yellow-300">
+                        {copied
+                          ? <><Check className="w-3.5 h-3.5" /> Copied!</>
+                          : <><Copy className="w-3.5 h-3.5" /> Copy</>
+                        }
+                      </span>
+                    </button>
+                    <p className="text-[10px] text-muted-foreground mb-5">
+                      Mention this code to Kim at your appointment to apply your discount.
+                    </p>
+
                     <button
                       onClick={dismiss}
                       className="inline-flex items-center gap-2 rounded-full px-7 py-2.5 font-bold text-sm shadow-md hover:scale-105 transition-all"
                       style={{ backgroundColor: "#FCD34D", color: "#111" }}
                     >
+                      <Sparkles className="w-4 h-4" />
                       Continue Exploring
                     </button>
                   </motion.div>
