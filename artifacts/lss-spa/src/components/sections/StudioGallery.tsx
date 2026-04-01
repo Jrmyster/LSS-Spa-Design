@@ -143,6 +143,39 @@ export function StudioGallery() {
           N89W16800 Appleton Avenue, Menomonee Falls, WI 53051 — inside Peace Yoga Studio &amp; Wellness Center
         </motion.p>
 
+        {/* Gallery CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.15 }}
+          className="mt-12 flex flex-col items-center gap-4"
+        >
+          <p className="text-sm text-muted-foreground text-center max-w-sm leading-relaxed">
+            Private sessions available by appointment. Experience the LSS difference in person.
+          </p>
+          <a
+            href="https://lss-spa-wellness-llc.square.site/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              w-full sm:w-auto
+              inline-flex items-center justify-center
+              px-10 py-4
+              bg-purple-900 text-white
+              border-2 border-amber-400
+              rounded-full
+              text-sm font-bold uppercase tracking-[0.18em]
+              shadow-lg shadow-purple-900/30
+              transition-all duration-200
+              hover:bg-purple-800 hover:scale-[1.03] hover:shadow-xl hover:shadow-purple-900/40
+              active:scale-[0.98]
+            "
+          >
+            Reserve Your Transformation
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );
