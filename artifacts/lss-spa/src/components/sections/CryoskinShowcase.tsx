@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import { Link } from "wouter";
 
 interface ResultCard {
   id: number;
@@ -210,28 +209,22 @@ export function CryoskinShowcase({ showHeader = true }: CryoskinShowcaseProps) {
           ))}
         </div>
 
-        {/* Bottom CTA row */}
+        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-12 text-center"
         >
-          <Link
-            href="/cryoskin-results"
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3 font-bold text-sm bg-foreground text-white hover:bg-foreground/85 transition-colors shadow-md"
-          >
-            View All Cryoskin Results
-            <ArrowRight className="w-4 h-4" />
-          </Link>
           <a
             href="https://lss-spa-wellness-llc.square.site/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3 font-bold text-sm border-2 border-foreground text-foreground hover:bg-foreground hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 font-bold text-sm border-2 border-foreground text-foreground hover:bg-foreground hover:text-white transition-colors shadow-sm"
           >
             Book Your Transformation
+            <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
