@@ -1,17 +1,23 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, Dumbbell, FlaskConical, Store, ExternalLink, ArrowRight } from "lucide-react";
+import { BadgeCheck, Dumbbell, FlaskConical, Store, ExternalLink, ArrowRight, Film } from "lucide-react";
 
 const CREDENTIALS = [
   {
     icon: <Dumbbell className="w-6 h-6 text-sky-500" />,
     label: "Elite Competitor",
-    sub: "Competitive Bodybuilder · Los Angeles",
+    sub: "Competitive Bodybuilder · Gold's Gym LA",
+    color: "border-sky-200 bg-sky-50/60",
+  },
+  {
+    icon: <Film className="w-6 h-6 text-sky-600" />,
+    label: "SAG-AFTRA Member",
+    sub: "Fitness Model · Film & Music Video",
     color: "border-sky-200 bg-sky-50/60",
   },
   {
     icon: <FlaskConical className="w-6 h-6 text-sky-600" />,
-    label: "Science-Backed",
-    sub: "CryoSkin & Diamond Glow™ Specialist",
+    label: "CryoSkin Specialist",
+    sub: "Clinique · Lancôme · Chanel Lines",
     color: "border-sky-200 bg-sky-50/60",
   },
   {
@@ -110,45 +116,59 @@ export function About() {
             {/* Headline */}
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-display text-foreground mb-2 leading-tight">
               Meet Kim:{" "}
-              <span className="text-sky-600">Precision, Discipline,</span>{" "}
-              and Results
+              <span className="text-sky-600">Your Skin &amp; Transformation Expert</span>
             </h2>
             <div className="w-16 h-1 bg-sky-400 rounded-full mb-8 mx-auto md:mx-0" />
 
-            {/* Bio */}
-            <div className="space-y-4 text-base text-muted-foreground mb-8 leading-relaxed">
-              <p className="text-foreground font-semibold text-lg italic border-l-4 border-sky-400 pl-4">
-                "I've spent my career obsessed with one thing: Results."
+            {/* Bio — three generous paragraphs with empathy highlight */}
+            <div className="space-y-5 text-base text-muted-foreground mb-8">
+              <p className="leading-[1.85]">
+                I have worn many hats in my life, but education, skincare, and corrective work are my
+                passions. After living in{" "}
+                <span className="font-semibold text-foreground">California for over two decades</span>,
+                I served as a fitness instructor at{" "}
+                <span className="font-semibold text-foreground">Gold's Gym</span> — the Mecca of
+                Bodybuilding — where I had the privilege of working with many{" "}
+                <span className="font-semibold text-foreground">A-list stars</span>. During my time
+                in Los Angeles, I was a fitness model, a competitive bodybuilder, and a member of{" "}
+                <span className="font-semibold text-foreground">SAG-AFTRA</span>, appearing in films
+                and music videos.
               </p>
-              <p>
-                Before becoming a licensed esthetician, I spent years in{" "}
-                <span className="font-semibold text-foreground">Los Angeles as a competitive bodybuilder</span>.
-                In that world, I learned that true transformation requires discipline, the right tools,
-                and an expert understanding of how the body functions. I know what it takes to sculpt,
-                tone, and push for a "peak" version of yourself.
+
+              <p className="leading-[1.85]">
+                Professionally, I managed sales for multiple companies and represented world-class
+                skincare lines, including{" "}
+                <span className="font-semibold text-foreground">Clinique, Lancôme, and Chanel</span>.
+                But of all my experiences, skin is my true love.
               </p>
-              <p>
-                Today, I've traded the stage for the treatment room, bringing that same{" "}
-                <span className="font-semibold text-foreground">elite level of focus</span> to your skin and body goals.
+
+              {/* Empathy blockquote — the most emotionally resonant sentence */}
+              <blockquote className="border-l-4 border-sky-400 bg-sky-50/80 rounded-r-xl pl-5 pr-4 py-4 my-1">
+                <p className="text-foreground font-semibold text-base italic leading-relaxed">
+                  "Having struggled with cystic acne in the 80s when few solutions existed, I know
+                  firsthand the self-consciousness that comes with skin concerns."
+                </p>
+              </blockquote>
+
+              <p className="leading-[1.85]">
+                Today, we have incredible tools that weren't available years ago. I specialize in{" "}
+                <span className="font-semibold text-foreground">CryoSkin Therapy</span> because the
+                results are truly amazing — whether your goal is to lose inches, tighten, or tone.
+                My facial treatments are designed to{" "}
+                <span className="font-semibold text-foreground">
+                  correct, lift, brighten, and take years off
+                </span>{" "}
+                your appearance.
               </p>
-              <p>
-                At LSS Spa &amp; Wellness, I specialize in high-performance treatments like{" "}
-                <span className="font-semibold text-foreground">CryoSkin and Diamond Glow™</span>. I chose these
-                technologies because they aren't just "pampering" — they are functional, science-backed tools that
-                deliver visible change. Whether we are firming skin with Cryo-Toning or resurfacing with Diamond Glow,
-                my approach is rooted in the same precision I used to transform my own physique.
-              </p>
-              <p>
-                I'm here to help you achieve your best results yet. Let's get started on your transformation.
-              </p>
+
               {/* Signature */}
-              <p className="font-display text-foreground text-base pt-1 border-t border-border/30">
+              <p className="font-display text-foreground text-base pt-2 border-t border-border/30">
                 — Kim Collins, Licensed Esthetician
               </p>
             </div>
 
             {/* Credential badges — cryo-blue theme */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
               {CREDENTIALS.map((c, i) => (
                 <motion.div
                   key={i}
