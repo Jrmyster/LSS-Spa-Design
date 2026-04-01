@@ -59,7 +59,7 @@ export function Services() {
               <div className="group/cryo relative h-72 lg:h-auto overflow-hidden">
                 <img
                   src={`${import.meta.env.BASE_URL}images/spapic1.jpg`}
-                  alt="CryoSkin 3.0 handpiece and Artemis Thermal Gel used during treatment at LSS Spa"
+                  alt="CryoSkin 3.0 machine at LSS Spa &amp; Wellness Menomonee Falls, WI — handpiece and Artemis Thermal Gel"
                   loading="lazy"
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover/cryo:scale-[1.03]"
                 />
@@ -136,7 +136,7 @@ export function Services() {
               <div className="h-48 overflow-hidden">
                 <img 
                   src={`${import.meta.env.BASE_URL}images/service-facial.png`} 
-                  alt="Facial Treatments"
+                  alt="Corrective facial skincare treatments at LSS Spa &amp; Wellness, Menomonee Falls WI"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
@@ -179,7 +179,7 @@ export function Services() {
               <div className="h-48 overflow-hidden">
                 <img 
                   src={`${import.meta.env.BASE_URL}images/service-addons.png`} 
-                  alt="Treatment Add-Ons"
+                  alt="Facial treatment add-ons including Diamond Glow, LED therapy and NuFACE at LSS Spa &amp; Wellness Menomonee Falls"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />

@@ -9,7 +9,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src={`${import.meta.env.BASE_URL}images/hero-spa.png`}
-          alt="Bright and clean spa interior"
+          alt="Serene and professional treatment room interior at LSS Spa & Wellness, Menomonee Falls WI"
           className="w-full h-full object-cover object-center"
         />
         {/* Soft warm gradient overlay to ensure text readability */}
@@ -35,7 +35,10 @@ export function Hero() {
             className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-[1.1] mb-6 text-balance"
           >
             Welcome to LSS <br className="hidden md:block" />
-            <span className="text-secondary italic">Spa & Wellness</span>
+            <span className="text-secondary italic">Spa &amp; Wellness</span>
+            <span className="block text-lg md:text-xl font-sans font-normal not-italic text-muted-foreground mt-2 tracking-wide">
+              in Menomonee Falls, WI
+            </span>
           </motion.h1>
 
           <motion.p
