@@ -15,6 +15,7 @@ import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
 import { Gallery } from "@/components/sections/Gallery";
 import { SocialCommunity } from "@/components/sections/SocialCommunity";
 import { Contact } from "@/components/sections/Contact";
+import { FirstVisit } from "@/components/sections/FirstVisit";
 import { Footer } from "@/components/Footer";
 import { FloatingBookButton } from "@/components/FloatingBookButton";
 import { EmailPopup } from "@/components/EmailPopup";
@@ -41,6 +42,7 @@ export default function Home() {
         <SocialCommunity />
         <Contact />
         <SeriesPackages />
+        <FirstVisit />
       </main>
 
       <Footer />
