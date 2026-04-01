@@ -61,6 +61,9 @@ function htmlEmail(name: string, couponCode: string): string {
                 and discipline can change a physique. I've brought that same <em>'results-first'</em>
                 philosophy to Menomonee Falls to help you look and feel your absolute best.
               </p>
+              <p style="margin:0 0 16px 0;font-size:15px;color:#444;line-height:1.7;">
+                <strong style="color:#1a1a2e;">CryoSlimming</strong> — Experience our non-invasive CryoSlimming technology, which uses localized cold therapy to naturally break down stubborn fat cells and contour your silhouette with zero downtime.
+              </p>
             </td>
           </tr>
 
