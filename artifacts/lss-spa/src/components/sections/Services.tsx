@@ -56,6 +56,7 @@ export function Services() {
                   src={`${import.meta.env.BASE_URL}images/service-cryo.png`} 
                   alt="CryoSkin Therapy"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="p-8 flex flex-col justify-center bg-gradient-to-br from-sky-50 to-white">
@@ -71,18 +72,38 @@ export function Services() {
                 <p className="text-muted-foreground mb-6">
                   CryoSkin uses cold temperatures to permanently destroy fat cells, improve skin tone, and reduce the appearance of cellulite — with NO downtime, surgery, or discomfort. A safe & effective way to help your body respond when diet and exercise aren't enough.
                 </p>
-                <ul className="space-y-3">
-                  {CRYOSKIN_SERVICES.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0"></div>
-                      <div>
-                        <span className="font-semibold text-foreground">{item.name}</span>
-                        <span className="text-muted-foreground text-sm"> — {item.description}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-xs text-muted-foreground italic">Pricing varies by area & package. Contact us for a free consultation.</p>
+
+                {/* Equipment photo + service list side-by-side */}
+                <div className="flex gap-5 items-start mb-4">
+                  {/* spapic1: CryoSkin 3.0 machine + thermal gel */}
+                  <div className="shrink-0 w-28 sm:w-32">
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/spapic1.jpg`}
+                      alt="CryoSkin 3.0 machine handpiece and Artemis Thermal Gel used during treatment"
+                      loading="lazy"
+                      className="w-full rounded-lg shadow-md object-cover"
+                      style={{ aspectRatio: "3 / 4" }}
+                    />
+                    <p className="text-[10px] text-muted-foreground text-center mt-1.5 leading-snug">
+                      CryoSkin 3.0 &amp; Thermal Gel
+                    </p>
+                  </div>
+
+                  {/* Service list */}
+                  <ul className="flex-1 space-y-3">
+                    {CRYOSKIN_SERVICES.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-foreground">{item.name}</span>
+                          <span className="text-muted-foreground text-sm"> — {item.description}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className="text-xs text-muted-foreground italic">Pricing varies by area & package. Contact us for a free consultation.</p>
               </div>
             </div>
           </Card>
@@ -103,6 +124,7 @@ export function Services() {
                   src={`${import.meta.env.BASE_URL}images/service-facial.png`} 
                   alt="Facial Treatments"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
               </div>
               <CardHeader className="pb-2">
@@ -145,6 +167,7 @@ export function Services() {
                   src={`${import.meta.env.BASE_URL}images/service-addons.png`} 
                   alt="Treatment Add-Ons"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
               </div>
               <CardHeader className="pb-2">

@@ -25,9 +25,8 @@ const SPOTLIGHTS: SpotlightItem[] = [
       "This next-level treatment simultaneously exfoliates, extracts, and infuses the skin with professional-grade serums. It's designed to improve skin health, leaving you with a radiant, lasting glow.",
     bestFor: "Deep cleaning, hydration, and an instant 'red-carpet' finish.",
     ctaLabel: "Experience the Glow",
-    imageUrl:
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=90&auto=format&fit=crop",
-    imageAlt: "Luxurious Diamond Glow facial treatment at LSS Spa",
+    imageUrl: `${import.meta.env.BASE_URL}images/spapic6.jpg`,
+    imageAlt: "Diamond Glow™ infusion machine inside the LSS Spa treatment room",
     flip: false,
     accentColor: "amber",
     badgeBg: "bg-amber-100",

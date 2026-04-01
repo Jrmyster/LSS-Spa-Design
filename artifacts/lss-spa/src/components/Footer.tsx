@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Navigation, FileText } from "lucide-react";
+import { MapPin, Phone, Mail, Navigation, FileText, Clock } from "lucide-react";
 import { Link } from "wouter";
 import { QRCodeLightbox } from "@/components/QRCodeLightbox";
 
@@ -121,6 +121,36 @@ export function Footer() {
             </ul>
           </div>
 
+        </div>
+
+        {/* Hours of Operation */}
+        <div className="border-t border-white/10 pt-10 pb-8">
+          <div className="flex flex-col md:flex-row md:items-start gap-8 max-w-xl mx-auto md:mx-0">
+            <div className="flex items-center gap-2 shrink-0 md:pt-1">
+              <Clock className="w-4 h-4 text-primary" />
+              <h4 className="text-white font-semibold text-base uppercase tracking-wider">Hours of Operation</h4>
+            </div>
+            <table className="w-full text-sm text-white/70 border-collapse">
+              <tbody>
+                {[
+                  { day: "Tuesday", hours: "2:00 pm – 8:00 pm" },
+                  { day: "Wednesday", hours: "2:00 pm – 8:00 pm" },
+                  { day: "Thursday", hours: "2:00 pm – 8:00 pm" },
+                  { day: "Friday", hours: "Closed" },
+                  { day: "Saturday", hours: "11:00 am – 6:00 pm" },
+                  { day: "Sunday", hours: "1:00 pm – 6:00 pm" },
+                  { day: "Monday", hours: "Closed" },
+                ].map(({ day, hours }) => (
+                  <tr key={day} className="border-b border-white/[0.07] last:border-0">
+                    <td className="py-2 pr-6 font-medium text-white/90 w-32">{day}</td>
+                    <td className={`py-2 ${hours === "Closed" ? "text-white/40 italic" : "text-white/70"}`}>
+                      {hours}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* QR Code — Book on the Go */}

@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { SpringSaleHero } from "@/components/sections/SpringSaleHero";
 import { Services } from "@/components/sections/Services";
+import { StudioGallery } from "@/components/sections/StudioGallery";
 import { SignatureSpotlight } from "@/components/sections/SignatureSpotlight";
 import { About } from "@/components/sections/About";
 import { Specials } from "@/components/sections/Specials";
@@ -28,6 +29,7 @@ export default function Home() {
         <Hero />
         <SpringSaleHero />
         <Services />
+        <StudioGallery />
         <CryoSkinScience />
         <CryoFAQ />
         <SignatureSpotlight />
