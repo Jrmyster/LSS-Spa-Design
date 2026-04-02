@@ -18,7 +18,7 @@ const CARDS: ResultCard[] = [
     concern: "Texture on Forehead & Cheek",
     sessions: "1 Treatment",
     description:
-      "Results following 1 DiamondGlow® treatment with SKINMEDICA® HA² Hydra Collagen Pro-Infusion Serum with Vegan Collagen and a curated SkinMedica® skincare regimen.",
+      "Results following 1 DiamondGlow® treatment with Hydra Collagen Pro-Infusion Serum and a curated professional skincare regimen.",
     disclaimer: "24 hours post-treatment · Unretouched parallel-polarized lighting photos.",
   },
   {
@@ -27,7 +27,7 @@ const CARDS: ResultCard[] = [
     concern: "Texture, Fine Lines & Overall Glow",
     sessions: "3 Treatments",
     description:
-      "Results following 3 DiamondGlow® treatments with SKINMEDICA® HA² Hydra Collagen Pro-Infusion Serum with Vegan Collagen administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+      "Results following 3 DiamondGlow® treatments with Hydra Collagen Pro-Infusion Serum administered 2 weeks apart.",
     disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
   },
   {
@@ -36,7 +36,7 @@ const CARDS: ResultCard[] = [
     concern: "Brighter & Smoother Skin",
     sessions: "1 Treatment",
     description:
-      "Results following 1 DiamondGlow® treatment with SKINMEDICA® TNS® Advanced+ Pro-Infusion Serum and a curated SkinMedica® skincare regimen.",
+      "Results following 1 DiamondGlow® treatment with Advanced+ Pro-Infusion Serum and a professional skincare regimen.",
     disclaimer: "15 minutes post-treatment · Unretouched parallel-polarized lighting photos.",
   },
   {
@@ -45,7 +45,7 @@ const CARDS: ResultCard[] = [
     concern: "Visible Hyperpigmentation",
     sessions: "3 Treatments",
     description:
-      "Results following 3 DiamondGlow® treatments with SKINMEDICA® Even & Correct Advanced Brightening Pro-Infusion Serum administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+      "Results following 3 DiamondGlow® treatments with Even & Correct Advanced Brightening Pro-Infusion Serum administered 2 weeks apart.",
     disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
   },
   {
@@ -54,7 +54,7 @@ const CARDS: ResultCard[] = [
     concern: "Congested Skin & Visible Redness",
     sessions: "2 Treatments",
     description:
-      "Results following 2 DiamondGlow® treatments with SKINMEDICA® Pore Purifying Pro-Infusion Serum administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+      "Results following 2 DiamondGlow® treatments with Pore Purifying Pro-Infusion Serum and a curated professional skincare regimen.",
     disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
   },
   {
@@ -63,7 +63,7 @@ const CARDS: ResultCard[] = [
     concern: "Forehead Lines",
     sessions: "5 Treatments",
     description:
-      "Results following 5 DiamondGlow® treatments with SKINMEDICA® TNS® Advanced+ Pro-Infusion Serum administered 2 weeks apart and a curated SkinMedica® skincare regimen.",
+      "Results following 5 DiamondGlow® treatments with Advanced+ Pro-Infusion Serum administered 2 weeks apart.",
     disclaimer: "Treatments spaced 2 weeks apart · Unretouched parallel-polarized lighting photos.",
   },
 ];
