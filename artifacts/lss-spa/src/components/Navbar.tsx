@@ -112,6 +112,21 @@ export function Navbar() {
             className="md:hidden border-t border-border bg-white"
           >
             <div className="px-4 py-4 flex flex-col gap-1">
+              {/* Book Now — prominent at the top of the mobile menu */}
+              <div className="pb-3 mb-1 border-b border-border">
+                <Button asChild className="w-full rounded-full text-base py-6 shadow-lg shadow-primary/20">
+                  <a
+                    href="https://lss-spa-wellness-llc.square.site/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Book an Appointment
+                  </a>
+                </Button>
+              </div>
+
+              {/* Nav links */}
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
@@ -122,7 +137,9 @@ export function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <div className="pt-3 flex flex-col gap-2">
+
+              {/* Phone */}
+              <div className="pt-3">
                 <a
                   href="tel:+18339245620"
                   className="flex items-center justify-center gap-2 py-3 rounded-full border border-border text-sm font-semibold text-foreground hover:bg-muted transition-colors"
@@ -131,16 +148,6 @@ export function Navbar() {
                   <Phone className="w-4 h-4 text-secondary" />
                   (833) 924-5620
                 </a>
-                <Button asChild className="w-full rounded-full">
-                  <a
-                    href="https://lss-spa-wellness-llc.square.site/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Book an Appointment
-                  </a>
-                </Button>
               </div>
             </div>
           </motion.div>

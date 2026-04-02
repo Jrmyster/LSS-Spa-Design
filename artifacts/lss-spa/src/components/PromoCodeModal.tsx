@@ -80,7 +80,7 @@ export function PromoCodeModal({ onClose }: Props) {
         className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
       >
         <div
-          className="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden pointer-events-auto"
+          className="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden pointer-events-auto max-h-[85vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Top accent strip */}
