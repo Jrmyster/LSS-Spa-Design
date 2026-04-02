@@ -235,7 +235,7 @@ export function Services() {
           </p>
         </motion.div>
 
-        {/* Product showcase banner — badge masked by overflow crop */}
+        {/* Professional Products — two-column card: photo left, expert copy right, CTA below */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -243,35 +243,51 @@ export function Services() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-14"
         >
-          {/*
-            Container height is intentionally set to ~84% of the image's aspect ratio.
-            object-position: center top anchors the visible area to the top of the photo,
-            so the bottom edge (including the "LSS Spa & Wellness" badge) is hidden
-            by the overflow: hidden clip without any hard cutout.
-            The gradient overlay softens the bottom edge for a finished look.
-          */}
-          <div
-            className="relative w-full overflow-hidden rounded-2xl shadow-lg"
-            style={{ height: "clamp(220px, 42vw, 520px)" }}
-          >
-            <img
-              src={`${import.meta.env.BASE_URL}images/spapic2.jpg`}
-              alt="Professional skincare retail display and product shelf inside LSS Spa &amp; Wellness, Menomonee Falls WI — featuring Diamond Glow machine and curated skincare brands"
-              className="absolute inset-0 w-full h-full object-cover object-center"
-              loading="lazy"
-            />
-            {/* Gradient overlay — fades bottom edge to white, masking the badge zone */}
-            <div
-              className="absolute bottom-0 left-0 right-0"
-              style={{
-                height: "28%",
-                background: "linear-gradient(to top, white 0%, rgba(255,255,255,0.6) 60%, transparent 100%)",
-              }}
-            />
-          </div>
-          <p className="text-center text-xs text-muted-foreground mt-3 italic">
-            Our curated professional skincare retail display — LSS Spa &amp; Wellness, Menomonee Falls WI
-          </p>
+          <Card className="overflow-hidden border-border/50 shadow-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              {/* Left: retail display photo */}
+              <div className="relative h-64 lg:h-auto min-h-[280px] overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/spapic2.jpg`}
+                  alt="Professional skincare retail display and product shelf inside LSS Spa &amp; Wellness, Menomonee Falls WI — featuring Diamond Glow machine and curated skincare brands"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Right: heading, description, CTA */}
+              <div className="p-8 flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-display text-foreground">Professional Products</h3>
+                    <p className="text-primary text-sm font-semibold uppercase tracking-wide">Clinical Grade Skincare</p>
+                  </div>
+                </div>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Great results don't end when you leave the treatment room. That's why we carry
+                  clinician-vetted brands like <strong className="text-foreground">Image Skincare</strong> and{" "}
+                  <strong className="text-foreground">Clarity</strong> — professional-grade formulas designed
+                  to protect and prolong your results at home. Proper post-care isn't optional; it's the
+                  difference between a good treatment and a lasting transformation.
+                </p>
+
+                <div className="mt-5 text-center lg:text-left">
+                  <a
+                    href="https://lss-spa-wellness-llc.square.site/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-8 py-3.5 rounded-full font-bold text-sm tracking-widest uppercase bg-primary text-primary-foreground shadow-md hover:brightness-105 transition-all duration-200"
+                  >
+                    Experience Clinical Care
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Card>
         </motion.div>
       </div>
     </section>
