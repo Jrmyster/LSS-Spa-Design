@@ -176,13 +176,20 @@ export function Services() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Card className="h-full border-border/50 shadow-lg overflow-hidden group">
-              <div className="h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={`${import.meta.env.BASE_URL}images/spapic5.jpg`} 
-                  alt="Professional treatment equipment station at LSS Spa &amp; Wellness, Menomonee Falls WI"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  src={`${import.meta.env.BASE_URL}images/spapic8.jpg`} 
+                  alt="Official Diamond Glow™ machine console on cart at LSS Spa &amp; Wellness, Menomonee Falls WI — medical-grade exfoliation, extraction and serum infusion technology"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
+                {/* Diamond Glow™ badge */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-300">
+                    <Sparkles className="w-3 h-3" />
+                    Official Diamond Glow™ Technology — Now Available!
+                  </span>
+                </div>
               </div>
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-3 mb-1">
@@ -245,12 +252,12 @@ export function Services() {
         >
           <Card className="overflow-hidden border-border/50 shadow-lg">
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              {/* Left: retail display photo */}
+              {/* Left: actual product shelf photo */}
               <div className="relative h-64 lg:h-auto min-h-[280px] overflow-hidden">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/spapic2.jpg`}
-                  alt="Professional skincare retail display and product shelf inside LSS Spa &amp; Wellness, Menomonee Falls WI — featuring Diamond Glow machine and curated skincare brands"
-                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-[1.03]"
+                  src={`${import.meta.env.BASE_URL}images/spapic7.jpg`}
+                  alt="Clarity and Image Skincare professional product display shelf at LSS Spa &amp; Wellness, Menomonee Falls WI — serums, moisturizers and clinical-grade skincare lined up beneath decorative wall art"
+                  className="w-full h-full object-cover object-bottom transition-transform duration-500 hover:scale-[1.03]"
                   loading="lazy"
                 />
               </div>
