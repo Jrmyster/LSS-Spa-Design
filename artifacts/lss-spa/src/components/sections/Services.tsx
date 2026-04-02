@@ -178,9 +178,9 @@ export function Services() {
             <Card className="h-full border-border/50 shadow-lg overflow-hidden group">
               <div className="h-48 overflow-hidden">
                 <img 
-                  src={`${import.meta.env.BASE_URL}images/service-addons.png`} 
-                  alt="Facial treatment add-ons including Diamond Glow, LED therapy and NuFACE at LSS Spa &amp; Wellness Menomonee Falls"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src={`${import.meta.env.BASE_URL}images/spapic5.jpg`} 
+                  alt="Professional treatment equipment station at LSS Spa &amp; Wellness, Menomonee Falls WI"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
               </div>
