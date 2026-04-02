@@ -32,8 +32,10 @@ export function Footer() {
             {/* Social icons */}
             <div className="flex gap-3">
               <a
-                href="#"
-                aria-label="Instagram"
+                href="https://www.instagram.com/collinskimmarie/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit LSS Spa & Wellness on Instagram"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
