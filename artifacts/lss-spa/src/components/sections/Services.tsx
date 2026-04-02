@@ -255,9 +255,9 @@ export function Services() {
             style={{ height: "clamp(220px, 42vw, 520px)" }}
           >
             <img
-              src={`${import.meta.env.BASE_URL}images/image_8.png`}
-              alt="Mender skincare product collection — body oils, serums and healing balms arranged with natural stones and botanicals"
-              className="absolute inset-0 w-full h-full object-cover object-[center_top]"
+              src={`${import.meta.env.BASE_URL}images/spapic2.jpg`}
+              alt="Professional skincare retail display and product shelf inside LSS Spa &amp; Wellness, Menomonee Falls WI — featuring Diamond Glow machine and curated skincare brands"
+              className="absolute inset-0 w-full h-full object-cover object-center"
               loading="lazy"
             />
             {/* Gradient overlay — fades bottom edge to white, masking the badge zone */}
@@ -270,7 +270,7 @@ export function Services() {
             />
           </div>
           <p className="text-center text-xs text-muted-foreground mt-3 italic">
-            Featured skincare: Mender Body Oil, Healing Balm &amp; more — available at LSS Spa &amp; Wellness
+            Our curated professional skincare retail display — LSS Spa &amp; Wellness, Menomonee Falls WI
           </p>
         </motion.div>
       </div>
