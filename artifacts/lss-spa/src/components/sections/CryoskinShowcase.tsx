@@ -166,13 +166,13 @@ function FeaturedResultCard({ card, index }: { card: ResultCard; index: number }
       transition={{ duration: 0.55, delay: index * 0.12 }}
       className="flex flex-col md:flex-row rounded-3xl overflow-hidden border border-amber-200/70 bg-white shadow-lg shadow-amber-100/60 hover:shadow-xl hover:shadow-amber-200/70 transition-shadow duration-300"
     >
-      {/* Left: image */}
-      <div className="relative md:w-2/5 overflow-hidden bg-amber-50 shrink-0">
+      {/* Left: image — full native aspect ratio, no crop */}
+      <div className="relative md:w-2/5 bg-amber-50 shrink-0 flex flex-col">
         <img
           src={`${import.meta.env.BASE_URL}${card.image}`}
           alt={card.imageAlt}
-          className="w-full h-full object-cover object-top"
-          style={{ minHeight: "320px", imageRendering: "crisp-edges" }}
+          className="w-full h-auto block"
+          style={{ imageRendering: "crisp-edges" }}
           loading="lazy"
         />
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm">
