@@ -26,7 +26,7 @@ const CARDS: ResultCard[] = [
     imageAlt: "CryoToning before and after neck results at LSS Spa & Wellness, Menomonee Falls WI — visibly firmer, lifted skin after treatment",
     caption: "Before / After",
     description:
-      "Focuses on firming the body and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
+      "Focuses on firming the face and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
     captionStrip: "CryoToning neck results — before and after showing visibly firmer, lifted skin.",
     bullets: [
       "Firm and Lift Sagging Neck Skin",
