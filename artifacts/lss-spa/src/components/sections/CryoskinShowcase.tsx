@@ -22,7 +22,7 @@ const CARDS: ResultCard[] = [
     id: 1,
     title: "CryoToning",
     subtitle: "Firm, Tighten & Smooth Skin",
-    image: "images/cryotoning.jpg",
+    image: "images/cryotoning-full.jpg",
     imageAlt: "CryoToning before and after neck results at LSS Spa & Wellness, Menomonee Falls WI — visibly firmer, lifted skin after treatment",
     caption: "Before / After",
     description:
@@ -166,13 +166,21 @@ function FeaturedResultCard({ card, index }: { card: ResultCard; index: number }
       transition={{ duration: 0.55, delay: index * 0.12 }}
       className="flex flex-col md:flex-row rounded-3xl overflow-hidden border border-amber-200/70 bg-white shadow-lg shadow-amber-100/60 hover:shadow-xl hover:shadow-amber-200/70 transition-shadow duration-300"
     >
-      {/* Left: image — full native aspect ratio, no crop */}
-      <div className="relative md:w-2/5 bg-amber-50 shrink-0 flex flex-col">
+      {/* Left: image — full native aspect ratio, zero height constraints */}
+      <div
+        className="relative md:w-2/5 bg-amber-50 shrink-0"
+        style={{ height: "auto", maxHeight: "none", overflow: "visible" }}
+      >
         <img
           src={`${import.meta.env.BASE_URL}${card.image}`}
           alt={card.imageAlt}
-          className="w-full h-auto block"
-          style={{ imageRendering: "crisp-edges" }}
+          className="block"
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: "none",
+            display: "block",
+          }}
           loading="lazy"
         />
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm">
