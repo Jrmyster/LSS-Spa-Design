@@ -164,22 +164,36 @@ function FeaturedResultCard({ card, index }: { card: ResultCard; index: number }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: index * 0.12 }}
-      className="flex flex-col md:flex-row rounded-3xl overflow-hidden border border-amber-200/70 bg-white shadow-lg shadow-amber-100/60 hover:shadow-xl hover:shadow-amber-200/70 transition-shadow duration-300"
+      className="flex flex-col md:flex-row rounded-3xl border border-amber-200/70 bg-white shadow-lg shadow-amber-100/60 hover:shadow-xl hover:shadow-amber-200/70 transition-shadow duration-300 overflow-hidden"
     >
-      {/* Left: image — full native aspect ratio, zero height constraints */}
-      <div
-        className="relative md:w-2/5 bg-amber-50 shrink-0"
-        style={{ height: "auto", maxHeight: "none", overflow: "visible" }}
-      >
+      {/* ── Mobile image: full natural height, no constraints ── */}
+      <div className="md:hidden relative bg-amber-50">
         <img
           src={`${import.meta.env.BASE_URL}${card.image}`}
           alt={card.imageAlt}
-          className="block"
           style={{
+            display: "block",
             width: "100%",
             height: "auto",
             maxHeight: "none",
+          }}
+          loading="lazy"
+        />
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm">
+          {card.caption}
+        </div>
+      </div>
+
+      {/* ── Desktop image: 2/5 column, natural height ── */}
+      <div className="hidden md:block relative md:w-2/5 bg-amber-50 shrink-0">
+        <img
+          src={`${import.meta.env.BASE_URL}${card.image}`}
+          alt={card.imageAlt}
+          style={{
             display: "block",
+            width: "100%",
+            height: "auto",
+            maxHeight: "none",
           }}
           loading="lazy"
         />
@@ -189,7 +203,7 @@ function FeaturedResultCard({ card, index }: { card: ResultCard; index: number }
       </div>
 
       {/* Right: content */}
-      <div className="flex flex-col flex-1 p-7 md:p-10 justify-center">
+      <div className="flex flex-col flex-1 p-6 md:p-10 justify-center">
         <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">
           {card.title}
         </p>
