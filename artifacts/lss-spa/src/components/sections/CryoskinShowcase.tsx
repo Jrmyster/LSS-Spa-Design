@@ -8,6 +8,7 @@ interface ResultCard {
   image: string;
   imageAlt: string;
   caption: string;
+  description?: string;
   bullets: string[];
   ctaLabel: string;
   /** padding-bottom % to use as a height-constrained image container (hides bottom artifact) */
@@ -19,11 +20,14 @@ interface ResultCard {
 const CARDS: ResultCard[] = [
   {
     id: 1,
-    title: "Cryo-Toning",
-    subtitle: "Neck Results",
-    image: "images/cryotoning.png",
-    imageAlt: "Before and after Cryo-Toning neck treatment showing lifted, firmer skin",
-    caption: "Before / Now",
+    title: "CryoToning",
+    subtitle: "Firm, Tighten & Smooth Skin",
+    image: "images/cryotoning.jpg",
+    imageAlt: "CryoToning before and after neck results at LSS Spa & Wellness, Menomonee Falls WI — visibly firmer, lifted skin after treatment",
+    caption: "Before / After",
+    description:
+      "Focuses on firming the body and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
+    captionStrip: "CryoToning neck results — before and after showing visibly firmer, lifted skin.",
     bullets: [
       "Firm and Lift Sagging Neck Skin",
       "Reduce the Appearance of 'Turkey Neck'",
@@ -153,6 +157,76 @@ function ResultCard({ card, index }: { card: ResultCard; index: number }) {
   );
 }
 
+function FeaturedResultCard({ card, index }: { card: ResultCard; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, delay: index * 0.12 }}
+      className="flex flex-col md:flex-row rounded-3xl overflow-hidden border border-amber-200/70 bg-white shadow-lg shadow-amber-100/60 hover:shadow-xl hover:shadow-amber-200/70 transition-shadow duration-300"
+    >
+      {/* Left: image */}
+      <div className="relative md:w-2/5 overflow-hidden bg-amber-50 shrink-0">
+        <img
+          src={`${import.meta.env.BASE_URL}${card.image}`}
+          alt={card.imageAlt}
+          className="w-full h-full object-cover object-top"
+          style={{ minHeight: "320px", imageRendering: "crisp-edges" }}
+          loading="lazy"
+        />
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm">
+          {card.caption}
+        </div>
+      </div>
+
+      {/* Right: content */}
+      <div className="flex flex-col flex-1 p-7 md:p-10 justify-center">
+        <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">
+          {card.title}
+        </p>
+        <h3 className="text-2xl md:text-3xl font-display text-foreground leading-snug mb-4">
+          {card.subtitle}
+        </h3>
+
+        {card.description && (
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+            {card.description}
+          </p>
+        )}
+
+        {card.captionStrip && (
+          <div className="flex items-center gap-2.5 bg-[#f3e4c0] border border-amber-200 rounded-xl px-4 py-3 mb-5">
+            <CheckCircle2 className="w-4 h-4 text-amber-700 shrink-0" />
+            <p className="text-xs font-bold text-amber-900 tracking-wide italic">
+              {card.captionStrip}
+            </p>
+          </div>
+        )}
+
+        <ul className="space-y-2.5 mb-6">
+          {card.bullets.map((b, i) => (
+            <li key={i} className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground leading-snug">{b}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="https://lss-spa-wellness-llc.square.site/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 self-start rounded-xl py-3 px-6 text-sm font-bold border-2 border-amber-400 text-amber-700 bg-amber-50 hover:bg-amber-400 hover:text-white transition-all duration-200 group"
+        >
+          {card.ctaLabel}
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+      </div>
+    </motion.div>
+  );
+}
+
 interface CryoskinShowcaseProps {
   /** If true, shows the full header with badge; set false when embedded in a standalone page */
   showHeader?: boolean;
@@ -202,10 +276,15 @@ export function CryoskinShowcase({ showHeader = true }: CryoskinShowcaseProps) {
           </div>
         )}
 
-        {/* Three cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {CARDS.map((card, i) => (
-            <ResultCard key={card.id} card={card} index={i} />
+        {/* Featured Cryo-Toning card — full width, horizontal layout */}
+        <div className="mb-6 lg:mb-8">
+          <FeaturedResultCard card={CARDS[0]} index={0} />
+        </div>
+
+        {/* Remaining cards — Cryo-Facial & Cryo-Smooth side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {CARDS.slice(1).map((card, i) => (
+            <ResultCard key={card.id} card={card} index={i + 1} />
           ))}
         </div>
 
