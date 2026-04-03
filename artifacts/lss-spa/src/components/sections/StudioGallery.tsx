@@ -42,6 +42,17 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     smSpan: "sm:col-span-2",
     lgSpan: "lg:col-span-2",
   },
+  {
+    src: "images/spapic9.jpg",
+    alt: "Your Sanctuary of Advanced Skincare: The private treatment suite at LSS Spa & Wellness, Menomonee Falls WI — featuring professional clinical modalities, white cabinetry, sunflower accent décor and a serene atmosphere",
+    caption: "The Suite",
+    smSpan: "sm:col-span-2",
+    lgSpan: "lg:col-span-3",
+    spotlight: {
+      label: "Your Private Sanctuary",
+      body: "A fully equipped treatment suite designed for both precision and peace — multiple clinical modalities, warm ambient lighting, and a serene atmosphere that makes every visit feel like an escape.",
+    },
+  },
 ];
 
 function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
