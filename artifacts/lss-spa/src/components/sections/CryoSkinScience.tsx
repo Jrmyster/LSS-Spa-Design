@@ -39,7 +39,7 @@ const TREATMENTS: TreatmentCard[] = [
     name: "CryoToning",
     tagline: "Firm, Tighten & Smooth Skin",
     description:
-      "Focuses on firming the body and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
+      "Focuses on firming the face and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
     photos: [
       {
         image: "images/cryotoning.png",

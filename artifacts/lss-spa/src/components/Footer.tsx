@@ -27,7 +27,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-white/60 text-sm max-w-xs mb-5">
-              Specializing in corrective skincare and advanced CryoSkin body contouring therapies.
+              Specializing in corrective skincare and advanced CryoSkin face contouring therapies.
             </p>
             {/* Social icons */}
             <div className="flex gap-3">
