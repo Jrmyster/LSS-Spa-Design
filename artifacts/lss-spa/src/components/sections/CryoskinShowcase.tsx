@@ -190,10 +190,17 @@ function FeaturedResultCard({ card, index }: { card: ResultCard; index: number }
         </h3>
 
         {card.description && (
-          <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
             {card.description}
           </p>
         )}
+
+        {/* Pro-Tip — expert insight note */}
+        <p className="text-[11px] italic leading-relaxed mb-5" style={{ color: "#b8922a" }}>
+          <span className="font-bold not-italic">Pro-Tip:</span>{" "}
+          While results can often be seen after one visit, a series of 3–5 sessions is typically
+          recommended to achieve maximum lifting and smoothing effects.
+        </p>
 
         {card.captionStrip && (
           <div className="flex items-center gap-2.5 bg-[#f3e4c0] border border-amber-200 rounded-xl px-4 py-3 mb-5">
