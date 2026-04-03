@@ -11,7 +11,7 @@ const RESULTS = [
     image: "diamondglow-results.jpg",
     label: "Diamond Glow™",
     caption: "Clinical Results",
-    alt: "Diamond Glow before and after — visible skin clarity and radiance at LSS Spa & Wellness",
+    alt: "Diamond Glow™ before and after — demonstrating visible skin clarity and radiance.",
     border: "border-amber-300",
     badge: "bg-amber-100 text-amber-800 border-amber-300",
   },
@@ -19,7 +19,7 @@ const RESULTS = [
     image: "cryofacial.png",
     label: "Cryo-Facial",
     caption: "Clinical Results",
-    alt: "CryoFacial treatment results — visible skin tightening and lifting at LSS Spa & Wellness",
+    alt: "Cryo-Facial treatment results — showcasing the visible skin tightening and lifting power of localized cryotherapy.",
     border: "border-violet-300",
     badge: "bg-violet-100 text-violet-800 border-violet-300",
   },
@@ -68,7 +68,7 @@ export function SocialCommunity() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl sm:text-5xl font-display text-foreground mb-4"
           >
-            🌻 Real Results, Real People
+            ✦ Proven Technology, Visible Results
           </motion.h2>
 
           <motion.p
@@ -78,8 +78,9 @@ export function SocialCommunity() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            We are proud of the transformations our clients achieve at LSS Spa &amp; Wellness.
-            We prefer to let our actual results speak for themselves.
+            At LSS Spa &amp; Wellness, we utilize industry-leading technology designed to deliver
+            transformative outcomes. Explore the visible clarity and radiance achieved through
+            these advanced clinical modalities.
           </motion.p>
         </div>
 

@@ -126,7 +126,7 @@ export function Gallery() {
             viewport={{ once: true }}
             className="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4 bg-primary/10 px-4 py-1.5 rounded-full"
           >
-            Real Results
+            Clinical Technology
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
@@ -135,7 +135,7 @@ export function Gallery() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-5xl font-display text-foreground mb-4"
           >
-            See the Glow: Real Results
+            Proven Technology, Visible Results
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 8 }}
@@ -144,8 +144,9 @@ export function Gallery() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-muted-foreground"
           >
-            Clinical before &amp; after results from DiamondGlow® treatments — real clients,
-            real transformations, long-lasting glow.
+            At LSS Spa &amp; Wellness, we utilize industry-leading technology designed to deliver
+            transformative outcomes. Explore the visible clarity and radiance achieved through
+            these advanced clinical modalities.
           </motion.p>
         </div>
 
@@ -171,7 +172,7 @@ export function Gallery() {
           <div className="relative bg-stone-900">
             <img
               src={`${BASE}images/diamondglow-results.jpg`}
-              alt="DiamondGlow clinical before and after results showing improvement in texture, fine lines, hyperpigmentation, redness, and forehead lines across six patients"
+              alt="Diamond Glow™ before and after — demonstrating visible skin clarity and radiance."
               className="w-full h-auto object-contain"
               loading="lazy"
             />

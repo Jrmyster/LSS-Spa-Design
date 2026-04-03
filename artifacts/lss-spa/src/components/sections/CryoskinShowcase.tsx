@@ -51,7 +51,7 @@ const CARDS: ResultCard[] = [
     // 295×711px image — clip bottom ~20% to remove page-indicator artifact
     // padding-bottom: top 80% of image = 711*0.80/295*100 ≈ 193%
     imagePaddingBottom: 193,
-    captionStrip: "Visible Skin Clarity · After Just 2 Treatments",
+    captionStrip: "Cryo-Facial treatment results — showcasing the visible skin tightening and lifting power of localized cryotherapy.",
   },
   {
     id: 3,
@@ -300,7 +300,7 @@ export function CryoskinShowcase({ showHeader = true }: CryoskinShowcaseProps) {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-muted-foreground"
             >
-              Real Results, Real People. See what CryoSkin can do for you.
+              Industry-leading technology delivering visible, transformative outcomes.
             </motion.p>
           </div>
         )}
