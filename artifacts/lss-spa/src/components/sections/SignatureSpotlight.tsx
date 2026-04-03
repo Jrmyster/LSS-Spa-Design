@@ -15,6 +15,10 @@ interface SpotlightItem {
   badgeBg: string;
   badgeText: string;
   spotlight?: { label: string; body: string };
+  /** Show image at natural aspect ratio (h-auto) instead of a fixed crop height */
+  naturalHeight?: boolean;
+  /** Hide the floating "LSS Spa & Wellness" chip so the equipment view is unobstructed */
+  hideChip?: boolean;
 }
 
 const SPOTLIGHTS: SpotlightItem[] = [
@@ -26,12 +30,14 @@ const SPOTLIGHTS: SpotlightItem[] = [
       "This next-level treatment simultaneously exfoliates, extracts, and infuses the skin with professional-grade serums. It's designed to improve skin health, leaving you with a radiant, lasting glow.",
     bestFor: "Deep cleaning, hydration, and an instant 'red-carpet' finish.",
     ctaLabel: "Experience the Glow",
-    imageUrl: `${import.meta.env.BASE_URL}images/spapic6.jpg`,
-    imageAlt: "Diamond Glow™ infusion machine inside the LSS Spa treatment room",
+    imageUrl: `${import.meta.env.BASE_URL}images/diamondglow-console.jpg`,
+    imageAlt: "Official Diamond Glow™ console and branded cart inside LSS Spa & Wellness, Menomonee Falls WI — professional-grade 3-in-1 skin resurfacing system",
     flip: false,
     accentColor: "amber",
     badgeBg: "bg-amber-100",
     badgeText: "text-amber-800",
+    naturalHeight: true,
+    hideChip: true,
     spotlight: {
       label: "More Than a Facial",
       body: "The Diamond Glow™ system is a 3-in-1 advanced skin resurfacing treatment that simultaneously exfoliates, extracts, and infuses skin with professional-grade serums while pores are open and receptive.",
@@ -146,20 +152,26 @@ function SpotlightCard({ item, index }: { item: SpotlightItem; index: number }) 
         <img
           src={item.imageUrl}
           alt={item.imageAlt}
-          className="w-full h-[420px] sm:h-[480px] object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+          className={`w-full transition-transform duration-500 group-hover:scale-[1.03] ${
+            item.naturalHeight
+              ? "h-auto block"
+              : "h-[420px] sm:h-[480px] object-cover object-center"
+          }`}
           loading="lazy"
         />
 
         {/* Subtle gradient overlay at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/30 to-transparent" />
 
-        {/* Floating label chip — fades out when spotlight is visible */}
-        <div className="absolute bottom-5 left-5 group-hover:opacity-0 transition-opacity duration-200">
-          <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-sm border border-white/60">
-            <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
-            LSS Spa &amp; Wellness
-          </span>
-        </div>
+        {/* Floating label chip — hidden when hideChip is set */}
+        {!item.hideChip && (
+          <div className="absolute bottom-5 left-5 group-hover:opacity-0 transition-opacity duration-200">
+            <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-sm border border-white/60">
+              <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
+              LSS Spa &amp; Wellness
+            </span>
+          </div>
+        )}
 
         {/* Spotlight caption — slides up from bottom on hover */}
         {item.spotlight && (
