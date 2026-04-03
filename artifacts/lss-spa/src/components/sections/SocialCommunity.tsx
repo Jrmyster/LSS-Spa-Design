@@ -111,13 +111,6 @@ export function SocialCommunity() {
                 </div>
               </div>
 
-              {/* Card footer */}
-              <div className="px-5 py-4">
-                <p className="text-xs text-muted-foreground leading-snug">
-                  Results shown are from actual LSS Spa &amp; Wellness clients.
-                  Individual outcomes may vary.
-                </p>
-              </div>
             </motion.div>
           ))}
         </div>
