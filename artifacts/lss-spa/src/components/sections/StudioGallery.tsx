@@ -10,6 +10,10 @@ interface GalleryPhoto {
   /** Tailwind col-span classes for sm and lg breakpoints */
   smSpan?: string;
   lgSpan?: string;
+  /** Override the default h-56 sm:h-64 lg:h-72 height */
+  heightClass?: string;
+  /** Render caption as a solid contrasting bar rather than plain text overlay */
+  captionBar?: boolean;
 }
 
 const GALLERY_PHOTOS: GalleryPhoto[] = [
@@ -45,9 +49,11 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
     src: "images/spapic9.jpg",
     alt: "Your Sanctuary of Advanced Skincare: The private treatment suite at LSS Spa & Wellness, Menomonee Falls WI — featuring professional clinical modalities, white cabinetry, sunflower accent décor and a serene atmosphere",
-    caption: "The Suite",
+    caption: "LSS Studio Suite — Tranquil Environment",
     smSpan: "sm:col-span-2",
     lgSpan: "lg:col-span-3",
+    heightClass: "h-72 sm:h-80 lg:h-96",
+    captionBar: true,
     spotlight: {
       label: "Your Private Sanctuary",
       body: "A fully equipped treatment suite designed for both precision and peace — multiple clinical modalities, warm ambient lighting, and a serene atmosphere that makes every visit feel like an escape.",
@@ -63,7 +69,7 @@ function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 h-56 sm:h-64 lg:h-72 ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""}`}
+      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.heightClass ?? "h-56 sm:h-64 lg:h-72"} ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""}`}
     >
       <img
         src={`${import.meta.env.BASE_URL}${photo.src}`}
@@ -86,12 +92,22 @@ function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
               {photo.spotlight.body}
             </p>
           </div>
-          {/* Caption — fades out when spotlight slides in */}
-          <div className="absolute bottom-0 left-0 right-0 px-5 py-4 group-hover:opacity-0 transition-opacity duration-200">
-            <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
-              {photo.caption}
-            </p>
-          </div>
+
+          {/* Caption — solid bar for captionBar photos, plain text otherwise */}
+          {photo.captionBar ? (
+            <div className="absolute bottom-0 left-0 right-0 bg-black/65 backdrop-blur-sm px-5 py-2.5 group-hover:opacity-0 transition-opacity duration-200 flex items-center gap-2">
+              <span className="w-1 h-4 rounded-full bg-amber-400 shrink-0" />
+              <p className="text-white text-xs font-semibold tracking-wider font-sans">
+                {photo.caption}
+              </p>
+            </div>
+          ) : (
+            <div className="absolute bottom-0 left-0 right-0 px-5 py-4 group-hover:opacity-0 transition-opacity duration-200">
+              <p className="text-white text-sm font-semibold tracking-wide drop-shadow-sm font-sans">
+                {photo.caption}
+              </p>
+            </div>
+          )}
         </>
       ) : (
         /* Regular caption */
