@@ -251,28 +251,10 @@ export function Services() {
           className="mt-14"
         >
           <Card className="overflow-hidden border-border/50 shadow-lg">
-            {/* 3-col on lg: product shelf | clinical station | text
-                2-col on sm: both photos side-by-side, text full-width below
-                1-col on mobile: photos then text stacked */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
 
-              {/* Photo 1 — expert-curated product shelf (restored) */}
-              <div className="relative h-64 sm:h-72 lg:h-auto lg:min-h-[300px] overflow-hidden group">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/spapic7.jpg`}
-                  alt="Clarity and Image Skincare professional product display shelf at LSS Spa &amp; Wellness — serums, moisturizers and clinical-grade skincare beneath decorative wall art"
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-4 pb-3 pt-8">
-                  <p className="text-white text-[11px] font-semibold tracking-wide font-sans drop-shadow-sm">
-                    Expert-Curated Skincare Lines
-                  </p>
-                </div>
-              </div>
-
-              {/* Photo 2 — clinical treatment station */}
-              <div className="relative h-64 sm:h-72 lg:h-auto lg:min-h-[300px] overflow-hidden group">
+              {/* Clinical treatment station photo */}
+              <div className="relative h-64 lg:h-auto min-h-[280px] overflow-hidden group">
                 <img
                   src={`${import.meta.env.BASE_URL}images/spapic10.jpg`}
                   alt="LSS Spa &amp; Wellness clinical treatment station — Diamond Glow™ console, CryoSkin technology, Clarity and Image Skincare product shelf, and white cabinetry in Menomonee Falls WI"
@@ -286,8 +268,8 @@ export function Services() {
                 </div>
               </div>
 
-              {/* Text column — spans full width on sm, single col on lg */}
-              <div className="p-8 flex flex-col justify-center sm:col-span-2 lg:col-span-1">
+              {/* Text column */}
+              <div className="p-8 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-primary" />
