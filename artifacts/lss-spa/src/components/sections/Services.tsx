@@ -255,9 +255,9 @@ export function Services() {
               {/* Left: actual product shelf photo */}
               <div className="relative h-64 lg:h-auto min-h-[280px] overflow-hidden">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/spapic7.jpg`}
-                  alt="Clarity and Image Skincare professional product display shelf at LSS Spa &amp; Wellness, Menomonee Falls WI — serums, moisturizers and clinical-grade skincare lined up beneath decorative wall art"
-                  className="w-full h-full object-cover object-bottom transition-transform duration-500 hover:scale-[1.03]"
+                  src={`${import.meta.env.BASE_URL}images/spapic10.jpg`}
+                  alt="LSS Spa &amp; Wellness clinical treatment station — Diamond Glow™ console, CryoSkin technology, Clarity and Image Skincare product shelf, and white cabinetry in Menomonee Falls WI"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-[1.03]"
                   loading="lazy"
                 />
               </div>
@@ -275,11 +275,12 @@ export function Services() {
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Great results don't end when you leave the treatment room. That's why we carry
-                  clinician-vetted brands like <strong className="text-foreground">Image Skincare</strong> and{" "}
-                  <strong className="text-foreground">Clarity</strong> — professional-grade formulas designed
-                  to protect and prolong your results at home. Proper post-care isn't optional; it's the
-                  difference between a good treatment and a lasting transformation.
+                  Discover our specialized treatment environment, featuring the advanced{" "}
+                  <strong className="text-foreground">Diamond Glow™</strong> console, localized{" "}
+                  <strong className="text-foreground">CryoSkin</strong> technology, and an expert-curated
+                  selection of <strong className="text-foreground">Clarity</strong> and{" "}
+                  <strong className="text-foreground">Image Skincare</strong> lines for definitive,
+                  results-driven skin correction.
                 </p>
 
                 <div className="mt-5 text-center lg:text-left">
