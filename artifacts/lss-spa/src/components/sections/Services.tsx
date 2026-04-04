@@ -5,7 +5,7 @@ import { Link } from "wouter";
 
 const CRYOSKIN_SERVICES = [
   { name: "CryoSlimming", description: "Permanently destroy fat cells & slim targeted areas", price: null },
-  { name: "CryoToning", description: "Tighten skin, reduce cellulite & tone muscles", price: null },
+  { name: "CryoToning", description: "Tighten skin, reduce cellulite & tone skin", price: null },
   { name: "CryoFacial", description: "Lift, tighten & brighten your face — takes years off", price: null },
 ];
 
