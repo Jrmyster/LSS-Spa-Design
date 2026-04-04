@@ -16,7 +16,7 @@ const FAQS = [
     a: "While you'll see a change after one visit, we generally recommend a series of 5 sessions for the most dramatic and long-lasting transformation.",
   },
   {
-    q: "What should I do to prepare?",
+    q: "What should I do to prepare for CryoSlimming?",
     a: "For the best results, please avoid eating sugar or heavy carbohydrates for 2 hours before and after your appointment. Staying well-hydrated before and after your session also helps your body process the treatment effectively.",
   },
   {
