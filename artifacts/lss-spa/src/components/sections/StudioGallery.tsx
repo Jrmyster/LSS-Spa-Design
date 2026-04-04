@@ -40,11 +40,16 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     caption: "The Experience",
   },
   {
-    src: "images/spapic3.jpg",
-    alt: "LSS Spa studio with white cabinetry, magnifying lamp and specialized facial equipment stations",
-    caption: "The Technology",
+    src: "images/spapic11.jpg",
+    alt: "Diamond Glow™ dermal infusion console close-up — medical-grade technology at LSS Spa & Wellness, Menomonee Falls WI",
+    caption: "Official Diamond Glow™ Dermal Infusion Console: Authentic medical-grade technology, Clarity and Image Skincare serums, and results-driven precision.",
     smSpan: "sm:col-span-2",
     lgSpan: "lg:col-span-2",
+    captionBar: true,
+    spotlight: {
+      label: "Diamond Glow™ Technology",
+      body: "The Diamond Glow™ system simultaneously exfoliates, extracts, and infuses the skin with professional-grade serums — delivering clinically visible results in a single session.",
+    },
   },
   {
     src: "images/spapic9.jpg",
