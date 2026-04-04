@@ -57,9 +57,8 @@ const SPOTLIGHTS: SpotlightItem[] = [
       "Use the power of sub-zero temperatures to naturally boost collagen production and improve skin elasticity. Perfect for firming sagging skin and reducing the appearance of cellulite or 'turkey neck.'",
     bestFor: "Firming, lifting, and body contouring without the downtime.",
     ctaLabel: "Start Your Transformation",
-    imageUrl:
-      "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=900&q=90&auto=format&fit=crop",
-    imageAlt: "CryoSkin toning and sculpting treatment session",
+    imageUrl: `${import.meta.env.BASE_URL}images/spapic1.jpg`,
+    imageAlt: "CryoSkin machine at LSS Spa & Wellness, Menomonee Falls WI — professional-grade cryo therapy system for toning, slimming and facial treatments",
     flip: true,
     accentColor: "sky",
     badgeBg: "bg-sky-100",
