@@ -177,6 +177,65 @@ export function CryoFacialSpotlight() {
           </motion.div>
         </div>
 
+        {/* ── CryoFacial Before & After Results ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-10"
+        >
+          <div className="text-center mb-8">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-4 py-1.5 rounded-full mb-3">
+              ✓ CryoFacial &amp; CryoToning Results
+            </span>
+            <h3 className="text-2xl md:text-3xl font-display text-foreground mb-2">
+              Before &amp; After: Facial Rejuvenation
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Individual results may vary. Clinical photography — no filters applied.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              { src: "images/ba-facial-forehead.jpg",  alt: "CryoToning before and after — forehead wrinkles visibly reduced with skin tightening and contouring",           caption: "CryoToning: Visible skin tightening and contouring." },
+              { src: "images/ba-facial-neck.jpg",      alt: "CryoFacial and CryoToning before and after — neck treatment showing visible lifting and tightening",            caption: "CryoToning: Visible skin tightening and contouring." },
+              { src: "images/ba-facial-shoulder.jpg",  alt: "CryoToning before and after — shoulder and skin tone showing visible smoothing and contouring results",         caption: "CryoToning: Visible skin tightening and contouring." },
+            ].map((photo, i) => (
+              <motion.div
+                key={photo.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative rounded-2xl overflow-hidden border border-amber-200/70 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="relative h-64 sm:h-72 overflow-hidden">
+                  <img
+                    src={`${import.meta.env.BASE_URL}${photo.src}`}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm bg-amber-500/90 text-white">
+                      ✓ CryoFacial
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-10">
+                    <p className="text-white text-[11px] font-sans leading-snug drop-shadow-sm">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-xs text-center text-muted-foreground/70 italic mt-5">
+            Disclaimer: Results may vary. Best results are typically achieved through a personalized series of treatments.
+          </p>
+        </motion.div>
+
         {/* ── What is CryoSkin? educational block ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

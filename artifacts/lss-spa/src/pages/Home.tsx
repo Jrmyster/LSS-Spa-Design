@@ -12,7 +12,6 @@ import { CryoSkinScience } from "@/components/sections/CryoSkinScience";
 import { CryoFAQ } from "@/components/sections/CryoFAQ";
 import { FAQ } from "@/components/sections/FAQ";
 import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
-import { Gallery } from "@/components/sections/Gallery";
 import { SocialCommunity } from "@/components/sections/SocialCommunity";
 import { Contact } from "@/components/sections/Contact";
 import { FirstVisit } from "@/components/sections/FirstVisit";
@@ -38,7 +37,6 @@ export default function Home() {
         <Specials />
         <FAQ />
         <CryoskinShowcase />
-        <Gallery />
         <SocialCommunity />
         <Contact />
         <SeriesPackages />

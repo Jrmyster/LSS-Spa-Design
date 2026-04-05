@@ -273,6 +273,67 @@ export function CryoSkinScience() {
           ))}
         </div>
 
+        {/* ── CryoSlimming Before & After Results ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-14"
+        >
+          <div className="text-center mb-8">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 border border-sky-200 px-4 py-1.5 rounded-full mb-3">
+              ✓ CryoSlimming Results
+            </span>
+            <h3 className="text-2xl md:text-3xl font-display text-foreground mb-2">
+              Before &amp; After: Body Contouring
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Individual results may vary. Clinical photography — no filters applied.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { src: "images/ba-slim-abdomen.jpg",       alt: "CryoSlimming before and after — abdomen showing visible fat reduction and body contouring",           caption: "Actual results: CryoSlimming progress." },
+              { src: "images/ba-slim-back.jpg",          alt: "CryoSlimming before and after — back and sides showing targeted fat reduction",                       caption: "Real transformation: Targeted fat reduction." },
+              { src: "images/ba-slim-legs-stomach.jpg",  alt: "CryoSlimming before and after — legs and stomach showing visible contouring results",                 caption: "Actual results: CryoSlimming progress." },
+              { src: "images/ba-slim-stomach.jpg",       alt: "CryoSlimming before and after — stomach area showing visible slimming and contouring",                caption: "Real transformation: Targeted fat reduction." },
+              { src: "images/ba-slim-cryo-stomach.jpg",  alt: "CryoSkin therapy before and after — stomach body contouring showing visible reduction",               caption: "Actual results: CryoSlimming progress." },
+            ].map((photo, i) => (
+              <motion.div
+                key={photo.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                className="group relative rounded-2xl overflow-hidden border border-stone-200 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="relative h-64 sm:h-72 overflow-hidden">
+                  <img
+                    src={`${import.meta.env.BASE_URL}${photo.src}`}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm bg-sky-600/90 text-white">
+                      ✓ CryoSlimming
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-10">
+                    <p className="text-white text-[11px] font-sans leading-snug drop-shadow-sm">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-xs text-center text-muted-foreground/70 italic mt-5">
+            Disclaimer: Results may vary. Best results are typically achieved through a personalized series of treatments.
+          </p>
+        </motion.div>
+
         {/* ── Bottom CTA + disclaimer ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
