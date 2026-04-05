@@ -33,6 +33,13 @@ const TREATMENTS: TreatmentCard[] = [
     tagline: "Target & Eliminate Stubborn Fat",
     description:
       "Targets and eliminates subcutaneous fat stored under the skin. Many clients lose between 0.5 to 1.5 inches after just one session. It is the perfect solution for stubborn areas where diet and exercise aren't enough.",
+    photos: [
+      {
+        image: "images/ba-slim-abdomen.jpg",
+        alt: "CryoSlimming abdomen before and after — visible inch loss and abdominal contouring after treatment",
+        caption: "Proven results: Noticeable abdominal contouring after treatments.",
+      },
+    ],
   },
   {
     icon: <Layers className="w-6 h-6 text-sky-600" />,
