@@ -21,7 +21,7 @@ const COUPON_LABELS: Record<string, string> = {
 const COUPON_FINE_PRINT: Record<string, string> = {
   MARCH20: "Valid March 2026 · In-stock retail products only · Cannot be combined",
   REFER20: "Valid for first-time referred clients · One use per person",
-  SPRING20: "Valid while supplies last · In-stock retail products only · Cannot be combined with other offers",
+  SPRING20: "Valid for skincare treatments only · Expires April 30, 2026 · Cannot be combined with other offers",
 };
 
 // Coupon-specific theme — green for SPRING20, amber for everything else
@@ -57,7 +57,7 @@ function getTheme(coupon: string) {
 
 function getSuccessMessage(coupon: string, firstName: string): string {
   if (coupon === "SPRING20") {
-    return `Success! Use code SPRING20 at the spa or during checkout to save 20%. Click below to book your appointment now!`;
+    return `Success! Use code SPRING20 at the spa or during checkout to save 20% on skincare treatments. Valid through April 30, 2026. Click below to book your appointment now!`;
   }
   if (coupon === "REFER20") {
     return `Thanks for referring a friend, ${firstName}! Show this code when your friend books their first appointment.`;

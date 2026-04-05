@@ -136,7 +136,7 @@ export function SpringSaleHero() {
                   transition={{ duration: 0.5, delay: 0.45 }}
                   className="text-xs text-muted-foreground italic mt-4 text-center lg:text-left"
                 >
-                  In-stock retail products only · Valid while supplies last · Cannot be combined with other offers
+                  Valid for skincare treatments only · Expires April 30, 2026 · Cannot be combined with other offers
                 </motion.p>
               </div>
 
