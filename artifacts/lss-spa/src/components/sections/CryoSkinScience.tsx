@@ -301,7 +301,6 @@ export function CryoSkinScience() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { src: "images/ba-slim-abdomen.jpg",       alt: "CryoSlimming before and after — abdomen showing visible fat reduction and body contouring",           caption: "Actual results: CryoSlimming progress." },
               { src: "images/ba-slim-back.jpg",          alt: "CryoSlimming before and after — back and sides showing targeted fat reduction",                       caption: "Real transformation: Targeted fat reduction." },
               { src: "images/ba-slim-legs-stomach.jpg",  alt: "CryoSlimming before and after — legs and stomach showing visible contouring results",                 caption: "Actual results: CryoSlimming progress." },
               { src: "images/ba-slim-stomach.jpg",       alt: "CryoSlimming before and after — stomach area showing visible slimming and contouring",                caption: "Real transformation: Targeted fat reduction." },
