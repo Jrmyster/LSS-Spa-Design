@@ -52,6 +52,19 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     },
   },
   {
+    src: "images/studio-bed.jpg",
+    alt: "Private treatment bed at LSS Spa & Wellness — sunflower artwork, professional product cart, and sink station in a warm, serene treatment room",
+    caption: "A tranquil and professional space designed for your comfort.",
+    lgSpan: "lg:col-span-1",
+  },
+  {
+    src: "images/studio-shelf.jpg",
+    alt: "Curated shelf of Image Skincare and Clarity professional products at LSS Spa & Wellness — retinol, Vital C, Clear Cell and more",
+    caption: "Our curated selection of professional-grade Image Skincare and Clarity products.",
+    smSpan: "sm:col-span-2",
+    lgSpan: "lg:col-span-2",
+  },
+  {
     src: "images/spapic9.jpg",
     alt: "Your Sanctuary of Advanced Skincare: The private treatment suite at LSS Spa & Wellness, Menomonee Falls WI — featuring professional clinical modalities, white cabinetry, sunflower accent décor and a serene atmosphere",
     caption: "LSS Studio Suite — Tranquil Environment",
