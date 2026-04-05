@@ -15,6 +15,8 @@ interface ResultCard {
   imagePaddingBottom?: number;
   /** Optional text strip rendered below the clipped image on a parchment background */
   captionStrip?: string;
+  /** Optional inline result photo shown between bullet list and CTA button */
+  inlineImage?: { src: string; alt: string; caption: string };
 }
 
 const CARDS: ResultCard[] = [
@@ -34,6 +36,11 @@ const CARDS: ResultCard[] = [
       "Smoother, Firmer-Looking Skin",
     ],
     ctaLabel: "Book a Forehead Toning Session",
+    inlineImage: {
+      src: "images/cryotherapy-forehead.jpg",
+      alt: "CryoToning forehead before and after — visibly reduced wrinkles and smoother skin after treatment",
+      caption: "Forehead Wrinkle Correction · Before / After",
+    },
   },
   {
     id: 2,
@@ -138,6 +145,24 @@ function ResultCard({ card, index }: { card: ResultCard; index: number }) {
             </li>
           ))}
         </ul>
+
+        {/* Inline result photo (above CTA) */}
+        {card.inlineImage && (
+          <div className="mb-5 rounded-xl overflow-hidden border border-amber-200/70 shadow-sm">
+            <img
+              src={`${import.meta.env.BASE_URL}${card.inlineImage.src}`}
+              alt={card.inlineImage.alt}
+              className="w-full object-cover"
+              loading="lazy"
+            />
+            <div className="bg-[#f3e4c0] border-t border-amber-200 px-3 py-2 flex items-center justify-center gap-2">
+              <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+              <p className="text-[10px] font-bold text-amber-900 uppercase tracking-wider text-center">
+                {card.inlineImage.caption}
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* CTA */}
         <a
