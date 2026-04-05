@@ -14,6 +14,8 @@ interface GalleryPhoto {
   heightClass?: string;
   /** Render caption as a solid contrasting bar rather than plain text overlay */
   captionBar?: boolean;
+  /** Optional bold amber category label shown before the caption text, e.g. "Experience" */
+  captionPrefix?: string;
 }
 
 const GALLERY_PHOTOS: GalleryPhoto[] = [
@@ -41,8 +43,9 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     src: "images/spapic11.jpg",
-    alt: "Diamond Glow™ dermal infusion console close-up — medical-grade technology at LSS Spa & Wellness, Menomonee Falls WI",
-    caption: "Official Diamond Glow™ Dermal Infusion Console: Authentic medical-grade technology, Clarity and Image Skincare serums, and results-driven precision.",
+    alt: "Experience: Diamond Glow™ dermal infusion console close-up — medical-grade technology at LSS Spa & Wellness, Menomonee Falls WI",
+    caption: "Diamond Glow™ dermal infusion console close-up — medical-grade technology at LSS Spa & Wellness, Menomonee Falls WI",
+    captionPrefix: "Experience",
     smSpan: "sm:col-span-2",
     lgSpan: "lg:col-span-2",
     captionBar: true,
@@ -116,6 +119,9 @@ function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
             <div className="absolute bottom-0 left-0 right-0 bg-black/65 backdrop-blur-sm px-5 py-2.5 group-hover:opacity-0 transition-opacity duration-200 flex items-center gap-2">
               <span className="w-1 h-4 rounded-full bg-amber-400 shrink-0" />
               <p className="text-white text-xs font-semibold tracking-wider font-sans">
+                {photo.captionPrefix && (
+                  <span className="text-amber-300 font-bold">{photo.captionPrefix}:{" "}</span>
+                )}
                 {photo.caption}
               </p>
             </div>
