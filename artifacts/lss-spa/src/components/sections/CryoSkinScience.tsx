@@ -40,6 +40,13 @@ const TREATMENTS: TreatmentCard[] = [
     tagline: "Firm, Tighten & Smooth Skin",
     description:
       "Focuses on firming the face and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
+    photos: [
+      {
+        image: "images/cryotherapy-forehead.jpg",
+        alt: "CryoToning before and after — forehead wrinkles visibly reduced with skin tightening and facial restoration",
+        caption: "Definitive Facial Restoration — Clinical Results",
+      },
+    ],
   },
   {
     icon: <Sparkles className="w-6 h-6 text-sky-600" />,
