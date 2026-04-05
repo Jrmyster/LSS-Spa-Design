@@ -207,7 +207,7 @@ function TreatmentCard({ treatment, index }: { treatment: TreatmentCard; index: 
 
 export function CryoSkinScience() {
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white via-sky-50/60 to-white">
+    <section id="transformation-gallery" className="py-20 relative overflow-hidden bg-gradient-to-b from-white via-sky-50/60 to-white">
       {/* Cryo-blue background blobs */}
       <div className="absolute -top-24 -left-20 w-96 h-96 bg-sky-100/60 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 right-0 w-72 h-72 bg-sky-100/40 rounded-full blur-3xl pointer-events-none" />
