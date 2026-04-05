@@ -321,6 +321,58 @@ export function Services() {
             </div>
           </Card>
         </motion.div>
+
+        {/* Image Skincare product line highlights */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-8"
+        >
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-5 text-center">
+            Featured Image Skincare Lines
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+            {/* Daily Prevention */}
+            <div className="group rounded-2xl overflow-hidden border border-border/50 shadow-md hover:shadow-xl transition-shadow duration-300 bg-white">
+              <div className="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/skincare-dailyprevention.jpg`}
+                  alt="Image Skincare Daily Prevention SPF products displayed at LSS Spa &amp; Wellness — broad-spectrum UV protection line"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+              <div className="px-5 py-4 border-t border-border/30">
+                <p className="text-sm font-semibold text-foreground font-sans">Daily Prevention™</p>
+                <p className="text-xs text-muted-foreground mt-1 leading-snug">
+                  Advanced hydrating sun protection.
+                </p>
+              </div>
+            </div>
+
+            {/* Vital C */}
+            <div className="group rounded-2xl overflow-hidden border border-border/50 shadow-md hover:shadow-xl transition-shadow duration-300 bg-white">
+              <div className="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/skincare-vitalc.jpg`}
+                  alt="Image Skincare Vital C product line displayed at LSS Spa &amp; Wellness — high-potency Vitamin C brightening and hydration collection"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+              <div className="px-5 py-4 border-t border-border/30">
+                <p className="text-sm font-semibold text-foreground font-sans">Vital C™</p>
+                <p className="text-xs text-muted-foreground mt-1 leading-snug">
+                  High-potency Vitamin C for skin brightening and hydration.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </motion.div>
       </div>
     </section>
   );
