@@ -21,37 +21,34 @@ const CARDS: ResultCard[] = [
   {
     id: 1,
     title: "CryoToning",
-    subtitle: "Firm, Tighten & Smooth Skin",
-    image: "images/cryotoning-full.jpg",
-    imageAlt: "CryoToning before and after neck results at LSS Spa & Wellness, Menomonee Falls WI — visibly firmer, lifted skin after treatment",
+    subtitle: "Forehead Wrinkle Correction — Clinical Results",
+    image: "images/cryotherapy-forehead.jpg",
+    imageAlt: "CryoToning before and after — forehead wrinkles visibly reduced and skin smoother at LSS Spa & Wellness, Menomonee Falls WI",
     caption: "Before / After",
     description:
-      "Focuses on firming the face and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
-    captionStrip: "CryoToning neck results — before and after showing visibly firmer, lifted skin.",
+      "Focuses on firming the face and smoothing fine lines. By increasing micro-circulation and collagen production, CryoToning visibly reduces forehead wrinkles and restores a youthful, lifted contour.",
+    captionStrip: "CryoToning forehead results — before and after showing visibly smoother, wrinkle-reduced skin.",
+    bullets: [
+      "Visibly Reduce Forehead Wrinkles",
+      "Restore Youthful Forehead Contour",
+      "Smoother, Firmer-Looking Skin",
+    ],
+    ctaLabel: "Book a Forehead Toning Session",
+  },
+  {
+    id: 2,
+    title: "Cryo-Facial",
+    subtitle: "Neck Sagging and Lifting — Clinical Results",
+    image: "images/cryotoning-full.jpg",
+    imageAlt: "CryoFacial and neck treatment before and after — neck visibly lifted and tightened at LSS Spa & Wellness, Menomonee Falls WI",
+    caption: "Before / After",
     bullets: [
       "Firm and Lift Sagging Neck Skin",
       "Reduce the Appearance of 'Turkey Neck'",
       "Smoother, Younger-Looking Profile",
     ],
-    ctaLabel: "Book a Neck Toning Consultation",
-  },
-  {
-    id: 2,
-    title: "Cryo-Facial",
-    subtitle: "Skin Texture & Fine Lines",
-    image: "images/cryofacial.png",
-    imageAlt: "CryoFacial before and after — crow's feet, skin tone, and fine lines visibly improved after 1 treatment",
-    caption: "Before / After 2 Treatments",
-    bullets: [
-      "Boosts Collagen for a firmer, lifted look",
-      "Smooths Crow's Feet & Fine Lines",
-      "Reduces Weak Tone — visible after 1 session",
-    ],
     ctaLabel: "Schedule Your Cryo-Facial",
-    // 295×711px image — clip bottom ~20% to remove page-indicator artifact
-    // padding-bottom: top 80% of image = 711*0.80/295*100 ≈ 193%
-    imagePaddingBottom: 193,
-    captionStrip: "Cryo-Facial treatment results — showcasing the visible skin tightening and lifting power of localized cryotherapy.",
+    captionStrip: "CryoFacial neck results — before and after showing visibly firmer, lifted skin.",
   },
   {
     id: 3,
