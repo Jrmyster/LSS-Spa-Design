@@ -2,7 +2,47 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 
-const FAQS = [
+const downtimeAnswer = (
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 bg-sky-50/70 rounded-xl px-4 py-3 border border-sky-100">
+      <span className="text-lg mt-0.5 shrink-0">❄️</span>
+      <div>
+        <p className="font-semibold text-foreground text-sm mb-0.5">CryoToning</p>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          There is absolutely no downtime. You can resume all normal activities immediately.
+        </p>
+      </div>
+    </div>
+    <div className="flex items-start gap-3 bg-sky-50/70 rounded-xl px-4 py-3 border border-sky-100">
+      <span className="text-lg mt-0.5 shrink-0">⚡</span>
+      <div>
+        <p className="font-semibold text-foreground text-sm mb-0.5">CryoSlimming</p>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          We ask that you "take it easy" for the remainder of the day. Please refrain from working out or getting overheated.
+        </p>
+      </div>
+    </div>
+    <div className="bg-amber-50/70 rounded-xl px-4 py-3 border border-amber-100 space-y-2.5">
+      <p className="font-semibold text-foreground text-sm">Post-Treatment Recovery Tips:</p>
+      <div className="flex items-start gap-2.5 text-sm text-muted-foreground">
+        <span className="text-base mt-0.5 shrink-0">💧</span>
+        <p>
+          <span className="font-semibold text-foreground">Hydration: </span>
+          Drink plenty of water to assist the lymphatic system in flushing out treated cells.
+        </p>
+      </div>
+      <div className="flex items-start gap-2.5 text-sm text-muted-foreground">
+        <span className="text-base mt-0.5 shrink-0">🥗</span>
+        <p>
+          <span className="font-semibold text-foreground">Dietary Note: </span>
+          For Slimming treatments, avoid all sugar and heavy carbohydrates for at least 2 hours after your session.
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const FAQS: { q: string; a: React.ReactNode }[] = [
   {
     q: "Does it hurt?",
     a: "Not at all! Most clients describe it as a pleasant, relaxing massage. The treatment begins with a brief warming sensation followed by a gradual cooling. It is non-invasive and requires no needles or downtime.",
@@ -21,7 +61,7 @@ const FAQS = [
   },
   {
     q: "Is there any downtime?",
-    a: "Zero. You can return to your normal activities, including working out, immediately after your session.",
+    a: downtimeAnswer,
   },
 ];
 
@@ -32,7 +72,7 @@ function AccordionItem({
   onToggle,
 }: {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
   isOpen: boolean;
   onToggle: () => void;
 }) {
@@ -67,9 +107,15 @@ function AccordionItem({
           >
             <div className="px-6 pb-6 pt-0">
               <div className="border-t border-border/40 pt-4">
-                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base bg-sky-50/60 rounded-xl px-4 py-3">
-                  {answer}
-                </p>
+                {typeof answer === "string" ? (
+                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base bg-sky-50/60 rounded-xl px-4 py-3">
+                    {answer}
+                  </p>
+                ) : (
+                  <div className="text-sm sm:text-base">
+                    {answer}
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
@@ -87,6 +133,7 @@ export function FAQ() {
   return (
     <section className="py-24 bg-gradient-to-b from-white to-sky-50/40">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center mb-14">
           <motion.span
