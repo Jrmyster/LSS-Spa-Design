@@ -147,7 +147,7 @@ function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
 
 export function StudioGallery() {
   return (
-    <section className="py-20 bg-stone-50">
+    <section id="gallery" className="py-20 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
