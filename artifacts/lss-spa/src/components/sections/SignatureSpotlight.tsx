@@ -23,6 +23,8 @@ interface SpotlightItem {
   secondImageUrl?: string;
   secondImageAlt?: string;
   secondImageCaption?: string;
+  /** Optional persistent caption bar displayed below the primary (console) image */
+  imageCaption?: string;
 }
 
 const SPOTLIGHTS: SpotlightItem[] = [
@@ -48,6 +50,7 @@ const SPOTLIGHTS: SpotlightItem[] = [
     secondImageUrl: `${import.meta.env.BASE_URL}images/diamondglow-station.jpg`,
     secondImageAlt: "Diamond Glow™ treatment station — full suite context with medical-grade technology, Clarity and Image Skincare product lines at LSS Spa & Wellness, Menomonee Falls WI",
     secondImageCaption: "Your specialized treatment station for advanced dermal infusion, featuring medical-grade technology, Clarity and Image Skincare lines, and a tranquil atmosphere.",
+    imageCaption: "Diamond Glow™ dermal infusion console close-up — medical-grade technology at LSS Spa & Wellness, Menomonee Falls WI.",
   },
   {
     badge: "Top Rated",
@@ -176,35 +179,46 @@ function SpotlightCard({ item, index }: { item: SpotlightItem; index: number }) 
           </div>
 
           {/* Asset 1: tech / console photo (bottom, featured) */}
-          <div className="relative rounded-2xl overflow-hidden shadow-xl border border-amber-300/70 group">
-            <img
-              src={item.imageUrl}
-              alt={item.imageAlt}
-              className="w-full h-[220px] sm:h-[260px] object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-              loading="lazy"
-            />
-            {/* Subtle gradient */}
-            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
+          <div className="rounded-2xl overflow-hidden border border-amber-300/70 shadow-xl">
+            <div className="relative group">
+              <img
+                src={item.imageUrl}
+                alt={item.imageAlt}
+                className="w-full h-[220px] sm:h-[260px] object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              {/* Subtle gradient */}
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
 
-            {/* Spotlight caption — slides up on hover */}
-            {item.spotlight && (
-              <div className="absolute inset-x-0 bottom-0 bg-black/80 backdrop-blur-sm px-5 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
-                <p className="text-[10px] font-bold uppercase tracking-widest mb-1.5 font-sans text-amber-300">
-                  {item.spotlight.label}
-                </p>
-                <p className="text-white text-xs font-sans leading-relaxed">
-                  {item.spotlight.body}
+              {/* Spotlight caption — slides up on hover */}
+              {item.spotlight && (
+                <div className="absolute inset-x-0 bottom-0 bg-black/80 backdrop-blur-sm px-5 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1.5 font-sans text-amber-300">
+                    {item.spotlight.label}
+                  </p>
+                  <p className="text-white text-xs font-sans leading-relaxed">
+                    {item.spotlight.body}
+                  </p>
+                </div>
+              )}
+
+              {/* Featured tech badge */}
+              <div className="absolute top-3 left-3">
+                <span className="inline-flex items-center gap-1 bg-amber-400/90 backdrop-blur-sm text-amber-900 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm">
+                  <Star className="w-2.5 h-2.5 fill-current" />
+                  Featured Technology
+                </span>
+              </div>
+            </div>
+
+            {/* Persistent caption bar below console photo */}
+            {item.imageCaption && (
+              <div className="bg-black/80 px-4 py-3">
+                <p className="text-white text-[11px] leading-snug font-sans">
+                  {item.imageCaption}
                 </p>
               </div>
             )}
-
-            {/* Featured tech badge */}
-            <div className="absolute top-3 left-3">
-              <span className="inline-flex items-center gap-1 bg-amber-400/90 backdrop-blur-sm text-amber-900 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm">
-                <Star className="w-2.5 h-2.5 fill-current" />
-                Featured Technology
-              </span>
-            </div>
           </div>
         </div>
       ) : (
