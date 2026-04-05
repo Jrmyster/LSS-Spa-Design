@@ -103,12 +103,12 @@ function ResultPhotoCard({ photo }: { photo: ResultPhoto }) {
           </span>
         </div>
       ) : (
-        <div className="relative overflow-hidden" style={{ maxHeight: "220px" }}>
+        <div className="relative pb-2">
           <img
             src={`${import.meta.env.BASE_URL}${photo.image}`}
             alt={photo.alt}
-            className="w-full object-cover object-top"
-            style={{ imageRendering: "crisp-edges", maxHeight: "220px" }}
+            className="w-full h-auto block object-contain"
+            style={{ imageRendering: "crisp-edges" }}
           />
           {/* Before / After chips */}
           <span className="absolute top-2 left-2 bg-black/60 text-white text-[9px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm">
