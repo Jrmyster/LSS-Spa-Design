@@ -300,7 +300,7 @@ export function Services() {
 
                 <p className="text-muted-foreground leading-relaxed">
                   Discover our specialized treatment environment, featuring the advanced{" "}
-                  <strong className="text-foreground">Diamond Glow™</strong> console, localized{" "}
+                  <strong className="text-foreground">Diamond Glow™</strong> console (which simultaneously exfoliates, infuses, and extracts), localized{" "}
                   <strong className="text-foreground">CryoSkin</strong> technology, and an expert-curated
                   selection of <strong className="text-foreground">Clarity</strong> and{" "}
                   <strong className="text-foreground">Image Skincare</strong> lines for definitive,
