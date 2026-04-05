@@ -34,7 +34,7 @@ export function SpringSaleHero() {
                   className="inline-flex items-center gap-2 bg-green-100 text-green-800 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 border border-green-300"
                 >
                   <Leaf className="w-3.5 h-3.5" />
-                  Spring Skincare Sale
+                  Spring Sale — Extended Until April 30th!
                 </motion.div>
 
                 {/* Headline */}
@@ -57,8 +57,8 @@ export function SpringSaleHero() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-5 max-w-lg mx-auto lg:mx-0"
                 >
-                  Stock up on professional-grade skincare products at your next appointment!
-                  This is the perfect time to optimize your post-treatment results.
+                  Don't miss out — get 20% off all CryoSkin and Diamond Glow packages through the end of April.
+                  Stock up on professional-grade skincare products and save on your next treatment!
                 </motion.p>
 
                 {/* Offer callout */}
@@ -71,9 +71,9 @@ export function SpringSaleHero() {
                 >
                   <span className="text-2xl font-black leading-none">20%</span>
                   <div className="text-left leading-tight">
-                    <p className="text-xs font-bold uppercase tracking-widest text-green-200">Spring Special</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-green-200">Extended thru April 30th</p>
                     <p className="text-sm font-semibold">
-                      OFF all in-stock skincare products!
+                      OFF skincare products &amp; packages!
                     </p>
                   </div>
                 </motion.div>

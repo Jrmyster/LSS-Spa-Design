@@ -22,7 +22,7 @@ export function TopBanner() {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              🌿 <span className="font-bold">SPRING SALE:</span> 20% OFF All In-Stock Skincare Products!{" "}
+              🌿 <span className="font-bold">SPRING SALE EXTENDED through April 30th!</span> 20% OFF All In-Stock Skincare Products &amp; Packages!{" "}
               <span className="font-bold underline underline-offset-2">Book Now to Save</span> 🌸
             </a>
           </div>
