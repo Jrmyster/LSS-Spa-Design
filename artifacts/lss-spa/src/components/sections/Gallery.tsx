@@ -12,9 +12,9 @@ interface ResultPhoto {
 const BODY_CONTOURING: ResultPhoto[] = [
   {
     src: "images/result-body-01-abdomen-male.jpg",
-    alt: "CryoSlimming before and after — male abdomen showing visible reduction after 1 treatment",
-    caption: "Proven results: CryoSlimming showing reduction after 1 treatment.",
-    treatments: "1 Treatment",
+    alt: "CryoSlimming before and after — male abdomen showing visible fat reduction and body contouring",
+    caption: "Actual results: CryoSlimming progress.",
+    treatments: "CryoSlimming",
   },
   {
     src: "images/result-body-02-back-female.jpg",
@@ -30,9 +30,9 @@ const BODY_CONTOURING: ResultPhoto[] = [
   },
   {
     src: "images/result-body-04-abdomen-female.jpg",
-    alt: "CryoSlimming before and after — female lower abdomen showing visible reduction after 1 treatment",
-    caption: "Proven results: CryoSlimming showing reduction after 1 treatment.",
-    treatments: "1 Treatment",
+    alt: "CryoSlimming before and after — female lower abdomen showing visible targeted fat reduction",
+    caption: "Real transformation: Targeted fat reduction.",
+    treatments: "CryoSlimming",
   },
   {
     src: "images/result-body-05-waist-male.jpg",
@@ -45,24 +45,24 @@ const BODY_CONTOURING: ResultPhoto[] = [
 const FACIAL_REJUVENATION: ResultPhoto[] = [
   {
     src: "images/result-face-01-forehead.jpg",
-    alt: "CryoToning before and after — forehead wrinkles visibly reduced after 1 treatment",
-    caption: "Proven results: CryoToning and lifting after 1 treatment.",
-    treatments: "1 Treatment",
+    alt: "CryoToning before and after — forehead wrinkles visibly reduced with skin tightening and contouring",
+    caption: "CryoToning: Visible skin tightening and contouring.",
+    treatments: "CryoToning",
   },
   {
     src: "images/result-face-02-neck.jpg",
-    alt: "CryoToning before and after — neck sagging visibly lifted and tightened after 1 treatment",
-    caption: "Proven results: CryoToning and lifting after 1 treatment.",
-    treatments: "1 Treatment",
+    alt: "CryoToning before and after — neck sagging visibly lifted and tightened with contouring results",
+    caption: "CryoToning: Visible skin tightening and contouring.",
+    treatments: "CryoToning",
   },
 ];
 
 const SKIN_TONE: ResultPhoto[] = [
   {
     src: "images/result-tone-01-tricep.jpg",
-    alt: "CryoToning before and after — underarm/tricep skin visibly smoothed and toned after 1 treatment",
-    caption: "✓ Tone. Proven results: Localized CryoToning and smoothing after 1 treatment.",
-    treatments: "1 Treatment",
+    alt: "CryoToning before and after — underarm/tricep skin visibly smoothed and toned with localized contouring",
+    caption: "CryoToning: Visible skin tightening and contouring.",
+    treatments: "CryoToning",
   },
 ];
 
@@ -260,9 +260,13 @@ export function Gallery() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12 text-center"
         >
-          <p className="text-xs text-muted-foreground/70 italic mb-6 max-w-2xl mx-auto">
-            Individual results may vary. Clinical photography — no filters applied.
-          </p>
+          <div className="mb-8 max-w-2xl mx-auto bg-stone-100 border border-stone-200 rounded-2xl px-6 py-4 text-center">
+            <p className="text-xs font-semibold text-stone-600 uppercase tracking-widest mb-1">Disclaimer</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Results may vary. Best results are typically achieved through a personalized series of treatments.
+              Clinical photography — no filters applied.
+            </p>
+          </div>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
             Ready to experience the difference?{" "}
             <a
