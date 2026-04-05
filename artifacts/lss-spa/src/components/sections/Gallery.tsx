@@ -2,113 +2,141 @@ import { motion } from "framer-motion";
 
 const BASE = import.meta.env.BASE_URL;
 
-interface ResultCard {
-  id: number;
-  label: string;
-  concern: string;
-  sessions: string;
-  description: string;
-  disclaimer: string;
+interface ResultPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+  treatments: string;
 }
 
-const CARDS: ResultCard[] = [
+const BODY_CONTOURING: ResultPhoto[] = [
   {
-    id: 1,
-    label: "Male · Skin Type V",
-    concern: "Texture on Forehead & Cheek",
-    sessions: "1 Treatment",
-    description:
-      "Results following 1 DiamondGlow® treatment with Hydra Collagen Pro-Infusion Serum and a curated professional skincare regimen.",
-    disclaimer: "24 hours post-treatment · Unretouched parallel-polarized lighting photos.",
+    src: "images/result-body-01-abdomen-male.jpg",
+    alt: "CryoSlimming before and after — male abdomen showing visible reduction after 1 treatment",
+    caption: "Proven results: CryoSlimming showing reduction after 1 treatment.",
+    treatments: "1 Treatment",
   },
   {
-    id: 2,
-    label: "Female · Skin Type II",
-    concern: "Texture, Fine Lines & Overall Glow",
-    sessions: "3 Treatments",
-    description:
-      "Results following 3 DiamondGlow® treatments with Hydra Collagen Pro-Infusion Serum administered 2 weeks apart.",
-    disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
+    src: "images/result-body-02-back-female.jpg",
+    alt: "CryoSlimming before and after — female upper back showing visible slimming after 2 treatments",
+    caption: "Proven results: CryoSlimming showing reduction after 2 treatments.",
+    treatments: "2 Treatments",
   },
   {
-    id: 3,
-    label: "Female · Skin Type III",
-    concern: "Brighter & Smoother Skin",
-    sessions: "1 Treatment",
-    description:
-      "Results following 1 DiamondGlow® treatment with Advanced+ Pro-Infusion Serum and a professional skincare regimen.",
-    disclaimer: "15 minutes post-treatment · Unretouched parallel-polarized lighting photos.",
+    src: "images/result-body-03-lateral-female.jpg",
+    alt: "CryoSlimming and CryoToning before and after — female lateral torso showing visible contouring after 6 treatments",
+    caption: "Proven results: CryoSlimming showing reduction after 6 treatments.",
+    treatments: "6 Treatments",
   },
   {
-    id: 4,
-    label: "Female · Skin Type II",
-    concern: "Visible Hyperpigmentation",
-    sessions: "3 Treatments",
-    description:
-      "Results following 3 DiamondGlow® treatments with Even & Correct Advanced Brightening Pro-Infusion Serum administered 2 weeks apart.",
-    disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
+    src: "images/result-body-04-abdomen-female.jpg",
+    alt: "CryoSlimming before and after — female lower abdomen showing visible reduction after 1 treatment",
+    caption: "Proven results: CryoSlimming showing reduction after 1 treatment.",
+    treatments: "1 Treatment",
   },
   {
-    id: 5,
-    label: "Female · Skin Type III",
-    concern: "Congested Skin & Visible Redness",
-    sessions: "2 Treatments",
-    description:
-      "Results following 2 DiamondGlow® treatments with Pore Purifying Pro-Infusion Serum and a curated professional skincare regimen.",
-    disclaimer: "Treatments spaced 2 weeks apart · Unretouched standard lighting photos.",
-  },
-  {
-    id: 6,
-    label: "Female · Skin Type II",
-    concern: "Forehead Lines",
-    sessions: "5 Treatments",
-    description:
-      "Results following 5 DiamondGlow® treatments with Advanced+ Pro-Infusion Serum administered 2 weeks apart.",
-    disclaimer: "Treatments spaced 2 weeks apart · Unretouched parallel-polarized lighting photos.",
+    src: "images/result-body-05-waist-male.jpg",
+    alt: "CryoSlimming before and after — male abdomen and waist showing dramatic reduction after 8 treatments",
+    caption: "Proven results: CryoSlimming showing reduction after 8 treatments.",
+    treatments: "8 Treatments",
   },
 ];
 
-function DiamondGlowCard({ card, index }: { card: ResultCard; index: number }) {
+const FACIAL_REJUVENATION: ResultPhoto[] = [
+  {
+    src: "images/result-face-01-forehead.jpg",
+    alt: "CryoToning before and after — forehead wrinkles visibly reduced after 1 treatment",
+    caption: "Proven results: CryoToning and lifting after 1 treatment.",
+    treatments: "1 Treatment",
+  },
+  {
+    src: "images/result-face-02-neck.jpg",
+    alt: "CryoToning before and after — neck sagging visibly lifted and tightened after 1 treatment",
+    caption: "Proven results: CryoToning and lifting after 1 treatment.",
+    treatments: "1 Treatment",
+  },
+];
+
+const SKIN_TONE: ResultPhoto[] = [
+  {
+    src: "images/result-tone-01-tricep.jpg",
+    alt: "CryoToning before and after — underarm/tricep skin visibly smoothed and toned after 1 treatment",
+    caption: "✓ Tone. Proven results: Localized CryoToning and smoothing after 1 treatment.",
+    treatments: "1 Treatment",
+  },
+];
+
+function ResultPhotoCard({
+  photo,
+  index,
+  accentColor = "sky",
+}: {
+  photo: ResultPhoto;
+  index: number;
+  accentColor?: "sky" | "amber" | "violet";
+}) {
+  const badgeColors = {
+    sky: "bg-sky-600/90 text-white",
+    amber: "bg-amber-500/90 text-white",
+    violet: "bg-violet-600/90 text-white",
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
-      className="flex flex-col rounded-2xl overflow-hidden border-2 border-amber-200 bg-white shadow-md hover:shadow-lg hover:border-amber-400 transition-all duration-300"
+      className="group relative rounded-2xl overflow-hidden border border-stone-200 shadow-md hover:shadow-xl hover:border-stone-300 transition-all duration-300"
     >
-      {/* Gold header stripe */}
-      <div className="bg-gradient-to-r from-amber-400 to-yellow-300 px-5 py-3 flex items-center justify-between gap-3">
-        <span className="text-xs font-bold uppercase tracking-widest text-amber-900">
-          DiamondGlow®
-        </span>
-        <span className="text-[10px] font-bold bg-white/70 text-amber-800 px-2 py-0.5 rounded-full uppercase tracking-wide">
-          {card.sessions}
-        </span>
+      <div className="relative h-64 sm:h-72 overflow-hidden">
+        <img
+          src={`${BASE}${photo.src}`}
+          alt={photo.alt}
+          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+          loading="lazy"
+        />
+
+        {/* CLINICAL RESULTS badge — top left */}
+        <div className="absolute top-3 left-3">
+          <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm ${badgeColors[accentColor]}`}>
+            ✓ CLINICAL RESULTS
+          </span>
+        </div>
+
+        {/* Treatment count pill — top right */}
+        <div className="absolute top-3 right-3">
+          <span className="inline-block bg-black/60 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+            {photo.treatments}
+          </span>
+        </div>
+
+        {/* Gradient + caption */}
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-10">
+          <p className="text-white text-[11px] font-sans leading-snug drop-shadow-sm">
+            {photo.caption}
+          </p>
+        </div>
       </div>
+    </motion.div>
+  );
+}
 
-      {/* Card body */}
-      <div className="flex flex-col flex-1 p-5">
-        {/* Skin type tag */}
-        <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full mb-3 w-fit">
-          {card.label}
-        </span>
-
-        {/* Concern */}
-        <h3 className="text-base font-display text-foreground leading-snug mb-3">
-          {card.concern}
-        </h3>
-
-        {/* Description */}
-        <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
-          {card.description}
-        </p>
-
-        {/* Disclaimer */}
-        <p className="text-[10px] text-muted-foreground/70 italic leading-snug border-t border-border/40 pt-3">
-          {card.disclaimer} Individual results may vary.
-        </p>
-      </div>
+function CategoryHeading({ label, color = "sky" }: { label: string; color?: "sky" | "amber" | "violet" }) {
+  const colors = {
+    sky: "text-sky-700 bg-sky-50 border-sky-200",
+    amber: "text-amber-800 bg-amber-50 border-amber-200",
+    violet: "text-violet-700 bg-violet-50 border-violet-200",
+  };
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest px-4 py-2 rounded-full border mb-6 ${colors[color]}`}
+    >
+      {label}
     </motion.div>
   );
 }
@@ -118,7 +146,7 @@ export function Gallery() {
     <section id="gallery" className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
+        {/* ── Header ── */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <motion.span
             initial={{ opacity: 0 }}
@@ -150,15 +178,14 @@ export function Gallery() {
           </motion.p>
         </div>
 
-        {/* Featured composite before/after photo */}
+        {/* ── Diamond Glow composite photo ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-14 rounded-3xl overflow-hidden border-2 border-amber-200 shadow-xl shadow-amber-100/50"
+          className="mb-16 rounded-3xl overflow-hidden border-2 border-amber-200 shadow-xl shadow-amber-100/50"
         >
-          {/* Composite label bar */}
           <div className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 px-6 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
             <div className="flex items-center gap-2">
               <span className="text-amber-900 font-bold text-sm">DiamondGlow® Results Showcase</span>
@@ -168,7 +195,6 @@ export function Gallery() {
               Unretouched clinical photography · Individual results may vary
             </span>
           </div>
-
           <div className="relative bg-stone-900">
             <img
               src={`${BASE}images/diamondglow-results.jpg`}
@@ -179,25 +205,54 @@ export function Gallery() {
           </div>
         </motion.div>
 
-        {/* 6 result cards */}
-        <div className="mb-6">
-          <motion.h3
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="text-center text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8"
-          >
-            Treatment Details — Case by Case
-          </motion.h3>
+        {/* ── CryoSkin Results divider ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="text-center mb-12"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-600 mb-2">CryoSkin Therapy</p>
+          <h3 className="text-2xl md:text-3xl font-display text-foreground mb-3">
+            Before &amp; After Results
+          </h3>
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+            Individual results may vary. Clinical photography — no filters applied.
+          </p>
+        </motion.div>
+
+        {/* ── Body Contouring ── */}
+        <div className="mb-12">
+          <CategoryHeading label="✓ Body Contouring" color="sky" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {CARDS.map((card, i) => (
-              <DiamondGlowCard key={card.id} card={card} index={i} />
+            {BODY_CONTOURING.map((photo, i) => (
+              <ResultPhotoCard key={photo.src} photo={photo} index={i} accentColor="sky" />
             ))}
           </div>
         </div>
 
-        {/* Bottom note */}
+        {/* ── Facial Rejuvenation ── */}
+        <div className="mb-12">
+          <CategoryHeading label="✓ Facial Rejuvenation" color="violet" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:max-w-3xl">
+            {FACIAL_REJUVENATION.map((photo, i) => (
+              <ResultPhotoCard key={photo.src} photo={photo} index={i} accentColor="violet" />
+            ))}
+          </div>
+        </div>
+
+        {/* ── Skin Tone ── */}
+        <div className="mb-12">
+          <CategoryHeading label="✓ Skin Tone" color="amber" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:max-w-xl">
+            {SKIN_TONE.map((photo, i) => (
+              <ResultPhotoCard key={photo.src} photo={photo} index={i} accentColor="amber" />
+            ))}
+          </div>
+        </div>
+
+        {/* ── Bottom CTA ── */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -205,8 +260,11 @@ export function Gallery() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12 text-center"
         >
+          <p className="text-xs text-muted-foreground/70 italic mb-6 max-w-2xl mx-auto">
+            Individual results may vary. Clinical photography — no filters applied.
+          </p>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-            Ready to experience the DiamondGlow difference?{" "}
+            Ready to experience the difference?{" "}
             <a
               href="https://lss-spa-wellness-llc.square.site/"
               target="_blank"
@@ -225,6 +283,7 @@ export function Gallery() {
             .
           </p>
         </motion.div>
+
       </div>
     </section>
   );

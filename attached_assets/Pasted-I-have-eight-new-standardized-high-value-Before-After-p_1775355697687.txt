@@ -1,0 +1,33 @@
+I have eight new, standardized high-value 'Before & After' photos (image_11.png through image_18.png). We must rebuild the entire Results section to accommodate this new gallery.
+
+Please execute these precise structural and placement steps:
+
+Structural Rebuild: Remove the existing single results image and its specific caption. Rebuild the section using a cohesive, standardized, multi-column grid (e.g., two columns of four, or three columns of images, optimized for mobile stacking). All new images must share identical dimensions, rounded corners, and shadow styling.
+
+Category Organization: Use simple text sub-headings (e.g., '✓ Body Contouring' and '✓ Facial Rejuvenation') to categorize the flow.
+
+Image Placement (Body Contouring): Add these new images in sequence under this heading. Add a standard caption for each: 'Proven results: CryoSlimming showing reduction after [count] treatments.'
+
+image_11.png (Male Abdomen - Count: 1)
+
+image_12.png (Female Upper Back - Count: 2)
+
+image_13.png (Female Lateral Torso - Count: 6)
+
+image_14.png (Female Lower Abdomen - Count: 1)
+
+image_16.png (Male Abdomen/Waist - Count: 8)
+
+Image Placement (Facial Rejuvenation): Add these new images in sequence under this heading. Add a standard caption for each: 'Proven results: CryoToning and lifting after [count] treatments.'
+
+image_15.png (Forehead Wrinkles - Count: 1)
+
+image_17.png (Neck Sagging - Count: 1)
+
+Placement (Skin Texture): Add this image at the end with the caption: '✓ Tone. Proven results: Localized CryoToning and smoothing after 1 treatment.'
+
+image_18.png (Underarm/Tricep Skin - Count: 1)
+
+Maintain Disclaimers: Ensure the existing copy 'Real Results, Real People' and 'let our actual results speak for themselves' remains in the introduction. The '✓ CLINICAL RESULTS' badges should be consistently applied.
+
+Final Verification and Deployment: Once coded and visually confirmed in the workspace, immediately trigger a new Production Deployment. This ensures the live domain lssspawellness.com updates. Confirm once the production domain is live."
