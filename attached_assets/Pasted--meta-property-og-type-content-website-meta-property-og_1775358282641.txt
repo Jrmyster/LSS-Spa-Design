@@ -1,0 +1,21 @@
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lssspawellness.com/">
+<meta property="og:title" content="LSS Spa & Wellness LLC - Advanced CryoSkin & Diamond Glow™">
+<meta property="og:description" content="View our standardized 'Before & After' gallery. Advanced clinical skin correction in a serene environment.">
+<meta property="og:image" content="/images/image_24.png"> <meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lssspawellness.com/">
+<meta property="twitter:title" content="LSS Spa & Wellness LLC - CryoSkin & Diamond Glow™">
+<meta property="twitter:description" content="View our standardized 'Before & After' gallery. Advanced clinical skin correction in a serene environment.">
+<meta property="twitter:image" content="/images/image_24.png"> ```
+
+2.  **Harmonization (Double Check):** Ensure this image (`image_24.png`) is standardized to match the previous 'Cryo-Toning' master standard (rounded corners, subtle shadow, and correct aspect ratio) before it is committed to the live deployment.
+3.  **Final Deployment (Important):** Once coded in the workspace, immediately **trigger a new Production Deployment** right now. Do not just 'Republish' to the community; update the active VM deployment. Confirm once the production domain is updated."
+
+***
+
+### Why this is a crucial restoration:
+* **Proof of Environment:** By forcing `image_24.png` (the calm, medical-grade treatment room) to be the *very first* thing a client sees, you build deep trust and prove the environment where advanced corrective facials happen.
+* **Persuasion and Click-Through:** A link that looks like a blank gray box looks unverified. This thumbnail, showing the actual gear and serene space, is a powerful call-to-action that encourages engagement.
+* **The Deployment Loop:** Explicitly instructing the agent to **"trigger a new Production Deployment"** ensures the code changes move from your workspace to the live domain, preventing the problem where you could see the changes but your aunt could not.
+
+**Once the deployment is "Successful," have your aunt check the site link on her phone and hard-refresh. The authentic, finalized treatment room photo should now be the official preview!**
