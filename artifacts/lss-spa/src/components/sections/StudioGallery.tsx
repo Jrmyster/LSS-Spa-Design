@@ -37,9 +37,9 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     },
   },
   {
-    src: "images/spapic5.jpg",
-    alt: "LSS Spa mood-lit treatment bed with soft ambient lighting creating a relaxing spa atmosphere",
-    caption: "The Experience",
+    src: "images/studio-experience.jpg",
+    alt: "LSS Spa treatment station featuring the Diamond Glow™ system, professional skincare products, and a welcoming atmosphere at LSS Spa & Wellness, Menomonee Falls WI",
+    caption: "Our curated treatment station features advanced technologies like Diamond Glow™, high-performance skincare, and a professional, welcoming atmosphere.",
   },
   {
     src: "images/spapic11.jpg",
