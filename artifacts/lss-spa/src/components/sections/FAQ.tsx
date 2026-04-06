@@ -42,6 +42,31 @@ const downtimeAnswer = (
   </div>
 );
 
+const cryoSlimmingPrepAnswer = (
+  <div className="space-y-3">
+    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base bg-sky-50/60 rounded-xl px-4 py-3">
+      For the best results, it is important to refrain from eating any sugar or carbohydrates for 2 hours before and after your appointment. Staying well-hydrated before and after your session also helps your body process the treatment effectively.
+    </p>
+    <div className="bg-amber-50/70 rounded-xl px-4 py-3 border border-amber-100 space-y-2.5">
+      <p className="font-semibold text-foreground text-sm">Post-Treatment Recovery Tips:</p>
+      <div className="flex items-start gap-2.5 text-sm text-muted-foreground">
+        <span className="text-base mt-0.5 shrink-0">💧</span>
+        <p>
+          <span className="font-semibold text-foreground">Hydration: </span>
+          Drink plenty of water to assist the lymphatic system in flushing out treated cells.
+        </p>
+      </div>
+      <div className="flex items-start gap-2.5 text-sm text-muted-foreground">
+        <span className="text-base mt-0.5 shrink-0">🥗</span>
+        <p>
+          <span className="font-semibold text-foreground">Dietary Note: </span>
+          For Slimming treatments, avoid all sugar and heavy carbohydrates for at least 2 hours after your session.
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
     q: "Does it hurt?",
@@ -57,7 +82,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What should I do to prepare for CryoSlimming?",
-    a: "For the best results, it is important to refrain from eating any sugar or carbohydrates for 2 hours before and after your appointment. Staying well-hydrated before and after your session also helps your body process the treatment effectively.",
+    a: cryoSlimmingPrepAnswer,
   },
   {
     q: "Is there any downtime?",
