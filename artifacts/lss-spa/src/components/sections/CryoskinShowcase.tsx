@@ -37,9 +37,9 @@ const CARDS: ResultCard[] = [
     ],
     ctaLabel: "Book a Forehead Toning Session",
     inlineImage: {
-      src: "images/cryotherapy-forehead.jpg",
-      alt: "CryoToning forehead before and after — visibly reduced wrinkles and smoother skin after treatment",
-      caption: "Forehead Wrinkle Correction · Before / After",
+      src: "images/shoulder-tone.jpg",
+      alt: "CryoToning before and after — shoulder and arm skin tightening showing visible toning results after 1 treatment",
+      caption: "Toning and Skin Tightening — Visible Results After 1 Treatment",
     },
   },
   {

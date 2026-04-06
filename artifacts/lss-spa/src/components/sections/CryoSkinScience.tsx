@@ -49,9 +49,9 @@ const TREATMENTS: TreatmentCard[] = [
       "Focuses on firming the face and tightening skin. By increasing micro-circulation and collagen production, this method is highly recommended for reducing the appearance of cellulite and smoothing the skin's texture.",
     photos: [
       {
-        image: "images/cryotherapy-forehead.jpg",
-        alt: "CryoToning before and after — forehead wrinkles visibly reduced with skin tightening and facial restoration",
-        caption: "Definitive Facial Restoration — Clinical Results",
+        image: "images/shoulder-tone.jpg",
+        alt: "CryoToning before and after — shoulder and arm skin tightening showing visible toning results after 1 treatment",
+        caption: "Toning and Skin Tightening — Visible Results After 1 Treatment",
       },
     ],
   },
