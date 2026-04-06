@@ -128,7 +128,7 @@ function SpotlightCard({ item, index }: { item: SpotlightItem; index: number }) 
           href="https://lss-spa-wellness-llc.square.site/"
           target="_blank"
           rel="noopener noreferrer"
-          className={`inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold shadow-lg transition-all duration-200 group ${
+          className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold shadow-lg transition-all duration-200 min-h-[52px] group ${
             item.accentColor === "sky"
               ? "bg-sky-600 text-white shadow-sky-200/60 hover:bg-sky-700 hover:shadow-sky-300/70"
               : "bg-amber-500 text-white shadow-amber-200/60 hover:bg-amber-600 hover:shadow-amber-300/70"

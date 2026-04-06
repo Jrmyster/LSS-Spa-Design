@@ -168,7 +168,7 @@ export function CryoFacialSpotlight() {
               href="https://lss-spa-wellness-llc.square.site/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg shadow-amber-300/50 hover:shadow-xl hover:shadow-amber-300/70 transition-all duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg shadow-amber-300/50 hover:shadow-xl hover:shadow-amber-300/70 transition-all duration-200 min-h-[52px]"
               style={{ background: "linear-gradient(135deg,#d97706,#ea580c)" }}
             >
               <Snowflake className="w-4 h-4" />

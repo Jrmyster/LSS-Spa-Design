@@ -268,7 +268,7 @@ function FeaturedResultCard({ card, index }: { card: ResultCard; index: number }
           href="https://lss-spa-wellness-llc.square.site/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 self-start rounded-xl py-3 px-6 text-sm font-bold border-2 border-amber-400 text-amber-700 bg-amber-50 hover:bg-amber-400 hover:text-white transition-all duration-200 group"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl py-3 px-6 text-sm font-bold border-2 border-amber-400 text-amber-700 bg-amber-50 hover:bg-amber-400 hover:text-white transition-all duration-200 min-h-[48px] group"
         >
           {card.ctaLabel}
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

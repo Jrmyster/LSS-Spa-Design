@@ -86,12 +86,12 @@ export function SpringSaleHero() {
                   transition={{ duration: 0.5, delay: 0.33 }}
                   className="flex items-center justify-center lg:justify-start mb-4"
                 >
-                  <div className="relative">
+                  <div className="relative w-full sm:w-auto">
                     <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping pointer-events-none" />
                     <button
                       type="button"
                       onClick={() => setClaimOpen(true)}
-                      className="relative inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-base font-bold bg-green-600 text-white shadow-xl shadow-green-300/50 hover:bg-green-700 hover:shadow-green-400/60 transition-all duration-200 z-10"
+                      className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-base font-bold bg-green-600 text-white shadow-xl shadow-green-300/50 hover:bg-green-700 hover:shadow-green-400/60 transition-all duration-200 z-10 min-h-[52px]"
                     >
                       <Ticket className="w-4 h-4" />
                       Claim My 20% Discount
@@ -112,7 +112,7 @@ export function SpringSaleHero() {
                     href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold bg-green-600 text-white shadow-lg shadow-green-300/50 hover:bg-green-700 hover:shadow-green-400/60 transition-all duration-200"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold bg-green-600 text-white shadow-lg shadow-green-300/50 hover:bg-green-700 hover:shadow-green-400/60 transition-all duration-200 min-h-[52px]"
                   >
                     <CalendarCheck className="w-4 h-4" />
                     Book Now to Save
@@ -122,7 +122,7 @@ export function SpringSaleHero() {
                   <button
                     type="button"
                     onClick={() => setCatalogOpen(true)}
-                    className="inline-flex items-center gap-2.5 rounded-full px-7 py-4 text-sm font-bold border-2 border-green-400 text-green-700 bg-white hover:bg-green-50 hover:border-green-500 transition-all duration-200"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-4 text-sm font-bold border-2 border-green-400 text-green-700 bg-white hover:bg-green-50 hover:border-green-500 transition-all duration-200 min-h-[52px]"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     View Our Skincare Lines

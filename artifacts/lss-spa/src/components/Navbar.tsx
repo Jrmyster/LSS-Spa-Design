@@ -83,7 +83,7 @@ export function Navbar() {
             <Button
               asChild
               size="sm"
-              className="rounded-full px-4 sm:px-6 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all text-sm whitespace-nowrap"
+              className="rounded-full px-5 sm:px-6 min-h-[44px] shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all text-sm whitespace-nowrap"
             >
               <a href="https://lss-spa-wellness-llc.square.site/" target="_blank" rel="noopener noreferrer">
                 Book Now
