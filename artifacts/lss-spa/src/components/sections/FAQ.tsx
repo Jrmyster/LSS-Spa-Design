@@ -57,7 +57,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What should I do to prepare for CryoSlimming?",
-    a: "For the best results, please avoid eating sugar or heavy carbohydrates for 2 hours before and after your appointment. Staying well-hydrated before and after your session also helps your body process the treatment effectively.",
+    a: "For the best results, it is important to refrain from eating any sugar or carbohydrates for 2 hours before and after your appointment. Staying well-hydrated before and after your session also helps your body process the treatment effectively.",
   },
   {
     q: "Is there any downtime?",
