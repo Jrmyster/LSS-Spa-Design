@@ -57,7 +57,7 @@ export function SpringSaleHero() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-5 max-w-lg mx-auto lg:mx-0"
                 >
-                  Don't miss out — get 20% off all CryoSkin and Diamond Glow packages through the end of April.
+                  Don't miss out — get 20% off all <strong className="text-foreground">skincare treatments</strong> through the end of April.
                   Stock up on professional-grade skincare products and save on your next treatment!
                 </motion.p>
 
@@ -73,7 +73,7 @@ export function SpringSaleHero() {
                   <div className="text-left leading-tight">
                     <p className="text-xs font-bold uppercase tracking-widest text-green-200">Extended thru April 30th</p>
                     <p className="text-sm font-semibold">
-                      OFF skincare products &amp; packages!
+                      OFF skincare treatments &amp; packages!
                     </p>
                   </div>
                 </motion.div>
