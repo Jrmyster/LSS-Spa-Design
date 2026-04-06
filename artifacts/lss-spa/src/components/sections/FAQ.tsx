@@ -45,7 +45,7 @@ const downtimeAnswer = (
 const cryoSlimmingPrepAnswer = (
   <div className="space-y-3">
     <p className="text-muted-foreground leading-relaxed text-sm sm:text-base bg-sky-50/60 rounded-xl px-4 py-3">
-      For the best results, it is important to refrain from eating any sugar or carbohydrates for 2 hours before and after your appointment. Staying well-hydrated before and after your session also helps your body process the treatment effectively.
+      For the best results, it is important to avoid sugar or carbohydrates for 2 hours before and after your appointment. Staying well-hydrated before and after your session also helps your body process the treatment effectively.
     </p>
     <div className="bg-amber-50/70 rounded-xl px-4 py-3 border border-amber-100 space-y-2.5">
       <p className="font-semibold text-foreground text-sm">Post-Treatment Recovery Tips:</p>
