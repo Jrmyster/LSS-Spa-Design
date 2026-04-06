@@ -53,7 +53,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "How many sessions do I need?",
-    a: "While you'll see a change after one visit, we generally recommend a series of 5 sessions for the most dramatic and long-lasting transformation.",
+    a: "While you'll see a change after one visit, we generally recommend a series of 5 to 10 sessions for the most dramatic and long-lasting transformation.",
   },
   {
     q: "What should I do to prepare for CryoSlimming?",
