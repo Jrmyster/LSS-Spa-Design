@@ -301,7 +301,7 @@ export function CryoSkinScience() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { src: "images/ba-slim-back.jpg",          alt: "CryoSlimming before and after — back and sides showing targeted fat reduction",                       caption: "Real transformation: Targeted fat reduction." },
+              { src: "images/ba-slim-back.jpg",          alt: "CryoSlimming before and after — back and sides showing targeted fat reduction",                       caption: "Real transformation: Targeted fat reduction.", naturalHeight: true },
               { src: "images/ba-slim-legs-stomach.jpg",  alt: "CryoSlimming before and after — legs and stomach showing visible contouring results",                 caption: "Actual results: CryoSlimming progress." },
               { src: "images/ba-slim-stomach.jpg",       alt: "CryoSlimming before and after — stomach area showing visible slimming and contouring",                caption: "Real transformation: Targeted fat reduction." },
               { src: "images/ba-slim-cryo-stomach.jpg",  alt: "CryoSkin therapy before and after — stomach body contouring showing visible reduction",               caption: "Actual results: CryoSlimming progress." },
@@ -314,24 +314,47 @@ export function CryoSkinScience() {
                 transition={{ duration: 0.5, delay: i * 0.07 }}
                 className="group relative rounded-2xl overflow-hidden border border-stone-200 shadow-md hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative h-64 sm:h-72 overflow-hidden">
-                  <img
-                    src={`${import.meta.env.BASE_URL}${photo.src}`}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm bg-sky-600/90 text-white">
-                      ✓ CryoSlimming
-                    </span>
+                {photo.naturalHeight ? (
+                  /* Natural-height path — image determines card height, no cropping */
+                  <div className="relative">
+                    <img
+                      src={`${import.meta.env.BASE_URL}${photo.src}`}
+                      alt={photo.alt}
+                      className="w-full h-auto block"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm bg-sky-600/90 text-white">
+                        ✓ CryoSlimming
+                      </span>
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-10">
+                      <p className="text-white text-[11px] font-sans leading-snug drop-shadow-sm">
+                        {photo.caption}
+                      </p>
+                    </div>
                   </div>
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-10">
-                    <p className="text-white text-[11px] font-sans leading-snug drop-shadow-sm">
-                      {photo.caption}
-                    </p>
+                ) : (
+                  /* Fixed-height path — all other grid photos */
+                  <div className="relative h-64 sm:h-72 overflow-hidden">
+                    <img
+                      src={`${import.meta.env.BASE_URL}${photo.src}`}
+                      alt={photo.alt}
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full shadow-sm bg-sky-600/90 text-white">
+                        ✓ CryoSlimming
+                      </span>
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-3 pt-10">
+                      <p className="text-white text-[11px] font-sans leading-snug drop-shadow-sm">
+                        {photo.caption}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
               </motion.div>
             ))}
           </div>
