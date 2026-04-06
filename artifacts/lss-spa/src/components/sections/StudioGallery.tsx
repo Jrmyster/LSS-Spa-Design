@@ -75,7 +75,6 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     caption: "LSS Studio Suite — Tranquil Environment",
     smSpan: "sm:col-span-2",
     lgSpan: "lg:col-span-3",
-    heightClass: "h-72 sm:h-80 lg:h-96",
     captionBar: true,
     objectContain: true,
     spotlight: {
@@ -93,14 +92,25 @@ function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.heightClass ?? "h-56 sm:h-64 lg:h-72"} ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""} ${photo.objectContain ? "bg-stone-50" : ""}`}
+      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.objectContain ? "" : photo.heightClass ?? "h-56 sm:h-64 lg:h-72"} ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""}`}
     >
-      <img
-        src={`${import.meta.env.BASE_URL}${photo.src}`}
-        alt={photo.alt}
-        loading="lazy"
-        className={`absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105 ${photo.objectContain ? "object-contain" : "object-cover"}`}
-      />
+      {photo.objectContain ? (
+        /* Natural-height path — image sets the container height, no grey bars */
+        <img
+          src={`${import.meta.env.BASE_URL}${photo.src}`}
+          alt={photo.alt}
+          loading="lazy"
+          className="w-full h-auto block"
+        />
+      ) : (
+        /* Fixed-height path — all other gallery cards */
+        <img
+          src={`${import.meta.env.BASE_URL}${photo.src}`}
+          alt={photo.alt}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      )}
 
       {/* Base gradient — always present */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
