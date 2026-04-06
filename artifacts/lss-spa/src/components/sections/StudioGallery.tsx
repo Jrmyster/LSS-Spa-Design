@@ -16,6 +16,8 @@ interface GalleryPhoto {
   captionBar?: boolean;
   /** Optional bold amber category label shown before the caption text, e.g. "Experience" */
   captionPrefix?: string;
+  /** Use object-contain instead of object-cover so the full photo is visible (adds cream background) */
+  objectContain?: boolean;
 }
 
 const GALLERY_PHOTOS: GalleryPhoto[] = [
@@ -75,6 +77,7 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     lgSpan: "lg:col-span-3",
     heightClass: "h-72 sm:h-80 lg:h-96",
     captionBar: true,
+    objectContain: true,
     spotlight: {
       label: "Your Private Sanctuary",
       body: "A fully equipped treatment suite designed for both precision and peace — multiple clinical modalities, warm ambient lighting, and a serene atmosphere that makes every visit feel like an escape.",
@@ -90,13 +93,13 @@ function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.heightClass ?? "h-56 sm:h-64 lg:h-72"} ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""}`}
+      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.heightClass ?? "h-56 sm:h-64 lg:h-72"} ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""} ${photo.objectContain ? "bg-[#f5f0ea]" : ""}`}
     >
       <img
         src={`${import.meta.env.BASE_URL}${photo.src}`}
         alt={photo.alt}
         loading="lazy"
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className={`absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105 ${photo.objectContain ? "object-contain p-2" : "object-cover"}`}
       />
 
       {/* Base gradient — always present */}
