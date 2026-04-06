@@ -93,13 +93,13 @@ function GalleryItem({ photo, index }: { photo: GalleryPhoto; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.heightClass ?? "h-56 sm:h-64 lg:h-72"} ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""} ${photo.objectContain ? "bg-[#f5f0ea]" : ""}`}
+      className={`group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.heightClass ?? "h-56 sm:h-64 lg:h-72"} ${photo.smSpan ?? ""} ${photo.lgSpan ?? ""} ${photo.objectContain ? "bg-stone-50" : ""}`}
     >
       <img
         src={`${import.meta.env.BASE_URL}${photo.src}`}
         alt={photo.alt}
         loading="lazy"
-        className={`absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105 ${photo.objectContain ? "object-contain p-2" : "object-cover"}`}
+        className={`absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105 ${photo.objectContain ? "object-contain" : "object-cover"}`}
       />
 
       {/* Base gradient — always present */}
