@@ -35,7 +35,7 @@ const downtimeAnswer = (
         <span className="text-base mt-0.5 shrink-0">🥗</span>
         <p>
           <span className="font-semibold text-foreground">Dietary Note: </span>
-          For Slimming treatments, avoid all sugar and heavy carbohydrates for at least 2 hours after your session.
+          For Slimming treatments, avoid all sugar and carbohydrates for at least 2 hours after your session.
         </p>
       </div>
     </div>
@@ -60,7 +60,7 @@ const cryoSlimmingPrepAnswer = (
         <span className="text-base mt-0.5 shrink-0">🥗</span>
         <p>
           <span className="font-semibold text-foreground">Dietary Note: </span>
-          For Slimming treatments, avoid all sugar and heavy carbohydrates for at least 2 hours after your session.
+          For Slimming treatments, avoid all sugar and carbohydrates for at least 2 hours after your session.
         </p>
       </div>
     </div>
