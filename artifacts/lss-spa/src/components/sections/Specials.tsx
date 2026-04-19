@@ -5,7 +5,7 @@ import { QRCodeLightbox } from "@/components/QRCodeLightbox";
 import { CouponClaimModal } from "@/components/CouponClaimModal";
 
 const SMS_BODY = encodeURIComponent(
-  "Hey! I've been going to LSS Spa & Wellness and love my results. If you book a session and mention my name, we both get 20% off! Check them out here: https://www.google.com/search?q=lssspawellness.com"
+  "Hey! I've been going to LSS Spa & Wellness and love my results. If you book a session and mention my name, we both get $20 off! Check them out here: https://www.google.com/search?q=lssspawellness.com"
 );
 const SMS_URL = `sms:?body=${SMS_BODY}`;
 const SITE_URL = "https://lss-spa-wellness-llc.square.site/";
@@ -71,7 +71,7 @@ function ReferralCard() {
           <p className="text-base sm:text-lg font-extrabold text-foreground leading-snug">
             Refer a new client &amp;{" "}
             <span className="text-rose-600">BOTH of you</span> receive{" "}
-            <span className="text-emerald-600">20% OFF</span> your next service!
+            <span className="text-emerald-600">$20 OFF</span> your next service!
           </p>
         </div>
 
@@ -82,8 +82,8 @@ function ReferralCard() {
         <ol className="space-y-3 mb-6">
           {[
             "Tell your friend to mention your name when booking their first appointment.",
-            "Once they complete their service, we will apply a 20% discount to their bill.",
-            "You will receive a 20% discount credit to use on your next visit!",
+            "Once they complete their service, we will apply a $20 discount to their bill.",
+            "You will receive a $20 discount credit to use on your next visit!",
           ].map((step, i) => (
             <li key={i} className="flex items-start gap-3">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">
@@ -103,7 +103,7 @@ function ReferralCard() {
               className="relative inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-full shadow-xl shadow-amber-200/70 transition-colors z-10"
             >
               <Sparkles className="w-5 h-5 shrink-0" />
-              Get My 20% Off Coupon
+              Get My $20 Off Coupon
             </button>
           </div>
         </div>
