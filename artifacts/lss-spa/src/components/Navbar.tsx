@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { name: "About Kim", href: "#about" },
   { name: "Inside the Studio", href: "#inside-the-studio" },
   { name: "Gallery", href: "#transformation-gallery" },
+  { name: "Community", href: "#community-events" },
   { name: "Contact", href: "#contact" },
 ];
 

@@ -13,6 +13,7 @@ import { CryoFAQ } from "@/components/sections/CryoFAQ";
 import { FAQ } from "@/components/sections/FAQ";
 import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
 import { SocialCommunity } from "@/components/sections/SocialCommunity";
+import { CommunityEvents } from "@/components/sections/CommunityEvents";
 import { Contact } from "@/components/sections/Contact";
 import { FirstVisit } from "@/components/sections/FirstVisit";
 import { Footer } from "@/components/Footer";
@@ -38,6 +39,7 @@ export default function Home() {
         <FAQ />
         <CryoskinShowcase />
         <SocialCommunity />
+        <CommunityEvents />
         <Contact />
         <SeriesPackages />
         <FirstVisit />
