@@ -13,7 +13,7 @@ export function TopBanner() {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           className="relative overflow-hidden"
-          style={{ backgroundColor: "#A8D5A2", color: "#1a3a1a" }}
+          style={{ backgroundColor: "#f4b8c1", color: "#5a1a2a" }}
         >
           <div className="max-w-7xl mx-auto px-6 py-2.5 sm:px-8 flex items-center justify-center text-sm font-medium text-center gap-2 pr-10">
             <a
@@ -22,9 +22,10 @@ export function TopBanner() {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              🌿 <span className="font-bold">SPRING SALE EXTENDED through April 30th!</span> 20% OFF Skincare Treatments &amp; Packages —{" "}
-              <span className="italic">valid for skincare treatments only.</span>{" "}
-              <span className="font-bold underline underline-offset-2">Book Now to Save</span> 🌸
+              💐 <span className="font-bold">Mother's Day Special!</span> Book a May Facial for your Mom &amp; get{" "}
+              <span className="font-black">$20 OFF</span> —{" "}
+              <span className="italic">new clients only.</span>{" "}
+              <span className="font-bold underline underline-offset-2">Book Now</span> 🌸
             </a>
           </div>
           <button
