@@ -353,7 +353,8 @@ export function Services() {
                 For skin rejuvenation, tightening, lifting, fine line and wrinkle removal, collagen enhancement and more.
               </p>
 
-              {/* Bullet points */}
+              {/* Key Benefits subheading + bullet points */}
+              <p className="text-sm font-bold text-foreground mb-3">Key Benefits &amp; Functions:</p>
               <ul className="space-y-3.5 mb-7">
                 {[
                   {
