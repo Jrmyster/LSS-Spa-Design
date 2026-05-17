@@ -355,13 +355,26 @@ export function Services() {
               </p>
 
               {/* Option 1 — Instant Lift pitch */}
-              <div className="mb-6 rounded-xl bg-violet-50/70 border border-violet-100 px-5 py-4">
-                <p className="text-sm font-bold text-foreground mb-2 leading-snug">
-                  The Non-Surgical Facelift: Multi-Polar RF Skin Tightening with Red LED Light Therapy.
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Experience the future of firming. Our Multi-Polar Radio Frequency treatment is a non-invasive way to tighten sagging skin and smooth fine lines with zero downtime. By gently heating the deeper layers of your skin, we stimulate your body's natural collagen production, leaving you with a lifted, youthful glow. Perfect for the face, jawline, and neck. While Red LED light stimulates cellular repair in the epidermis, resulting in improved texture, firmness, and reduced wrinkles.
-                </p>
+              <div className="mb-6 rounded-xl bg-violet-50/70 border border-violet-100 overflow-hidden">
+                <div className="flex flex-col sm:flex-row gap-0">
+                  {/* RF wand image */}
+                  <div className="sm:w-44 shrink-0">
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/multi-polar-rf-wand.jpg`}
+                      alt="Close-up of a Multi-polar RF machine and glowing red LED wand used for skin treatments."
+                      className="w-full h-48 sm:h-full object-cover object-center"
+                    />
+                  </div>
+                  {/* Text */}
+                  <div className="px-5 py-4">
+                    <p className="text-sm font-bold text-foreground mb-2 leading-snug">
+                      The Non-Surgical Facelift: Multi-Polar RF Skin Tightening with Red LED Light Therapy.
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Experience the future of firming. Our Multi-Polar Radio Frequency treatment is a non-invasive way to tighten sagging skin and smooth fine lines with zero downtime. By gently heating the deeper layers of your skin, we stimulate your body's natural collagen production, leaving you with a lifted, youthful glow. Perfect for the face, jawline, and neck. While Red LED light stimulates cellular repair in the epidermis, resulting in improved texture, firmness, and reduced wrinkles.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Key Benefits subheading + bullet points */}
@@ -428,6 +441,24 @@ export function Services() {
 
               {/* RF FAQ accordion */}
               <RfFAQ />
+
+              {/* Professional Products callout */}
+              <div className="mt-7 rounded-xl border border-violet-100 bg-violet-50/40 overflow-hidden">
+                <div className="flex flex-col sm:flex-row items-center gap-5 px-5 py-5">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/clarity-rx-lip-treatment.jpg`}
+                    alt="Clarity Rx Daily Dose of Water Lip Treatment and branded canvas spa bag."
+                    className="w-full sm:w-40 h-40 object-cover object-center rounded-xl shrink-0 shadow-sm"
+                  />
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-violet-500 mb-1">Professional Products</p>
+                    <p className="text-sm font-bold text-foreground mb-1.5 leading-snug">ClarityRx — Plant-Based. Results-Driven.</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      We use and recommend ClarityRx professional skincare to complement your treatment. Their Daily Dose of Water Lip Treatment conditions and hydrates, keeping skin nourished and comfortable after your session.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
