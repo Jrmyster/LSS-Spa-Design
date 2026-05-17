@@ -353,6 +353,16 @@ export function Services() {
                 For skin rejuvenation, tightening, lifting, fine line and wrinkle removal, collagen enhancement and more.
               </p>
 
+              {/* Option 1 — Instant Lift pitch */}
+              <div className="mb-6 rounded-xl bg-violet-50/70 border border-violet-100 px-5 py-4">
+                <p className="text-sm font-bold text-foreground mb-2 leading-snug">
+                  The Non-Surgical Facelift: Multi-Polar RF Skin Tightening with Red LED Light Therapy.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Experience the future of firming. Our Multi-Polar Radio Frequency treatment is a non-invasive way to tighten sagging skin and smooth fine lines with zero downtime. By gently heating the deeper layers of your skin, we stimulate your body's natural collagen production, leaving you with a lifted, youthful glow. Perfect for the face, jawline, and neck. While Red LED light stimulates cellular repair in the epidermis, resulting in improved texture, firmness, and reduced wrinkles.
+                </p>
+              </div>
+
               {/* Key Benefits subheading + bullet points */}
               <p className="text-sm font-bold text-foreground mb-3">Key Benefits &amp; Functions:</p>
               <ul className="space-y-3.5 mb-7">
