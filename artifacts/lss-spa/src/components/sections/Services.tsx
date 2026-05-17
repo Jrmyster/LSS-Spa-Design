@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Snowflake, Sparkles, PlusCircle, FileText } from "lucide-react";
 import { Link } from "wouter";
+import { RfFAQ } from "@/components/sections/RfFAQ";
 
 const CRYOSKIN_SERVICES = [
   { name: "CryoSlimming", description: "Permanently destroy fat cells & slim targeted areas", price: null },
@@ -424,6 +425,9 @@ export function Services() {
                   </div>
                 </div>
               </div>
+
+              {/* RF FAQ accordion */}
+              <RfFAQ />
             </CardContent>
           </Card>
         </motion.div>
