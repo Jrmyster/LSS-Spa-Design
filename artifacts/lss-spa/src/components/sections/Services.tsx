@@ -222,6 +222,100 @@ export function Services() {
             </Card>
           </motion.div>
         </div>
+        {/* ── Multi-Polar RF with Red LED — Featured Service Card ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+          className="mt-8"
+        >
+          <Card className="border-border/50 shadow-lg overflow-hidden">
+            <CardHeader className="pb-3 bg-gradient-to-r from-violet-50/60 to-rose-50/40 border-b border-border/30">
+              <div className="flex items-center gap-3 mb-1">
+                <div className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-5 h-5 text-violet-600" />
+                </div>
+                <div>
+                  <CardTitle className="text-xl sm:text-2xl font-display leading-snug">
+                    Multi-Polar RF with Red LED{" "}
+                    <span className="text-base font-sans font-semibold text-muted-foreground">(For Face)</span>
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground mt-0.5">Skin Rejuvenation · Tightening · Collagen Enhancement</p>
+                </div>
+              </div>
+            </CardHeader>
+
+            <CardContent className="pt-5">
+              {/* Main description */}
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                For skin rejuvenation, tightening, lifting, fine line and wrinkle removal, collagen enhancement and more.
+              </p>
+
+              {/* Bullet points */}
+              <ul className="space-y-3.5 mb-7">
+                {[
+                  {
+                    feature: "Skin Tightening & Lifting",
+                    detail: "Multi-polar RF uses gentle heat to stimulate fibroblasts, which increases collagen and elastin production, resulting in firmer, lifted skin.",
+                  },
+                  {
+                    feature: "Wrinkle Reduction",
+                    detail: "The combination of technologies fills in, reduces, and smooths out fine lines.",
+                  },
+                  {
+                    feature: "Enhanced Collagen Production",
+                    detail: "Red LED light penetrates the dermis to enhance collagen and elastin production, boosting skin density.",
+                  },
+                  {
+                    feature: "Skin Rejuvenation & Tone",
+                    detail: "Improves overall complexion and enhances circulation for a revitalized, youthful appearance.",
+                  },
+                ].map((item) => (
+                  <li key={item.feature} className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1.5 shrink-0" />
+                    <p className="text-sm leading-snug text-foreground">
+                      <strong className="font-semibold text-foreground">{item.feature}:</strong>{" "}
+                      <span className="text-muted-foreground">{item.detail}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Pricing */}
+              <div className="border-t border-border/40 pt-5">
+                <p className="text-xs font-bold uppercase tracking-widest text-violet-600 mb-3">Pricing</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {/* Single session */}
+                  <div className="rounded-xl border border-border/50 bg-white px-4 py-3.5 flex flex-col gap-0.5 shadow-sm">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Single Session</p>
+                    <p className="text-2xl font-black text-primary leading-none">$200</p>
+                  </div>
+
+                  {/* Facial upgrade */}
+                  <div className="rounded-xl border border-border/50 bg-white px-4 py-3.5 flex flex-col gap-0.5 shadow-sm">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Upgrade to a Facial</p>
+                    <p className="text-2xl font-black text-primary leading-none">$175</p>
+                    <p className="text-[11px] text-muted-foreground">Total: $255 with facial</p>
+                  </div>
+
+                  {/* Series of 5 */}
+                  <div className="rounded-xl border-2 border-violet-300 bg-violet-50/60 px-4 py-3.5 flex flex-col gap-0.5 shadow-sm relative overflow-hidden">
+                    <span className="absolute top-2 right-2 text-[9px] font-extrabold uppercase tracking-wider bg-violet-500 text-white px-2 py-0.5 rounded-full">
+                      Best Value
+                    </span>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-violet-700">Series of 5</p>
+                    <p className="text-2xl font-black text-violet-700 leading-none">$1,000</p>
+                    <p className="text-[11px] text-violet-600 font-semibold">
+                      +1 session FREE — save $200!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
         {/* Download Menu CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
