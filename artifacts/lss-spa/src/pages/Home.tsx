@@ -14,6 +14,7 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CryoskinShowcase } from "@/components/sections/CryoskinShowcase";
 import { SocialCommunity } from "@/components/sections/SocialCommunity";
 import { CommunityEvents } from "@/components/sections/CommunityEvents";
+import { SummerSpecial } from "@/components/sections/SummerSpecial";
 import { Contact } from "@/components/sections/Contact";
 import { FirstVisit } from "@/components/sections/FirstVisit";
 import { Footer } from "@/components/Footer";
@@ -29,6 +30,7 @@ export default function Home() {
       <main>
         <Hero />
         <SpringSaleHero />
+        <SummerSpecial />
         <Services />
         <StudioGallery />
         <CryoSkinScience />
