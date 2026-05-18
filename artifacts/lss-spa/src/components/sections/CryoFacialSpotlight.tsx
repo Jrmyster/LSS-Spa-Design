@@ -236,6 +236,62 @@ export function CryoFacialSpotlight() {
           </p>
         </motion.div>
 
+        {/* ── CryoFacial Series Pricing ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-10"
+        >
+          <div className="rounded-3xl border border-amber-200 bg-white/80 backdrop-blur-sm p-8 sm:p-10 shadow-lg shadow-amber-100/60">
+            <div className="mb-6">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-4 py-1.5 rounded-full mb-3">
+                Series Pricing
+              </span>
+              <h3 className="text-xl sm:text-2xl font-display text-foreground mb-2 leading-snug">
+                CryoFacial Packages
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
+                Cryo facial lifts, contours, &amp; hydrates your face. Stimulates a collagen overflow to tighten and lift the face while providing intense hydration. This service helps contour cheekbones, alleviate dark under-eye circles, and combat fine lines and wrinkles.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7">
+              {/* Series of 5 */}
+              <div className="rounded-2xl border-2 border-amber-300 bg-amber-50/60 px-5 py-4 flex flex-col gap-1 relative overflow-hidden shadow-sm">
+                <span className="absolute top-3 right-3 text-[9px] font-extrabold uppercase tracking-wider bg-amber-500 text-white px-2 py-0.5 rounded-full">
+                  Popular
+                </span>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-amber-700">Series of 5</p>
+                <p className="text-3xl font-black text-amber-700 leading-none">$1,000</p>
+                <p className="text-xs text-amber-600 font-semibold">+1 session FREE — save $200!</p>
+              </div>
+
+              {/* Series of 10 */}
+              <div className="rounded-2xl border-2 border-orange-400 bg-orange-50/60 px-5 py-4 flex flex-col gap-1 relative overflow-hidden shadow-sm">
+                <span className="absolute top-3 right-3 text-[9px] font-extrabold uppercase tracking-wider bg-orange-600 text-white px-2 py-0.5 rounded-full">
+                  Best Value
+                </span>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-orange-700">Series of 10</p>
+                <p className="text-3xl font-black text-orange-700 leading-none">$1,900</p>
+                <p className="text-xs text-orange-600 font-semibold">+1 session FREE — save $300!</p>
+              </div>
+            </div>
+
+            <a
+              href="https://lss-spa-wellness-llc.square.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg shadow-amber-300/50 hover:shadow-xl transition-all duration-200 min-h-[52px]"
+              style={{ background: "linear-gradient(135deg,#d97706,#ea580c)" }}
+            >
+              <Snowflake className="w-4 h-4" />
+              Book Your CryoFacial Series
+            </a>
+          </div>
+        </motion.div>
+
         {/* ── What is CryoSkin? educational block ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

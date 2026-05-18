@@ -23,9 +23,16 @@ const PACKAGES = [
   },
   {
     service: "Cryo Facial with Coupler",
-    description: "Buy 5, get 1 FREE",
+    description: "Series of 5 — Buy 5, get 1 FREE",
     price: "$1,000",
     savings: "$200",
+    highlight: true,
+  },
+  {
+    service: "Cryo Facial with Coupler",
+    description: "Series of 10 — Buy 10, get 1 FREE",
+    price: "$1,900",
+    savings: "$300",
     highlight: true,
   },
   {

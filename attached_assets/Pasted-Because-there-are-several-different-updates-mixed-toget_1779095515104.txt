@@ -1,0 +1,34 @@
+Because there are several different updates mixed together here—new standalone services, a new RF 10-pack, a new Cryo 10-pack, and navigation updates—the best way to instruct the Replit agent is to break it down into clear, distinct categories. This prevents the AI from mixing up the descriptions.
+
+Here is the best prompt to copy and paste into Replit:
+
+The Recommended Prompt
+"Please make the following updates to the Services page and menu. Please break this down into four specific tasks:
+
+Task 1: Update the Navigation Menu
+Please ensure that 'Radio Frequency (RF)' or 'Multi-Polar RF' is clearly added to the main Services menu so clients can navigate directly to it.
+
+Task 2: Add New 'Facial Enhancements & Add-Ons'
+Create a new small section or list under the Facial services for the following add-ons:
+
+Chemical Peel: $65
+
+Nu Face: $30
+
+Cold Hammer: $50
+
+PRP Pen: $120
+
+Task 3: Add a 10-Pack to the 'Multi-Polar RF (For Face)' Section
+Add this new package to the pricing area of the Face RF section:
+
+Series of 10 Treatments: $1,900.00 (Get one additional service free — a savings of $300.00!)
+
+Description: Reverse the signs of aging at the cellular level. For skin rejuvenation, tightening, lifting, fine line and wrinkle removal, collagen enhancement and more. Multi-polar RF uses gentle heat to stimulate fibroblasts, which increases collagen and elastin production, resulting in firmer, lifted skin. Red LED light penetrates the dermis to enhance collagen and elastin production, boosting skin density.
+
+Task 4: Add a 10-Pack to the 'Cryo Facial' Section
+Add this new package to the pricing area of the Cryo Facial section:
+
+Series of 10 Treatments: $1,900.00 (Get one additional service free — a savings of $300.00!)
+
+Description: Cryo facial lifts, contours, & hydrates your face. Stimulates a collagen overflow to tighten and lift the face while providing intense hydration. This service helps contour cheekbones, alleviate dark under-eye circles, and combat fine lines and wrinkles.

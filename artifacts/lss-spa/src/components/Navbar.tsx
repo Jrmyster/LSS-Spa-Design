@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const NAV_LINKS = [
   { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
+  { name: "Multi-Polar RF", href: "#rf-treatments" },
   { name: "About Kim", href: "#about" },
   { name: "Inside the Studio", href: "#inside-the-studio" },
   { name: "Gallery", href: "#transformation-gallery" },

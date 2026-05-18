@@ -126,6 +126,7 @@ export function Services() {
 
         {/* ── Multi-Polar RF with Red LED — Body ── */}
         <motion.div
+          id="rf-treatments"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -324,6 +325,44 @@ export function Services() {
             </Card>
           </motion.div>
         </div>
+        {/* ── Facial Enhancements & Add-Ons ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-8"
+        >
+          <Card className="border-border/50 shadow-md overflow-hidden">
+            <CardHeader className="pb-2 bg-gradient-to-r from-rose-50/50 to-pink-50/30 border-b border-border/30">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-rose-100 flex items-center justify-center shrink-0">
+                  <PlusCircle className="w-4 h-4 text-rose-500" />
+                </div>
+                <div>
+                  <CardTitle className="text-lg font-display leading-snug">Facial Enhancements &amp; Add-Ons</CardTitle>
+                  <p className="text-xs text-muted-foreground mt-0.5">Standalone enhancements available with your service</p>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {[
+                  { name: "Chemical Peel", price: "$65" },
+                  { name: "Nu Face", price: "$30" },
+                  { name: "Cold Hammer", price: "$50" },
+                  { name: "PRP Pen", price: "$120" },
+                ].map((item) => (
+                  <div key={item.name} className="rounded-xl border border-border/50 bg-white px-3 py-3 flex flex-col gap-0.5 shadow-sm text-center">
+                    <p className="text-xs font-semibold text-foreground leading-snug">{item.name}</p>
+                    <p className="text-lg font-black text-primary leading-none">{item.price}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
         {/* ── Multi-Polar RF with Red LED — Featured Service Card ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -411,7 +450,7 @@ export function Services() {
               {/* Pricing */}
               <div className="border-t border-border/40 pt-5">
                 <p className="text-xs font-bold uppercase tracking-widest text-violet-600 mb-3">Pricing</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   {/* Single session */}
                   <div className="rounded-xl border border-border/50 bg-white px-4 py-3.5 flex flex-col gap-0.5 shadow-sm">
                     <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Single Session</p>
@@ -428,13 +467,23 @@ export function Services() {
                   {/* Series of 5 */}
                   <div className="rounded-xl border-2 border-violet-300 bg-violet-50/60 px-4 py-3.5 flex flex-col gap-0.5 shadow-sm relative overflow-hidden">
                     <span className="absolute top-2 right-2 text-[9px] font-extrabold uppercase tracking-wider bg-violet-500 text-white px-2 py-0.5 rounded-full">
-                      Best Value
+                      Popular
                     </span>
                     <p className="text-[10px] font-bold uppercase tracking-wider text-violet-700">Series of 5</p>
                     <p className="text-2xl font-black text-violet-700 leading-none">$1,000</p>
                     <p className="text-[11px] text-violet-600 font-semibold">
                       +1 session FREE — save $200!
                     </p>
+                  </div>
+
+                  {/* Series of 10 */}
+                  <div className="rounded-xl border-2 border-violet-400 bg-violet-100/60 px-4 py-3.5 flex flex-col gap-0.5 shadow-sm relative overflow-hidden">
+                    <span className="absolute top-2 right-2 text-[9px] font-extrabold uppercase tracking-wider bg-violet-700 text-white px-2 py-0.5 rounded-full">
+                      Best Value
+                    </span>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-violet-800">Series of 10</p>
+                    <p className="text-2xl font-black text-violet-800 leading-none">$1,900</p>
+                    <p className="text-[11px] text-violet-700 font-semibold">+1 session FREE — save $300!</p>
                   </div>
                 </div>
               </div>
