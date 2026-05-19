@@ -239,24 +239,28 @@ export function Services() {
                 </div>
                 <div>
                   <CardTitle className="text-lg font-display leading-snug">Facial Enhancements &amp; Add-Ons</CardTitle>
-                  <p className="text-xs text-muted-foreground mt-0.5">Standalone enhancements available with your service</p>
+                  <p className="text-xs text-muted-foreground mt-0.5 italic">Enhance any Facial Service — or Add-Ons to a Facial</p>
                 </div>
               </div>
             </CardHeader>
             <CardContent className="pt-4">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {[
-                  { name: "Chemical Peel", price: "$65" },
-                  { name: "Nu Face", price: "$30" },
-                  { name: "Cold Hammer", price: "$50" },
-                  { name: "PRP Pen", price: "$120" },
+                  { name: "Nu Face Micro Current", addon: "$30.00", total: "$110.00" },
+                  { name: "Pro Pen", addon: "$120.00", total: "$200.00" },
+                  { name: "Cold Hammer", addon: "$50.00", total: "$130.00" },
+                  { name: "Chemical Peel", addon: "$65.00", total: "$145.00" },
                 ].map((item) => (
-                  <div key={item.name} className="rounded-xl border border-border/50 bg-white px-3 py-3 flex flex-col gap-0.5 shadow-sm text-center">
+                  <div key={item.name} className="rounded-xl border border-border/50 bg-white px-3 py-3 flex flex-col gap-1 shadow-sm text-center">
                     <p className="text-xs font-semibold text-foreground leading-snug">{item.name}</p>
-                    <p className="text-lg font-black text-primary leading-none">{item.price}</p>
+                    <p className="text-lg font-black text-primary leading-none">{item.addon}</p>
+                    <p className="text-[10px] text-muted-foreground leading-snug">Total price = <span className="font-semibold text-foreground">{item.total}</span></p>
                   </div>
                 ))}
               </div>
+              <p className="mt-3 text-[11px] text-muted-foreground italic border-t border-border/30 pt-3">
+                * Total price reflects the add-on combined with a Classic Facial ($80).
+              </p>
             </CardContent>
           </Card>
         </motion.div>
