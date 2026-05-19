@@ -22,10 +22,10 @@ export function TopBanner() {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              💐 <span className="font-bold">Mother's Day Special!</span> Book a May Facial for your Mom &amp; get{" "}
-              <span className="font-black">$20 OFF</span> —{" "}
-              <span className="italic">new clients only.</span>{" "}
-              <span className="font-bold underline underline-offset-2">Book Now</span> 🌸
+              ✨ <span className="font-bold">May Special — New Clients:</span> Save{" "}
+              <span className="font-black">$20</span> on your first service —{" "}
+              <span className="italic">mention this promo when booking!</span>{" "}
+              <span className="font-bold underline underline-offset-2">Book Now</span>
             </a>
           </div>
           <button
