@@ -17,8 +17,8 @@ const FACIAL_SERVICES = [
   { name: "Cryo Facial Upgrade", description: "Cryo facial upgrade to any Signature Facial. Brightens, tones & firms. Takes years off your skin.", price: "$175" },
   { name: "Cryo Facial 10 Min Add On", description: "Lifts, brightens & tones. Instantly refreshes for your special event", price: "$80" },
   { name: "Cryo Shape or Tone", description: "Lose inches or tighten & tone your body", price: "$350" },
-  { name: "Multi-Polar RF (For Face)", description: "Stimulates collagen, tightens skin & reduces fine lines with radio frequency energy", price: null },
-  { name: "Multi-Polar RF (For Body)", description: "Firms & contours body tissue using multi-polar radio frequency technology", price: null },
+  { name: "Multi-Polar RF (For Face)", description: "Stimulates collagen, tightens skin & reduces fine lines with radio frequency energy", price: "$200" },
+  { name: "Multi-Polar RF (For Body)", description: "Firms & contours body tissue using multi-polar radio frequency technology", price: "$350" },
 ];
 
 interface AddonService { name: string; description: string; price: string; total: string; }
@@ -158,7 +158,7 @@ export function Services() {
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl font-display">Facial Treatments</CardTitle>
+                  <CardTitle className="text-2xl font-display">Facial &amp; Body Treatments</CardTitle>
                 </div>
                 <p className="text-sm text-muted-foreground">Corrective • Lifting • Brightening</p>
               </CardHeader>
