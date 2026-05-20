@@ -56,7 +56,7 @@ export function SummerSpecial() {
                     <Tag className="w-4 h-4 text-amber-600" />
                   </div>
                   <p className="text-sm text-foreground leading-snug">
-                    Make any <strong className="font-bold">$100.00 purchase</strong> and receive{" "}
+                    Make any <strong className="font-bold">$100.00 skincare purchase</strong> and receive{" "}
                     <strong className="font-bold text-amber-700">10% OFF your order</strong>.
                   </p>
                 </div>
@@ -77,7 +77,7 @@ export function SummerSpecial() {
               {/* Value callout pill */}
               <div className="inline-flex items-center gap-2 self-start bg-amber-50 border border-amber-200 rounded-full px-4 py-2">
                 <span className="text-amber-500 text-base">🎁</span>
-                <p className="text-xs font-bold text-amber-700 uppercase tracking-wide">Total Value: $80 free gift + 10% savings</p>
+                <p className="text-xs font-bold text-amber-700 uppercase tracking-wide">Total Value: $80 free gift with skincare purchase + 10% savings</p>
               </div>
 
               {/* CTA */}
