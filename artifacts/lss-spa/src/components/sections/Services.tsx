@@ -17,8 +17,8 @@ const FACIAL_SERVICES = [
   { name: "Cryo Facial Upgrade", description: "Cryo facial upgrade to any Signature Facial. Brightens, tones & firms. Takes years off your skin.", price: "$175" },
   { name: "Cryo Facial 10 Min Add On", description: "Lifts, brightens & tones. Instantly refreshes for your special event", price: "$80" },
   { name: "Cryo Shape or Tone", description: "Lose inches or tighten & tone your body", price: "$350" },
-  { name: "Multi-Polar RF (For Face)", description: "Stimulates collagen, tightens skin & reduces fine lines with radio frequency energy", price: "$200" },
-  { name: "Multi-Polar RF (For Body)", description: "Firms & contours body tissue using multi-polar radio frequency technology", price: "$350" },
+  { name: "Multi-Polar RF + Red Light (For Face)", description: "Stimulates collagen, tightens skin & reduces fine lines with radio frequency energy", price: "$200" },
+  { name: "Multi-Polar RF + Red Light (For Body)", description: "Firms & contours body tissue using multi-polar radio frequency technology", price: "$350" },
 ];
 
 interface AddonService { name: string; description: string; price: string; total: string; }
@@ -29,6 +29,7 @@ const ADDON_SERVICES: AddonService[] = [
   { name: "Pro Pen", description: "Intense resurfacing. Addresses aging & acne scars.", price: "$120", total: "$200" },
   { name: "Cold Hammer", description: "Soothes & calms.", price: "$50", total: "$130" },
   { name: "Chemical Peel", description: "Intense exfoliation — ideal for sun-damaged skin, acne & fine lines.", price: "$65", total: "$145" },
+  { name: "Multi-Polar RF + Red Light Upgrade", description: "Upgrade any facial for enhanced skin tightening and lifting.", price: "$175", total: "$255" },
 ];
 
 export function Services() {
