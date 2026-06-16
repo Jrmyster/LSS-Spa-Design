@@ -14,8 +14,6 @@ const FACIAL_SERVICES = [
   { name: "Classic Facial", description: "Includes signature mask & aroma therapy", price: "$80" },
   { name: "Hydra Facial", description: "Infuses with beneficial comfort & hydration", price: "$100" },
   { name: "Cryo Facial With Coupler", description: "Lifts, Tones, Brightens & Firms — addresses signs of aging", price: "$200" },
-  { name: "Cryo Facial Upgrade", description: "Cryo facial upgrade to any Signature Facial. Brightens, tones & firms. Takes years off your skin.", price: "$175" },
-  { name: "Cryo Facial 10 Min Add On", description: "Lifts, brightens & tones. Instantly refreshes for your special event", price: "$80" },
   { name: "Cryo Shape or Tone", description: "Lose inches or tighten & tone your body", price: "$350" },
   { name: "Multi-Polar RF + Red Light (For Face)", description: "Stimulates collagen, tightens skin & reduces fine lines with radio frequency energy", price: "$200" },
   { name: "Multi-Polar RF + Red Light (For Body)", description: "Firms & contours body tissue using multi-polar radio frequency technology", price: "$350" },
@@ -30,6 +28,8 @@ const ADDON_SERVICES: AddonService[] = [
   { name: "Cold Hammer", description: "Soothes & calms.", price: "$50", total: "$130" },
   { name: "Chemical Peel", description: "Intense exfoliation — ideal for sun-damaged skin, acne & fine lines.", price: "$65", total: "$145" },
   { name: "Multi-Polar RF + Red Light Upgrade", description: "Upgrade any facial for enhanced skin tightening and lifting.", price: "$175", total: "$255" },
+  { name: "Cryo Facial Upgrade", description: "Cryo facial upgrade to any Signature Facial. Brightens, tones & firms. Takes years off your skin.", price: "$175", total: "$255" },
+  { name: "Cryo Facial 10 Min Add On", description: "Lifts, brightens & tones. Instantly refreshes for your special event.", price: "$80", total: "$160" },
 ];
 
 export function Services() {
