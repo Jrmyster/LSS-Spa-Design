@@ -14,6 +14,7 @@ const FACIAL_SERVICES = [
   { name: "Classic Facial", description: "Includes signature mask & aroma therapy", price: "$80" },
   { name: "Hydra Facial", description: "Infuses with beneficial comfort & hydration", price: "$100" },
   { name: "Cryo Facial With Coupler", description: "Lifts, Tones, Brightens & Firms — addresses signs of aging", price: "$200" },
+  { name: "Microneedling", description: "Minimally invasive treatment using fine needles to create controlled micro-injuries — triggers your body's natural healing response to boost collagen & elastin, smoothing wrinkles, reducing acne scars & improving overall texture.", price: "$375" },
   { name: "Cryo Shape or Tone", description: "Lose inches or tighten & tone your body", price: "$350" },
   { name: "Multi-Polar RF + Red Light (For Face)", description: "Stimulates collagen, tightens skin & reduces fine lines with radio frequency energy", price: "$200" },
   { name: "Multi-Polar RF + Red Light (For Body)", description: "Firms & contours body tissue using multi-polar radio frequency technology", price: "$350" },
