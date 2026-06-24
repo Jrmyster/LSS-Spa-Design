@@ -14,7 +14,7 @@ const FACIAL_SERVICES = [
   { name: "Classic Facial", description: "Includes signature mask & aroma therapy", price: "$80" },
   { name: "Hydra Facial", description: "Infuses with beneficial comfort & hydration", price: "$100" },
   { name: "Cryo Facial With Coupler", description: "Lifts, Tones, Brightens & Firms — addresses signs of aging", price: "$200" },
-  { name: "Microneedling", description: "Minimally invasive treatment using fine needles to create controlled micro-injuries — triggers your body's natural healing response to boost collagen & elastin, smoothing wrinkles, reducing acne scars & improving overall texture.", price: "$375" },
+  { name: "Microneedling", description: "Minimally invasive treatment using fine needles to create controlled micro-injuries — triggers your body's natural healing response to boost collagen & elastin, smoothing wrinkles, reducing acne scars & improving overall texture.", price: "$375", image: "microneedling.jpg", imageAlt: "Gloved hand performing microneedling on a client's forehead" },
   { name: "Cryo Shape or Tone", description: "Lose inches or tighten & tone your body", price: "$350" },
   { name: "Multi-Polar RF + Red Light (For Face)", description: "Stimulates collagen, tightens skin & reduces fine lines with radio frequency energy", price: "$200" },
   { name: "Multi-Polar RF + Red Light (For Body)", description: "Firms & contours body tissue using multi-polar radio frequency technology", price: "$350" },
@@ -167,14 +167,27 @@ export function Services() {
               <CardContent>
                 <ul className="space-y-3">
                   {FACIAL_SERVICES.map((item, i) => (
-                    <li key={i} className="flex items-start justify-between gap-2 py-1.5 border-b border-border/30 last:border-0">
-                      <div>
-                        <p className="font-semibold text-foreground text-sm">{item.name}</p>
-                        <p className="text-muted-foreground text-xs">{item.description}</p>
-                      </div>
-                      {item.price && (
-                        <span className="text-primary font-bold text-sm shrink-0">{item.price}</span>
+                    <li key={i} className="border-b border-border/30 last:border-0">
+                      {"image" in item && item.image && (
+                        <div className="rounded-xl overflow-hidden mb-2 mt-1">
+                          <img
+                            src={`${import.meta.env.BASE_URL}images/${item.image}`}
+                            alt={(item as { imageAlt: string }).imageAlt}
+                            style={{ maxWidth: "100%", height: "auto", objectFit: "cover" }}
+                            className="w-full h-40 object-cover rounded-xl border border-border/30 shadow-sm"
+                            loading="lazy"
+                          />
+                        </div>
                       )}
+                      <div className="flex items-start justify-between gap-2 py-1.5">
+                        <div>
+                          <p className="font-semibold text-foreground text-sm">{item.name}</p>
+                          <p className="text-muted-foreground text-xs">{item.description}</p>
+                        </div>
+                        {item.price && (
+                          <span className="text-primary font-bold text-sm shrink-0">{item.price}</span>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>
