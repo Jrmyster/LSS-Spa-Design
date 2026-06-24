@@ -22,7 +22,7 @@ export function TopBanner() {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              ✨ <span className="font-bold">May Special — New Clients:</span> Save{" "}
+              ✨ <span className="font-bold">New Clients:</span> Save{" "}
               <span className="font-black">$20</span> on your first service —{" "}
               <span className="italic">mention this promo when booking!</span>{" "}
               <span className="font-bold underline underline-offset-2">Book Now</span>
