@@ -1,7 +1,6 @@
 import { TopBanner } from "@/components/TopBanner";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { SpringSaleHero } from "@/components/sections/SpringSaleHero";
 import { Services } from "@/components/sections/Services";
 import { StudioGallery } from "@/components/sections/StudioGallery";
 import { SignatureSpotlight } from "@/components/sections/SignatureSpotlight";
@@ -29,7 +28,6 @@ export default function Home() {
       
       <main>
         <Hero />
-        <SpringSaleHero />
         <SummerSpecial />
         <Services />
         <StudioGallery />
