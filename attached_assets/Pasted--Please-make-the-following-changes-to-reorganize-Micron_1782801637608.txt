@@ -1,0 +1,49 @@
+"Please make the following changes to reorganize Microneedling on the website, giving it a dedicated full-service category layout matching Diamond Glow and Multi-Polar RF:
+
+Task 1: Clean up the Spa Menu
+Remove the image (image_9.png) from the left column of the main Spa Menu line item so that the 'Facial & Body Treatments' list stays text-only. Keep the simple title 'Microneedling' and its '$375' price on the menu, but configure it to link/scroll down directly to the new section below.
+
+Task 2: Create a New Dedicated 'Microneedling' Section
+Below the main menu, create a beautifully styled, full-width service section for Microneedling using the details from image_46bb3b.jpg, image_46be59.jpg, image_46beb8.jpg, and image_46bed9.jpg.
+
+Please use this exact copy and layout structure:
+
+Header: Microneedling — $375
+
+Main Image: Use image_9.png prominently styled on the side or top of this layout (using responsive formatting like max-width: 100%; height: auto;).
+
+Intro Description: 'Microneedling is a minimally invasive cosmetic procedure that uses fine needles to create controlled micro-injuries in the skin. This process triggers the body's natural healing response, boosting collagen and elastin production to smooth out wrinkles, reduce acne scars, and improve overall texture.'
+
+Layout Sections (Please use grid blocks or clean bullet lists with bold headers):
+
+⚙️ HOW IT WORKS
+
+The Process: A licensed provider uses a device (often a motorized, pen-like tool) to repeatedly puncture the top layers of the skin with tiny needles.
+
+The Healing: These micro-injuries stimulate dermal remodeling. As your skin heals, it ramps up the production of structural proteins (collagen and elastin), resulting in firmer, smoother skin.
+
+Product Absorption: The micro-channels created by the needles allow active skincare ingredients (like hyaluronic acid or serums) to penetrate much deeper into the skin.
+
+✨ BENEFITS
+
+Reduces the appearance of fine lines and wrinkles
+
+Diminishes acne scars and surgical scars
+
+Improves enlarged pores and uneven skin tone or texture
+
+Softens stretch marks
+
+⏰ WHAT TO EXPECT & DOWNTIME
+
+The Session: A topical numbing cream is typically applied 30–45 minutes prior to the procedure to ensure comfort. A session usually takes 30 to 60 minutes.
+
+Results: Results are not immediate, as collagen production takes time. Patients typically see optimal results 4 to 6 weeks after their session.
+
+Downtime & Side Effects: Immediately after the procedure, your skin will look and feel like you have a moderate sunburn. Redness, swelling, and mild sensitivity generally resolve within 24 to 48 hours.
+
+💡 IMPORTANT CONSIDERATIONS
+
+A series of 3 to 6 treatments, spaced 4 to 6 weeks apart is recommended to achieve the best results.
+
+Please add a high-visibility 'Book Now' button at the bottom of this new section that links directly to the booking platform."
