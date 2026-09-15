@@ -27,7 +27,9 @@ if (!basePath) {
 }
 
 export default defineConfig({
-  base: basePath,
+  base: process.env.GITHUB_ACTIONS
+    ? "/LSS-Spa-Design/"
+    : basePath,
   plugins: [
     react(),
     tailwindcss(),
