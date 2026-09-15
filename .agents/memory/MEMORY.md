@@ -1,0 +1,1 @@
+- [GitHub push connector limits](github-push-connector-limits.md) — shell Git may remain unauthenticated, and API writes to workflow paths can be blocked.
